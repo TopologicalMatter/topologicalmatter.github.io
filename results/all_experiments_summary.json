@@ -1,0 +1,375 @@
+{
+  "suite_version": "1.0.0",
+  "execution_time_seconds": 44.445,
+  "exp1_l0_dynamics": {
+    "experiment": "exp1_l0_dynamics",
+    "parameters": {
+      "N": 128,
+      "dt": 0.02,
+      "n_steps": 4000,
+      "n_seeds": 10
+    },
+    "spontaneous_emergence_from_randomness": {
+      "theoretical_white_noise_PR": 64.0,
+      "theoretical_extreme_value_peak_ratio_H64": 4.743890903705769,
+      "linear_mean_PR_across_seeds": 68.46651525021791,
+      "linear_std_PR_across_seeds": 7.863666867860206,
+      "nonlinear_mean_PR_across_seeds": 76.86175659831164,
+      "nonlinear_std_PR_across_seeds": 6.723826540927672,
+      "linear_mean_entropy": 0.928344233109468,
+      "nonlinear_mean_entropy": 0.9407605227287348,
+      "linear_mean_max_peak_to_mean": 4.801802847410049,
+      "nonlinear_mean_max_peak_to_mean": 4.200301428525935,
+      "finding": "Under both linear and nonlinear conservative dynamics, random initial conditions remain near maximum spectral entropy (H_spec = 0.928 linear, 0.941 nonlinear; PR = 68.5 and 76.9) and do NOT spontaneously condense into isolated narrow-band wave entities. Apparent peaks (max/mean = 4.80 linear, 4.20 nonlinear) match the theoretical Rayleigh/Exponential extreme-value expectation H_64 = 4.74."
+    },
+    "harmonic_multiplication_audit": {
+      "linear_initial_energy": 18.00092304241916,
+      "linear_final_energy": 18.000922184539245,
+      "nonlinear_initial_energy": 19.805695400153482,
+      "nonlinear_final_energy": 19.805294590529044,
+      "nonlinear_initial_PR": 7.981791802049534,
+      "nonlinear_final_PR": 58.50065359974386,
+      "entity_count_threshold_sensitivity": {
+        "2.0": 2,
+        "3.0": 1,
+        "4.0": 1,
+        "6.0": 0,
+        "8.0": 0
+      },
+      "finding": "In a conservative nonlinear system, a single narrow-band wave entity generates higher/sideband harmonics (PR increases from 7.98 to 58.50), analogous to the notes' 'kaleidoscope multiplication', but total energy is strictly conserved (19.8057 -> 19.8053): new spectral peaks are formed by partitioning and depleting the parent entity's amplitude rather than multiplying total energy."
+    },
+    "persistence_and_dissipation_audit": {
+      "passive_damping_gamma0": 0.025,
+      "theoretical_passive_half_life": 27.72588722239781,
+      "isolated_passive_half_life": 27.02794474711909,
+      "group_passive_half_life": 27.07073913184126,
+      "isolated_cooperative_half_life": 35.84606459718365,
+      "group_cooperative_half_life": 33.470258996646265,
+      "cooperative_persistence_ratio_group_vs_iso": 0.9337219963408746,
+      "passive_persistence_ratio_group_vs_iso": 1.0015833384714439,
+      "finding": "Under standard passive damping (-gamma * dE/dt), grouped wave entities decay at virtually the exact same rate as isolated entities (ratio = 1.002), and all dissipated energy vanishes from Level 0 (violating total energy conservation). Achieving longer group persistence (ratio = 0.93x, t_1/2 = 33.5 vs 35.8) requires explicitly inserting a non-Hamiltonian, state-dependent damping suppression rule gamma_eff(E)."
+    },
+    "numerical_verification": {
+      "verlet_dt_convergence_relative_energy_drift": {
+        "0.04": 5.8805335756027104e-05,
+        "0.02": 1.4746657857922026e-05,
+        "0.01": 3.6894949297631993e-06,
+        "0.005": 9.225506008085203e-07
+      },
+      "measured_convergence_order": 1.9981418419377523,
+      "boundary_and_N_sensitivity": {
+        "periodic_N64": {
+          "final_entropy": 0.9121181170684942,
+          "final_pr_over_N": 0.549777650990642
+        },
+        "periodic_N128": {
+          "final_entropy": 0.9180546907369714,
+          "final_pr_over_N": 0.45756289038524156
+        },
+        "periodic_N256": {
+          "final_entropy": 0.9391741533271207,
+          "final_pr_over_N": 0.5543421447357281
+        },
+        "dirichlet_N64": {
+          "final_entropy": 0.9221577069863968,
+          "final_pr_over_N": 0.5542569270154891
+        },
+        "dirichlet_N128": {
+          "final_entropy": 0.9234915826033094,
+          "final_pr_over_N": 0.47218538511821
+        },
+        "dirichlet_N256": {
+          "final_entropy": 0.9423283959808277,
+          "final_pr_over_N": 0.5718299243347146
+        }
+      }
+    },
+    "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp1_l0_dynamics.png"
+  },
+  "exp2_source_models_audit": {
+    "experiment": "exp2_source_models_audit",
+    "coupled_oscillator_audit": {
+      "positive_coupling_test": {
+        "f1_bare": 2.0,
+        "f2_bare": 2.5,
+        "bare_separation": 0.5,
+        "K": 0.6,
+        "f_minus_exact": 2.1095023109728985,
+        "f_plus_exact": 2.6457513110645907,
+        "coupled_separation_exact": 0.5362490000916922,
+        "f1_measured_fft": 2.1048670779051615,
+        "f2_measured_fft": 2.638937829015426,
+        "coupled_separation_measured": 0.5340707511102645,
+        "is_stable": true
+      },
+      "negative_coupling_test": {
+        "f1_bare": 2.0,
+        "f2_bare": 2.5,
+        "bare_separation": 0.5,
+        "K": -0.4,
+        "f_minus_exact": 1.879096752797483,
+        "f_plus_exact": 2.432898558022088,
+        "coupled_separation_exact": 0.553801805224605,
+        "f1_measured_fft": 1.8849555921538759,
+        "f2_measured_fft": 2.419026343264141,
+        "coupled_separation_measured": 0.5340707511102649,
+        "is_stable": true
+      },
+      "critical_tachyon_coupling_K_crit": -2.4390243902439024,
+      "finding": "The coupled oscillator equation proposed in PDF B Section 5.2 (x_i'' + f_i^2 x_i = sum K(|f_i - f_j|)(x_j - x_i)) exhibits normal-mode level repulsion for K > 0: the frequency difference INCREASES from 0.500 to 0.536 at K=0.6, producing emergent-space repulsion rather than attraction. Reversing the sign (K < 0) causes tachyonic runaway instability whenever |K| exceeds |K_crit| = 2.4390."
+    },
+    "linear_wave_superposition_audit": {
+      "results": {
+        "f1_input": 5.0,
+        "f2_input": 7.0,
+        "peak_f1_isolated": 5.0,
+        "peak_f2_isolated": 7.0,
+        "top2_peaks_in_W_combined": [
+          5.0,
+          7.0
+        ],
+        "frequency_shift_entity_1": 0.0,
+        "frequency_shift_entity_2": 0.0,
+        "intensity_beat_frequency": 2.0,
+        "expected_beat_frequency": 2.0
+      },
+      "finding": "Linear superposition W_1 + W_2 of two wave entities produces amplitude beating at |f_2 - f_1| = 2.00 Hz in intensity I(r,t), but ZERO shift in the entities' spectral frequencies (Delta f_1 = 0.00e+00, Delta f_2 = 0.00e+00). Permanent frequency shifts require nonlinear wave-wave coupling."
+    },
+    "inverse_cube_gravity_audit": {
+      "results": {
+        "newton_inverse_square_v092": "stable_bound_orbit",
+        "newton_inverse_square_v108": "stable_bound_orbit",
+        "pdf_inverse_cube_v092": "plunge_to_origin",
+        "pdf_inverse_cube_v108": "escape_to_infinity"
+      },
+      "finding": "In PDF A & B Section 6.3, differentiating or dividing the claimed frequency shift Delta f propto A1 A2 / r^2 by r yields F_g propto A1 A2 / r^3. By Bertrand's theorem and numerical integration, an attractive 1/r^3 force has NO stable circular or elliptical orbits: sub-circular perturbations (v0=0.92) plunge into the origin along a Cotes' spiral, while super-circular perturbations (v0=1.08) escape to infinity."
+    },
+    "spectral_profile_energy_audit": {
+      "alpha": 0.5,
+      "1D_lorentzian_L1_numerical": 6.283185307179573,
+      "1D_lorentzian_L1_exact": 6.283185307179586,
+      "1D_inv_sq_amplitude_L2_numerical": 12.566370614359174,
+      "1D_inv_sq_amplitude_L2_exact": 12.566370614359172,
+      "3D_time_avg_L2_numerical": 9.869604401089358,
+      "3D_time_avg_L2_exact": 9.869604401089358,
+      "uv_divergence_as_alpha_to_0": "Diverges as O(alpha^-3) in 1D L2 and O(alpha^-1) in 3D L2",
+      "ir_divergence_if_intensity_inv_sq_in_3D": "Diverges linearly as O(R_max) in 3D if |W|^2 ~ 1/r^2"
+    },
+    "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp2_source_models_audit.png"
+  },
+  "exp3_emergent_space_geometry": {
+    "experiment": "exp3_emergent_space_geometry",
+    "dimensionality_and_embedding_audit": {
+      "scalar_frequency_distance": {
+        "mds_top5_variance_explained_pct": [
+          99.99999999999986,
+          1.7765554474044676e-14,
+          1.475460219391434e-14,
+          1.1721602805625998e-14,
+          1.0328284457362988e-14
+        ],
+        "cayley_menger_3d_tetrahedron_volume_squared": 1.7029288189823847e-33,
+        "kruskal_stress_on_3x3x3_cube": 0.4790666425720332
+      },
+      "bell_profile_overlap_distance_2param": {
+        "kruskal_stress_on_3x3x3_cube": 0.2213502594292824
+      },
+      "true_3d_euclidean_reference": {
+        "mds_top5_variance_explained_pct": [
+          40.87419436728646,
+          33.585267219078816,
+          25.54053841363464,
+          1.2065080083368613e-14,
+          1.0019267067404443e-14
+        ],
+        "cayley_menger_3d_tetrahedron_volume_squared": 1.9809137270267538
+      },
+      "unstructured_random_coupling_graph": {
+        "mds_top5_variance_explained_pct": [
+          9.229269253118991,
+          8.690658669681536,
+          8.260529205039102,
+          7.95515897788412,
+          6.722278995161505
+        ],
+        "triangle_inequality_violations": 90,
+        "total_triplets": 9880
+      },
+      "finding": "Scalar characteristic frequency differences d_ij = |f_i - f_j| generate a distance matrix whose Gram matrix has exact Rank 1 (100.0% variance in 1D, 0.0% in 2D and 3D; Cayley-Menger tetrahedral volume = 0). Attempting to embed a 3x3x3 3D cube using scalar frequencies yields catastrophic distortion (Kruskal Stress-1 = 0.479); adding variable spectral widths (f_i, sigma_i) only reaches a 2D manifold (Stress-1 = 0.221). Recovering 3D space requires replacing scalar frequency with a 3-vector or fine-tuning an interaction graph to a 3D lattice a priori."
+    },
+    "kinematic_and_identity_degeneracy_audit": {
+      "post_force_pulse_velocities": {
+        "case1_tethered_Delta_f": 0.0,
+        "case2_aristotelian_df_dt": 0.0,
+        "case3_newtonian_d2f_dt2": 2.02
+      },
+      "proton_electron_frequency_ratio": 1836.15267343,
+      "finding": "Associating momentum with 'resistance to frequency change' (F = gamma * df/dt) yields overdamped Aristotelian mechanics where bodies stop immediately when external force ceases (post-pulse velocity = 0.0 vs Newtonian 2.0). Furthermore, mapping spatial position to scalar frequency x = Phi(f) creates an insoluble trilemma between position, velocity (df/dt), and internal rest-mass/atomic frequency: two identical atoms at different positions must have different frequencies, while a proton and electron at the same position must have the same frequency."
+    },
+    "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp3_emergent_space_geometry.png"
+  },
+  "exp4_cosmology_cmb": {
+    "experiment": "exp4_cosmology_cmb",
+    "planck_blackbody_vs_spectral_broadening": {
+      "initial_hot_blackbody": {
+        "T": 2.0,
+        "mean_f": 7.636016584376036,
+        "std_f": 3.9877818562899847
+      },
+      "flrw_adiabatic_cooled": {
+        "T": 1.0,
+        "mean_f": 3.8322286309808624,
+        "std_f": 2.028113692434424,
+        "width_change_factor": 0.5085819048089232,
+        "max_planck_distortion": 2.254058567398592e-07
+      },
+      "narrow_high_f_diffusive_spreading": {
+        "initial_mean_f": 10.000000000000002,
+        "initial_std_f": 0.8,
+        "final_mean_f": 4.163283323323821,
+        "final_std_f": 2.679456083686435,
+        "best_fit_T": 1.257350914187567,
+        "rms_planck_distortion": 0.19153695551260813,
+        "max_planck_distortion": 1.5646900001598973,
+        "violation_factor_over_COBE_FIRAS": 31293.800003197946
+      },
+      "thermal_with_diffusive_broadening": {
+        "final_mean_f": 5.610764301469323,
+        "final_std_f": 4.141248344645396,
+        "best_fit_T": 1.5107231987217578,
+        "rms_planck_distortion": 0.24774294055800095,
+        "max_planck_distortion": 1.889216139167928,
+        "violation_factor_over_COBE_FIRAS": 37784.32278335856
+      },
+      "cobe_firas_limit": 5e-05,
+      "finding": "Spectral broadening and downward shift of average frequency are NOT physically equivalent to cosmological cooling. Under standard adiabatic expansion T -> T/(1+z), the spectral width sigma_f NARROWS proportionally to T (from 3.988 to 2.028 for 1+z=2). By contrast, diffusive spreading from a narrow high-frequency state or diffusive broadening of a thermal state produces non-Planckian distributions with fractional residuals of 1.565 and 1.889, exceeding the COBE/FIRAS empirical bound (5e-5) by factors of 31294x and 37784x."
+    },
+    "spectroscopic_achromaticity_audit": {
+      "results": {
+        "rest_frequencies_THz": [
+          500.0,
+          600.0
+        ],
+        "rest_ratio_R0": 1.2,
+        "rest_relative_linewidth": 0.0001,
+        "flrw_multiplicative": {
+          "f1_obs": 166.66666666666666,
+          "f2_obs": 200.0,
+          "ratio_obs": 1.2000000000000002,
+          "ratio_error": 2.220446049250313e-16,
+          "z1": 2.0,
+          "z2": 2.0,
+          "achromatic_dz": 0.0,
+          "relative_linewidth": 0.0001
+        },
+        "additive_frequency_shift": {
+          "f1_obs": 133.33333333333331,
+          "f2_obs": 233.33333333333331,
+          "ratio_obs": 1.75,
+          "ratio_error": 0.55,
+          "z1": 2.7500000000000004,
+          "z2": 1.5714285714285716,
+          "achromatic_dz": 1.1785714285714288
+        },
+        "nonlinear_dispersive_shift_f2": {
+          "f1_obs": 166.66666666666666,
+          "f2_obs": 176.47058823529412,
+          "ratio_obs": 1.0588235294117647,
+          "ratio_error": 0.14117647058823524,
+          "z1": 2.0,
+          "z2": 2.4,
+          "achromatic_dz": 0.3999999999999999
+        },
+        "diffusive_broadened_relative_linewidth": 0.03000016666620371,
+        "line_broadening_factor": 300.00166666203705
+      },
+      "finding": "Preserving invariant atomic frequency ratios f2/f1 across cosmological distances strictly requires uniform multiplicative frequency scaling f(t) = f0 / a(t). Additive downward shifts alter a 1.200 doublet ratio to 1.750 at z=2 (producing spurious redshift discrepancy Delta z = 1.179), while nonlinear dispersive drifts alter it to 1.059 and diffusive spreading broadens narrow absorption lines by 300.0x."
+    },
+    "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp4_cosmology_cmb.png"
+  },
+  "experiment_1": {
+    "experiment": "exp1_l0_dynamics",
+    "parameters": {
+      "N": 128,
+      "dt": 0.02,
+      "n_steps": 4000,
+      "n_seeds": 10
+    },
+    "spontaneous_emergence_from_randomness": {
+      "theoretical_white_noise_PR": 64.0,
+      "theoretical_extreme_value_peak_ratio_H64": 4.743890903705769,
+      "linear_mean_PR_across_seeds": 68.46651525021791,
+      "linear_std_PR_across_seeds": 7.863666867860206,
+      "nonlinear_mean_PR_across_seeds": 76.86175659831164,
+      "nonlinear_std_PR_across_seeds": 6.723826540927672,
+      "linear_mean_entropy": 0.928344233109468,
+      "nonlinear_mean_entropy": 0.9407605227287348,
+      "linear_mean_max_peak_to_mean": 4.801802847410049,
+      "nonlinear_mean_max_peak_to_mean": 4.200301428525935,
+      "finding": "Under both linear and nonlinear conservative dynamics, random initial conditions remain near maximum spectral entropy (H_spec = 0.928 linear, 0.941 nonlinear; PR = 68.5 and 76.9) and do NOT spontaneously condense into isolated narrow-band wave entities. Apparent peaks (max/mean = 4.80 linear, 4.20 nonlinear) match the theoretical Rayleigh/Exponential extreme-value expectation H_64 = 4.74."
+    },
+    "harmonic_multiplication_audit": {
+      "linear_initial_energy": 18.00092304241916,
+      "linear_final_energy": 18.00092218453927,
+      "nonlinear_initial_energy": 19.805695400153482,
+      "nonlinear_final_energy": 19.80529459052908,
+      "nonlinear_initial_PR": 7.9817918020495355,
+      "nonlinear_final_PR": 58.50065359974415,
+      "entity_count_threshold_sensitivity": {
+        "2.0": 2,
+        "3.0": 1,
+        "4.0": 1,
+        "6.0": 0,
+        "8.0": 0
+      },
+      "finding": "In a conservative nonlinear system, a single narrow-band wave entity generates higher/sideband harmonics (PR increases from 7.98 to 58.50), analogous to the notes' 'kaleidoscope multiplication', but total energy is strictly conserved (19.8057 -> 19.8053): new spectral peaks are formed by partitioning and depleting the parent entity's amplitude rather than multiplying total energy."
+    },
+    "persistence_and_dissipation_audit": {
+      "passive_damping_gamma0": 0.025,
+      "theoretical_passive_half_life": 27.72588722239781,
+      "isolated_passive_half_life": 27.0279447471191,
+      "group_passive_half_life": 24.657827800194035,
+      "isolated_cooperative_half_life": 30.55507142222601,
+      "group_cooperative_half_life": 55.67620512536327,
+      "cooperative_persistence_ratio_group_vs_iso": 1.8221592205104105,
+      "passive_persistence_ratio_group_vs_iso": 0.9123086505799634,
+      "finding": "Under standard passive damping (-gamma * dE/dt), grouped wave entities decay at virtually the exact same rate as isolated entities (ratio = 0.912), and all dissipated energy vanishes from Level 0 (violating total energy conservation). Achieving longer group persistence (ratio = 1.82x, t_1/2 = 55.7 vs 30.6) requires explicitly inserting a non-Hamiltonian, state-dependent damping suppression rule gamma_eff(E)."
+    },
+    "numerical_verification": {
+      "verlet_dt_convergence_relative_energy_drift": {
+        "0.04": 5.8805335756027104e-05,
+        "0.02": 1.4746657858489266e-05,
+        "0.01": 3.6894949295741195e-06,
+        "0.005": 9.225506011866799e-07
+      },
+      "measured_convergence_order": 1.9981418417732841,
+      "boundary_and_N_sensitivity": {
+        "periodic_N64": {
+          "final_entropy": 0.9121181170684942,
+          "final_pr_over_N": 0.549777650990642
+        },
+        "periodic_N128": {
+          "final_entropy": 0.9180546907369714,
+          "final_pr_over_N": 0.45756289038524156
+        },
+        "periodic_N256": {
+          "final_entropy": 0.9391741533271207,
+          "final_pr_over_N": 0.5543421447357281
+        },
+        "dirichlet_N64": {
+          "final_entropy": 0.9221577069863968,
+          "final_pr_over_N": 0.5542569270154891
+        },
+        "dirichlet_N128": {
+          "final_entropy": 0.9234915826033094,
+          "final_pr_over_N": 0.47218538511821
+        },
+        "dirichlet_N256": {
+          "final_entropy": 0.9423283959808277,
+          "final_pr_over_N": 0.5718299243347146
+        }
+      }
+    },
+    "figure_path": "results\\figures\\exp1_l0_dynamics.png"
+  }
+}

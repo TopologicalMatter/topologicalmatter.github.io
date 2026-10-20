@@ -1,0 +1,79 @@
+{
+  "experiment": "exp4_cosmology_cmb",
+  "planck_blackbody_vs_spectral_broadening": {
+    "initial_hot_blackbody": {
+      "T": 2.0,
+      "mean_f": 7.636016584376036,
+      "std_f": 3.9877818562899847
+    },
+    "flrw_adiabatic_cooled": {
+      "T": 1.0,
+      "mean_f": 3.8322286309808624,
+      "std_f": 2.028113692434424,
+      "width_change_factor": 0.5085819048089232,
+      "max_planck_distortion": 2.254058567398592e-07
+    },
+    "narrow_high_f_diffusive_spreading": {
+      "initial_mean_f": 10.000000000000002,
+      "initial_std_f": 0.8,
+      "final_mean_f": 4.163283323323821,
+      "final_std_f": 2.679456083686435,
+      "best_fit_T": 1.257350914187567,
+      "rms_planck_distortion": 0.19153695551260813,
+      "max_planck_distortion": 1.5646900001598973,
+      "violation_factor_over_COBE_FIRAS": 31293.800003197946
+    },
+    "thermal_with_diffusive_broadening": {
+      "final_mean_f": 5.610764301469323,
+      "final_std_f": 4.141248344645396,
+      "best_fit_T": 1.5107231987217578,
+      "rms_planck_distortion": 0.24774294055800095,
+      "max_planck_distortion": 1.889216139167928,
+      "violation_factor_over_COBE_FIRAS": 37784.32278335856
+    },
+    "cobe_firas_limit": 5e-05,
+    "finding": "Spectral broadening and downward shift of average frequency are NOT physically equivalent to cosmological cooling. Under standard adiabatic expansion T -> T/(1+z), the spectral width sigma_f NARROWS proportionally to T (from 3.988 to 2.028 for 1+z=2). By contrast, diffusive spreading from a narrow high-frequency state or diffusive broadening of a thermal state produces non-Planckian distributions with fractional residuals of 1.565 and 1.889, exceeding the COBE/FIRAS empirical bound (5e-5) by factors of 31294x and 37784x."
+  },
+  "spectroscopic_achromaticity_audit": {
+    "results": {
+      "rest_frequencies_THz": [
+        500.0,
+        600.0
+      ],
+      "rest_ratio_R0": 1.2,
+      "rest_relative_linewidth": 0.0001,
+      "flrw_multiplicative": {
+        "f1_obs": 166.66666666666666,
+        "f2_obs": 200.0,
+        "ratio_obs": 1.2000000000000002,
+        "ratio_error": 2.220446049250313e-16,
+        "z1": 2.0,
+        "z2": 2.0,
+        "achromatic_dz": 0.0,
+        "relative_linewidth": 0.0001
+      },
+      "additive_frequency_shift": {
+        "f1_obs": 133.33333333333331,
+        "f2_obs": 233.33333333333331,
+        "ratio_obs": 1.75,
+        "ratio_error": 0.55,
+        "z1": 2.7500000000000004,
+        "z2": 1.5714285714285716,
+        "achromatic_dz": 1.1785714285714288
+      },
+      "nonlinear_dispersive_shift_f2": {
+        "f1_obs": 166.66666666666666,
+        "f2_obs": 176.47058823529412,
+        "ratio_obs": 1.0588235294117647,
+        "ratio_error": 0.14117647058823524,
+        "z1": 2.0,
+        "z2": 2.4,
+        "achromatic_dz": 0.3999999999999999
+      },
+      "diffusive_broadened_relative_linewidth": 0.03000016666620371,
+      "line_broadening_factor": 300.00166666203705
+    },
+    "finding": "Preserving invariant atomic frequency ratios f2/f1 across cosmological distances strictly requires uniform multiplicative frequency scaling f(t) = f0 / a(t). Additive downward shifts alter a 1.200 doublet ratio to 1.750 at z=2 (producing spurious redshift discrepancy Delta z = 1.179), while nonlinear dispersive drifts alter it to 1.059 and diffusive spreading broadens narrow absorption lines by 300.0x."
+  },
+  "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp4_cosmology_cmb.png"
+}

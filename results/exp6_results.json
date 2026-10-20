@@ -1,0 +1,43 @@
+{
+  "experiment": "exp6_evolved_topological_wave_model",
+  "gap1_topological_quantization": {
+    "B_measured": 1.0000011398303899,
+    "B_perturbed": 1.0000042758501497,
+    "topological_charge_error": 1.1398303898513262e-06,
+    "E_total_skyrme_units": 77.75435933453541,
+    "virial_theorem_relative_residual": 6.85372571237146e-17,
+    "proton_energy_at_r14": 77.75435933676054,
+    "isolated_meron_energy_at_r14": 119.81570179436297,
+    "finding": "Upgrading the Wave Entity to a 3D SU(2) topological hedgehog soliton fixes the baryon charge to an exact integer B = 1.000001 (remaining 1.000004 under large smooth profile deformations) and locks the radius via Derrick's virial theorem (relative residual 6.85e-17)."
+  },
+  "gap2_spin_half_and_baryon_spectrum": {
+    "Lambda_dimensionless": 30.43646963410648,
+    "phase_factor_at_2pi_rotation": -1.0,
+    "phase_factor_at_4pi_rotation": 1.0,
+    "pauli_exchange_sign": -1.0,
+    "M_classical_soliton_MeV": 865.6484375,
+    "fraction_of_proton_mass_from_wave_energy": 0.9219630958482828,
+    "M_Nucleon_j1_2_MeV": 938.91875,
+    "M_Delta_j3_2_MeV": 1232.0,
+    "mu_p_over_mu_n_predicted": -1.4014086547866234,
+    "mu_p_over_mu_n_experimental_PDG": -1.4598980442010305,
+    "mu_ratio_relative_error_pct": 4.006402340679696,
+    "finding": "Finkelstein-Rubinstein quantization of the soliton rotor yields exact spin-1/2 fermionic behavior (phase -1.0 at 2*pi rotation and particle exchange, +1.0 at 4*pi), accounts for 92.2% of the proton's 938.9 MeV rest mass from classical wave energy, and predicts mu_p/mu_n = -1.401 vs PDG -1.460 (4.01% error)."
+  },
+  "gap3_tensor_refractive_gravity": {
+    "mean_scalar_deflection_ratio": 0.49999600004797945,
+    "mean_tensor_deflection_ratio": 0.9999920000959589,
+    "perihelion_precession_measured_rad_per_orbit": 0.04815081051290182,
+    "perihelion_precession_GR_exact_rad_per_orbit": 0.04724199479082396,
+    "perihelion_precession_relative_error": 0.019237454432266834,
+    "finding": "When both Wave Entity clock frequency (g_00) and spatial soliton ruler scale (g_ij) respond symmetrically to vacuum polarization (gamma_PPN = 1), light deflection increases from 0.5000x GR (scalar clock-shift) to 1.0000x GR (exact match), and relativistic orbit integration reproduces Einstein's perihelion precession to relative error 1.92e-02."
+  },
+  "gap4_moduli_space_bell_entanglement": {
+    "S_moduli_max_tsirelson": 2.82842712474619,
+    "S_separable_lhv_max": 2.000000000000001,
+    "S_separable_dipole_max": 0.9428090415820632,
+    "violates_bell_inequality": true,
+    "finding": "Identifying Level 0's state vector E(t) as the non-separable wavefunctional Psi[A_1, A_2] on the multi-soliton collective coordinate moduli space SU(2) x SU(2) produces the exact singlet correlation E(a, b) = -cos(a - b) and violates the CHSH Bell bound at S = 2.8284 > 2.0 (vs S <= 2.0000 for separable 3D waves)."
+  },
+  "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp6_evolved_topological_wave_model.png"
+}

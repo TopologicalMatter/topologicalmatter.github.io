@@ -1,0 +1,58 @@
+{
+  "experiment": "exp5_approximate_wave_entity_model",
+  "qball_stability_mechanism": {
+    "single_entity_Q35": {
+      "Q": 35.0,
+      "R_core": 1.851318250926207,
+      "A_core": 1.0,
+      "E_over_m0Q": 1.137871608273254,
+      "omega_over_m0": 0.9906037953289252,
+      "binding_energy_per_Q": -0.13787160827325406,
+      "radiation_decay_rate": 0.04343283896145767,
+      "half_life": 15.959057642422236,
+      "status": "Metastable / Radiatively Decaying (local minimum above continuum threshold E/Q > m0)"
+    },
+    "composite_proton_Q105": {
+      "Q": 105.0,
+      "R_core": 1.786098249133587,
+      "A_core": 2.0402430497419726,
+      "E_over_m0Q": 0.9921718457241652,
+      "omega_over_m0": 0.795032059155597,
+      "binding_energy_per_Q": 0.007828154275834831,
+      "radiation_decay_rate": 0.0,
+      "half_life": Infinity,
+      "status": "Strictly Stable Soliton (global minimum below vacuum mass gap E/Q < m0; decay forbidden)"
+    },
+    "finding": "In a 3D cubic-quintic Klein-Gordon soliton model, a single Wave Entity (Q=35) has E/(m0*Q) = 1.1379 > 1 (above the vacuum mass gap), causing it to radiatively decay with half-life 15.96. When 3 Wave Entities bind into a composite 'proton' (Q=105), nonlinear self-trapping lowers E/(m0*Q) to 0.9922 < 1 (below the vacuum mass gap), forbidding radiative dispersion and making the composite proton strictly stable."
+  },
+  "triadic_phase_locking": {
+    "N3_final_energy": -4.857435682507798,
+    "N3_final_total_color_dipole_norm": 9.059422465804523e-05,
+    "N3_equilateral_side_lengths": [
+      3.6708942290091,
+      3.7022534512297516,
+      3.7181351217169873
+    ],
+    "N3_pairwise_phase_angles_deg": [
+      119.99416401866878,
+      120.0017349268138,
+      120.00410105451743
+    ],
+    "finding": "Three Wave Entities carrying internal triad phases spontaneously relax into an equilateral triangle (sides [3.671, 3.702, 3.718]) with pairwise phase separations [119.99, 120.0, 120.0] deg and net far-field color dipole norm 9.06e-05 (neutralized)."
+  },
+  "relativistic_kinematics": {
+    "E_rest": 1.7173115617151287,
+    "M_inertial": 1.7173115617151287,
+    "max_relative_momentum_error": 4.631605256104592e-14,
+    "finding": "A Lorentz-boosted Wave Entity automatically exhibits relativistic momentum P(v) = gamma * M_inertial * v (matching analytical relativity to relative error 4.63e-14) and De Broglie modulation wavevector k = gamma * omega0 * v / c^2 without ad-hoc mechanical rules."
+  },
+  "long_range_mediator_gravity": {
+    "far_field_freq_shift_exponent": -1.0000000000000004,
+    "far_field_force_exponent": -2.000000000000001,
+    "orbit_v0_092_r_min": 0.7338635954536958,
+    "orbit_v0_092_r_max": 1.0,
+    "orbit_is_stable_bound_ellipse": true,
+    "finding": "Coupling a 3D Wave Entity core to a massless Poisson mediator field produces a clock frequency shift Delta_omega/omega0 propto r^(-1.0000), a field gradient |nabla Phi| propto r^(-2.0000), and an attractive force F = -nabla E_int propto r^(-2.0000), yielding stable closed elliptical orbits (r in [0.734, 1.000] at v0=0.92)."
+  },
+  "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp5_approximate_wave_entity_model.png"
+}

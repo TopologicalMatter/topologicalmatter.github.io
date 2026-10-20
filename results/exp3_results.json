@@ -1,0 +1,51 @@
+{
+  "experiment": "exp3_emergent_space_geometry",
+  "dimensionality_and_embedding_audit": {
+    "scalar_frequency_distance": {
+      "mds_top5_variance_explained_pct": [
+        99.99999999999986,
+        1.7765554474044676e-14,
+        1.475460219391434e-14,
+        1.1721602805625998e-14,
+        1.0328284457362988e-14
+      ],
+      "cayley_menger_3d_tetrahedron_volume_squared": 1.7029288189823847e-33,
+      "kruskal_stress_on_3x3x3_cube": 0.4790666425720332
+    },
+    "bell_profile_overlap_distance_2param": {
+      "kruskal_stress_on_3x3x3_cube": 0.2213502594292824
+    },
+    "true_3d_euclidean_reference": {
+      "mds_top5_variance_explained_pct": [
+        40.87419436728646,
+        33.585267219078816,
+        25.54053841363464,
+        1.2065080083368613e-14,
+        1.0019267067404443e-14
+      ],
+      "cayley_menger_3d_tetrahedron_volume_squared": 1.9809137270267538
+    },
+    "unstructured_random_coupling_graph": {
+      "mds_top5_variance_explained_pct": [
+        9.229269253118991,
+        8.690658669681536,
+        8.260529205039102,
+        7.95515897788412,
+        6.722278995161505
+      ],
+      "triangle_inequality_violations": 90,
+      "total_triplets": 9880
+    },
+    "finding": "Scalar characteristic frequency differences d_ij = |f_i - f_j| generate a distance matrix whose Gram matrix has exact Rank 1 (100.0% variance in 1D, 0.0% in 2D and 3D; Cayley-Menger tetrahedral volume = 0). Attempting to embed a 3x3x3 3D cube using scalar frequencies yields catastrophic distortion (Kruskal Stress-1 = 0.479); adding variable spectral widths (f_i, sigma_i) only reaches a 2D manifold (Stress-1 = 0.221). Recovering 3D space requires replacing scalar frequency with a 3-vector or fine-tuning an interaction graph to a 3D lattice a priori."
+  },
+  "kinematic_and_identity_degeneracy_audit": {
+    "post_force_pulse_velocities": {
+      "case1_tethered_Delta_f": 0.0,
+      "case2_aristotelian_df_dt": 0.0,
+      "case3_newtonian_d2f_dt2": 2.02
+    },
+    "proton_electron_frequency_ratio": 1836.15267343,
+    "finding": "Associating momentum with 'resistance to frequency change' (F = gamma * df/dt) yields overdamped Aristotelian mechanics where bodies stop immediately when external force ceases (post-pulse velocity = 0.0 vs Newtonian 2.0). Furthermore, mapping spatial position to scalar frequency x = Phi(f) creates an insoluble trilemma between position, velocity (df/dt), and internal rest-mass/atomic frequency: two identical atoms at different positions must have different frequencies, while a proton and electron at the same position must have the same frequency."
+  },
+  "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp3_emergent_space_geometry.png"
+}

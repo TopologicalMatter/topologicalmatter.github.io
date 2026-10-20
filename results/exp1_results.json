@@ -1,0 +1,85 @@
+{
+  "experiment": "exp1_l0_dynamics",
+  "parameters": {
+    "N": 128,
+    "dt": 0.02,
+    "n_steps": 4000,
+    "n_seeds": 10
+  },
+  "spontaneous_emergence_from_randomness": {
+    "theoretical_white_noise_PR": 64.0,
+    "theoretical_extreme_value_peak_ratio_H64": 4.743890903705769,
+    "linear_mean_PR_across_seeds": 68.46651525021791,
+    "linear_std_PR_across_seeds": 7.863666867860206,
+    "nonlinear_mean_PR_across_seeds": 76.86175659831164,
+    "nonlinear_std_PR_across_seeds": 6.723826540927672,
+    "linear_mean_entropy": 0.928344233109468,
+    "nonlinear_mean_entropy": 0.9407605227287348,
+    "linear_mean_max_peak_to_mean": 4.801802847410049,
+    "nonlinear_mean_max_peak_to_mean": 4.200301428525935,
+    "finding": "Under both linear and nonlinear conservative dynamics, random initial conditions remain near maximum spectral entropy (H_spec = 0.928 linear, 0.941 nonlinear; PR = 68.5 and 76.9) and do NOT spontaneously condense into isolated narrow-band wave entities. Apparent peaks (max/mean = 4.80 linear, 4.20 nonlinear) match the theoretical Rayleigh/Exponential extreme-value expectation H_64 = 4.74."
+  },
+  "harmonic_multiplication_audit": {
+    "linear_initial_energy": 18.00092304241916,
+    "linear_final_energy": 18.00092218453927,
+    "nonlinear_initial_energy": 19.805695400153482,
+    "nonlinear_final_energy": 19.80529459052908,
+    "nonlinear_initial_PR": 7.9817918020495355,
+    "nonlinear_final_PR": 58.50065359974415,
+    "entity_count_threshold_sensitivity": {
+      "2.0": 2,
+      "3.0": 1,
+      "4.0": 1,
+      "6.0": 0,
+      "8.0": 0
+    },
+    "finding": "In a conservative nonlinear system, a single narrow-band wave entity generates higher/sideband harmonics (PR increases from 7.98 to 58.50), analogous to the notes' 'kaleidoscope multiplication', but total energy is strictly conserved (19.8057 -> 19.8053): new spectral peaks are formed by partitioning and depleting the parent entity's amplitude rather than multiplying total energy."
+  },
+  "persistence_and_dissipation_audit": {
+    "passive_damping_gamma0": 0.025,
+    "theoretical_passive_half_life": 27.72588722239781,
+    "isolated_passive_half_life": 27.0279447471191,
+    "group_passive_half_life": 24.657827800194035,
+    "isolated_cooperative_half_life": 30.55507142222601,
+    "group_cooperative_half_life": 55.67620512536327,
+    "cooperative_persistence_ratio_group_vs_iso": 1.8221592205104105,
+    "passive_persistence_ratio_group_vs_iso": 0.9123086505799634,
+    "finding": "Under standard passive damping (-gamma * dE/dt), grouped wave entities decay at virtually the exact same rate as isolated entities (ratio = 0.912), and all dissipated energy vanishes from Level 0 (violating total energy conservation). Achieving longer group persistence (ratio = 1.82x, t_1/2 = 55.7 vs 30.6) requires explicitly inserting a non-Hamiltonian, state-dependent damping suppression rule gamma_eff(E)."
+  },
+  "numerical_verification": {
+    "verlet_dt_convergence_relative_energy_drift": {
+      "0.04": 5.8805335756027104e-05,
+      "0.02": 1.4746657858489266e-05,
+      "0.01": 3.6894949295741195e-06,
+      "0.005": 9.225506011866799e-07
+    },
+    "measured_convergence_order": 1.9981418417732841,
+    "boundary_and_N_sensitivity": {
+      "periodic_N64": {
+        "final_entropy": 0.9121181170684942,
+        "final_pr_over_N": 0.549777650990642
+      },
+      "periodic_N128": {
+        "final_entropy": 0.9180546907369714,
+        "final_pr_over_N": 0.45756289038524156
+      },
+      "periodic_N256": {
+        "final_entropy": 0.9391741533271207,
+        "final_pr_over_N": 0.5543421447357281
+      },
+      "dirichlet_N64": {
+        "final_entropy": 0.9221577069863968,
+        "final_pr_over_N": 0.5542569270154891
+      },
+      "dirichlet_N128": {
+        "final_entropy": 0.9234915826033094,
+        "final_pr_over_N": 0.47218538511821
+      },
+      "dirichlet_N256": {
+        "final_entropy": 0.9423283959808277,
+        "final_pr_over_N": 0.5718299243347146
+      }
+    }
+  },
+  "figure_path": "results\\figures\\exp1_l0_dynamics.png"
+}

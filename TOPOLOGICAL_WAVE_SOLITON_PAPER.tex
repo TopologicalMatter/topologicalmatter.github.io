@@ -1,0 +1,1210 @@
+\documentclass[10pt,aps,prd,twocolumn,superscriptaddress,nofootinbib,floatfix,longbibliography,showkeys]{revtex4-2}
+\ifx\pdftexversion\undefined\else\input{glyphtounicode}\pdfgentounicode=1\fi
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+% \usepackage{array} % revtex4-2 loads array internally; commented for TeX Live 2025 / EPJC compatibility
+\usepackage{multirow}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,pdftitle={Emergent Matter, Fermionic Spin, and Induced Rank-2 Gravity from Topological Wave Solitons in a Polarizable Vacuum Medium},pdfauthor={Eden Asipov and Eliana Asipov}]{hyperref}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\makeatletter
+\def\p@subsection{}
+\def\p@subsubsection{}
+\let\do@date\relax
+\newcommand{\raggedpcolumns}{\expandafter\def\expandafter\@arrayparboxrestore\expandafter{\@arrayparboxrestore\raggedright\let\\\tabularnewline}}
+\makeatother
+\providecommand{\orcid}[1]{\,\href{https://orcid.org/#1}{\normalfont\footnotesize[ORCID:\,#1]}}
+\newcommand{\thead}[1]{\begin{tabular}[t]{@{}c@{}}#1\end{tabular}}
+\newcommand{\theadl}[1]{\begin{tabular}[t]{@{}l@{}}#1\end{tabular}}
+
+\begin{document}
+
+\title{Emergent Matter, Fermionic Spin, and Induced Rank-2 Gravity from Topological Wave Solitons in a Polarizable Vacuum Medium}
+
+\author{Eden Asipov\orcid{0009-0000-0531-383X}}\altaffiliation{These authors contributed equally to this work.}
+\email[Corresponding author: ]{eden.b.asipov@gmail.com}
+\email{eden.asipov@my.bellevuecollege.edu}
+\affiliation{Independent Researcher, Bellevue, WA, USA}
+
+\author{Eliana Asipov\orcid{0009-0003-3214-7103}}\altaffiliation{These authors contributed equally to this work.}
+\email{eliana.b.asipov@gmail.com}
+\email{eliana.asipov@bellevuecollege.edu}
+\affiliation{Independent Researcher, Bellevue, WA, USA}
+
+\makeatletter\let\do@date\relax\makeatother
+
+\begin{abstract}
+We formulate and computationally investigate a non-perturbative effective field theory (EFT) in which baryonic and leptonic matter, quantized topological charges, fermionic spin-$1/2$ statistics, chiral zero modes, induced rank-2 gravity, and non-singular cosmic expansion emerge from an $SU(2)$ wave field $U(\mathbf{x}, t)$ in a polarizable vacuum medium. Integrating out $\rho_\mu$ and $\omega_\mu$ vector mesons via Hidden Local Symmetry (HLS) generates the quartic Skyrme term $\mathcal{L}_4$ ($e_S = g_\rho$) and sextic topological-current term $\mathcal{L}_6 = +\frac{\lambda_6^2}{2} g_{\mu\nu} B^\mu B^\nu$ ($\lambda_6 = g_\omega/m_\omega$) with truncation uncertainty $\sigma_{\text{EFT}} = \pm 9.5\text{--}11.9\%$, while the $N_c = 3$ Wess--Zumino--Witten anomaly fixes the Finkelstein--Rubinstein sign $(-1)^{N_c} = -1$. Solving the exact 6-derivative boundary-value problem via 4th-order Lobatto collocation yields agreement within $0.19\text{--}1.10\,\sigma_{\text{EFT}}$ for zero-baryon-fit Kawarabayashi--Suzuki--Riazuddin--Fayyazuddin (KSRF) meson inputs and $1.6\text{--}4.8\%$ for $(M_N, M_\Delta)$-calibrated vector-meson dominance ($\mu_p = 2.732\,\mu_N$, $\mu_n = -1.822\,\mu_N$, $r_{E,I=0} = 0.761\text{ fm}$, $g_A = 1.292$), resolving $B=2,4$ nuclear overbinding via near-Bogomol'nyi--Prasad--Sommerfield (BPS) virial reduction. Abelian projection onto $F_2 = SU(3)/U(1)^2$ confines $B=1/3$ merons below threshold ($E/m_0 Q = 0.9922 < 1$) and reproduces the Brodsky--Farrar $Q^{-4}$ proton form factor ($\chi^2/N_{\text{dof}} = 0.948$ zero-fit). Sakharov 1-loop induced gravity preserves exterior Kerr and quadrupole radiation metrics while generating an Einstein--Cartan / $\mathcal{L}_6$ bounce, Starobinsky $R^2$ inflation ($n_s = 0.9636$), Volovik-regulated chiral-horizon dark energy $\rho_\Lambda^{1/4} = 2.56\text{ meV}$, and $B=0$ breather dark matter ($\Omega_{\text{DM}}/\Omega_B \approx 5.44$).
+\end{abstract}
+
+\keywords{Topological solitons; Skyrme--Faddeev--Niemi model; skyrmion model of the nucleon; Hidden Local Symmetry; vector meson dominance; Wess--Zumino--Witten anomaly; Finkelstein--Rubinstein spin-1/2 quantization; Sakharov induced gravity; analog and dielectric gravity; Starobinsky inflation; Einstein--Cartan bounce; dark energy and dark matter; unified effective field theory}
+
+\maketitle
+
+
+
+\section{Introduction and Relation to Prior Literature}\label{sec:1}
+
+
+\subsection{Foundational Motivation}\label{sec:1.1}
+
+Modern fundamental physics rests on two empirically successful yet structurally distinct pillars: the Standard Model of particle physics, formulated as a perturbative quantum field theory (QFT) on flat Minkowski spacetime, and General Relativity (GR), formulated as a classical geometric theory of dynamical pseudo-Riemannian spacetime. Bridging these descriptions confronts three foundational tensions:
+
+\begin{enumerate}
+  \item \textbf{Ultraviolet (UV) Divergences of Point-Particle Sources:} Perturbative QFT idealizes elementary excitations as zero-radius mathematical points ($\delta^3(\mathbf{x})$). Classically, a point source generates a divergent core potential ($\Phi(r) \propto -1/r \to -\infty$ as $r \to 0$). Quantum mechanically, coupling point-like stress-energy tensors $T_{\mu\nu}$ to metric fluctuations generates non-renormalizable ultraviolet loop divergences at arbitrarily short distances.
+  \item \textbf{The Matter--Geometry Split and the Problem of Time:} Canonical quantum mechanics requires an external time parameter $t$ to define unitary evolution ($i\hbar \partial_t |\Psi\rangle = \hat{H}|\Psi\rangle$) and equal-time commutation relations, whereas GR treats spacetime coordinates as dynamical variables whose metric $g_{\mu\nu}$ fluctuates with matter, leading to the frozen Wheeler--DeWitt constraint $\hat{H}_{\text{grav}}|\Psi\rangle = 0$.
+  \item \textbf{Non-Perturbative Origin of Baryonic Mass:} In the Standard Model, bare Higgs-generated current quark masses ($2m_u + m_d \approx 9\text{ MeV}/c^2$) account for less than $1\%$ of the proton's measured rest mass ($938.27\text{ MeV}/c^2$); the remaining $\sim 99\%$ arises non-perturbatively from confined field energy.
+
+\end{enumerate}
+To address these three tensions within a single variational framework, we formulate a three-tier effective field theory of a continuous polarizable vacuum medium (summarized in the \hyperref[tab:arch]{Architecture Overview Table}):
+\begin{itemize}
+  \item \textbf{Level 0 (Configuration-Space Quantum Dynamics):} The quantum state of the medium is defined by a universal wavefunctional $\Psi[U(\mathbf{x}), t]$ over the infinite-dimensional field configuration space. Projecting $\Psi[U(\mathbf{x}), t]$ onto the collective-coordinate moduli space $\mathcal{M}_N$ of $N$ localized solitons yields non-separable multi-soliton spinor states on $SU(2)^N$ that reproduce quantum spin entanglement and the Tsirelson Bell--CHSH bound.
+  \item \textbf{Level 1 (Non-Linear Topological Soliton Sector):} At the classical and semi-classical field level, matter excitations are non-singular, topologically quantized standing-wave solitons of a unitary chiral field $U(\mathbf{x}, t) \in SU(2)$ stabilized at short distances by Hidden Local Symmetry (HLS) $\rho_\mu$ and $\omega_\mu$ vector-meson exchange ($\mathcal{L}_4 + \mathcal{L}_6$) and quantized as fermions via the $N_c = 3$ Wess--Zumino--Witten (WZW) and Finkelstein--Rubinstein topological phase.
+  \item \textbf{Level 2 (Sakharov-Induced Rank-2 Metric and Cosmological Sector):} Long-wavelength refractive polarization and 1-loop Schwinger--DeWitt heat-kernel fluctuations of the wave medium around localized soliton stress-energy sources $T_{\mu\nu}^{\text{soliton}}$ induce an emergent rank-2 spacetime metric $g_{\mu\nu}(\mathbf{x}, t) = \eta_{ab} e^a_\mu e^b_\nu$ governed by the Einstein--Hilbert plus Starobinsky $R^2$ action.
+
+\end{itemize}
+
+% BEGIN_MERMAID
+% ```mermaid
+% flowchart TD
+%     subgraph UV["Short-Distance Meson & Anomaly EFT Foundation"]
+%         VM["Hidden Local Symmetry Vector Mesons (\rho_\mu, \omega_\mu) & WZW 5-Form \Gamma_WZW\nControlled EFT Integration Generates L_4 (Skyrme) + L_6 (BPS) + (-1)^Nc Sign"]
+%     end
+%
+%     subgraph L0["Level 0: Configuration-Space Quantum Dynamics"]
+%         WF["Universal Wavefunctional \Psi[U(x), t] on Soliton Moduli Space"]
+%         BELL["Non-Separable Singlet State on SU(2) \times SU(2)\n(Exact Bell-CHSH Violation S = 2\sqrt{2} \approx 2.828)"]
+%         WF --> BELL
+%     end
+%
+%     subgraph L1["Level 1: 3D Non-Linear Topological Wave Field U(x, t) \in SU(2)"]
+%         SOL["6-Derivative Topological Hedgehog Soliton (\pi_3(S^3) = \mathbb{Z})\nExact B = 1, Near-BPS Nuclear Binding (B=2,4), & High-Q^2 Bridge Q^{-4}"]
+%         MER["Flag-Manifold F_2 = SU(3)/U(1)^2 Meron Triad (N_c = 3)\nWeyl Root Neutrality, 120^\circ Phase-Locking & Mass-Gap Confinement"]
+%         ROT["Finkelstein-Rubinstein Collective Rotor A(t) \in SU(2)\nSpin-1/2 Fermions & Exact BVP Spectroscopy (\mu_p = 2.73 \mu_N, \mu_n = -1.82 \mu_N)"]
+%         CHIR["Jackiw-Rebbi Chiral Index (N_L - N_R = 1) & \pi_3(S^2) Hopfions\nChiral Zero Modes & Radiative 1-Loop QED Lepton Scale (m_e = 0.509 MeV)"]
+%         SOL --> MER
+%         SOL --> ROT
+%         SOL --> CHIR
+%     end
+%
+%     subgraph L2["Level 2: Sakharov-Induced Rank-2 Frame, Dielectric Gravity & Cosmology"]
+%         POL["1-Loop Heat-Kernel Induced Einstein-Hilbert + R^2 Action\nIsotropic Limit \varepsilon = \mu = exp(-2\Phi/c^2) & Finite Core \Phi(0) = -\sqrt{2/\pi} GM/R_0"]
+%         GR["Full Rank-2 Metric Dynamics g_{\mu\nu}\nPPN \gamma = \beta = 1, Kerr Frame-Dragging g_0i, & Transverse-Traceless GW Modes (h_+, h_\times)"]
+%         COS["FLRW Cosmic Expansion a(t), Non-Singular L_6/Torsion Bounce & Chiral Dark Energy\nVolovik Cancellation, \rho_\Lambda \approx (2.56 meV)^4, & B=0 Condensate \Omega_DM/\Omega_B \approx 5.44"]
+%         POL --> GR
+%         GR --> COS
+%     end
+%
+%     UV ==>|"Low-Energy Effective Action"| L1
+%     L0 ==>|"Collective-Coordinate Quantization"| L1
+%     L1 ==>|"1-Loop Vacuum Polarization & Stress-Energy T_{\mu\nu}"| L2
+%     L2 -.->|"Modulates Local Soliton Clocks \omega(x), Rulers R*(x) & Frames"| L1
+% ```
+% END_MERMAID
+
+\begin{table*}[t]
+\centering
+\phantomsection\label{tab:arch}\textbf{Overview of the Three-Tier Theoretical Architecture of the Unified Topological--Spinor--Metric Soliton Framework}\\[4pt]
+\footnotesize\raggedpcolumns
+\begin{tabular}{p{0.22\textwidth}p{0.36\textwidth}p{0.38\textwidth}}
+\toprule
+\textbf{Theoretical Tier} & \textbf{Governing Mathematical Structure} & \textbf{Emergent Physical Observables} \\
+\midrule
+\textbf{UV Meson \& Anomaly Foundation} & Hidden Local Symmetry ($\rho_\mu, \omega_\mu$) + $N_c=3$ Wess--Zumino--Witten 5-form $\Gamma_{\text{WZW}}[U]$ & Generates quartic Skyrme $\mathcal{L}_4$ ($e_S = g_\rho$), sextic BPS $\mathcal{L}_6$ ($\lambda_6 = g_\omega/m_\omega$), and fermionic sign $(-1)^{N_c} = -1$ \\
+\addlinespace
+\textbf{Level 0: Configuration-Space Quantum Dynamics} & Universal wavefunctional $\Psi[U(\mathbf{x}), t]$ projected onto multi-soliton moduli space $\mathcal{M}_N \cong (\mathbb{R}^3 \times SU(2)/\mathbb{Z}_2)^N$ & Non-separable spin singlet on $SU(2)\times SU(2)$ violating the Bell--CHSH inequality at the Tsirelson bound $S = 2\sqrt{2}$ \\
+\addlinespace
+\textbf{Level 1: 3D Topological Soliton Sector} & $U(\mathbf{x}, t) \in SU(2)$ ($\pi_3(S^3)=\mathbb{Z}$), flag manifold $F_2 = SU(3)/U(1)^2$, and hopfion map $\pi_3(S^2)=\mathbb{Z}$ & $B=1$ nucleon BVP spectroscopy ($\mu_p = 2.73\,\mu_N$, $\mu_n = -1.82\,\mu_N$, $g_A$), confined $B=1/3$ meron triad ($E/m_0 Q = 0.9922 < 1$), $Q^{-4}$ scaling, chiral index $N_L - N_R = 1$, and 1-loop QED lepton scale $m_e = 0.509\text{ MeV}$ \\
+\addlinespace
+\textbf{Level 2: Sakharov-Induced Rank-2 Gravity \& Cosmology} & 1-loop heat-kernel Einstein--Hilbert + $\alpha_1 R^2 + \alpha_2 R_{\mu\nu}R^{\mu\nu}$ action and dielectric metric $g_{\mu\nu}$ & PPN $\gamma=\beta=1$, finite core $\Phi(0)$, exterior Kerr frame-dragging, TT gravitational waves ($h_+, h_\times$), $\mathcal{L}_6$/torsion bounce, Starobinsky $R^2$ inflation, chiral-horizon $\rho_\Lambda^{1/4} = 2.56\text{ meV}$, and $B=0$ dark matter ($\Omega_{\text{DM}}/\Omega_B \approx 5.44$) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+\subsection{Summary of Main Results}\label{sec:1.2}
+
+Building upon Skyrme's non-linear baryon theory \cite{ref1,ref2}, Witten's large-$N_c$ topological formulation \cite{ref3,ref4,ref5}, Hidden Local Symmetry (HLS) vector-meson effective field theory \cite{ref6,ref7,ref8,ref9,ref10}, Finkelstein--Rubinstein spin quantization \cite{ref11}, and Gordon--Dicke--Sakharov--Puthoff--Volovik dielectric/induced gravity \cite{ref12,ref13,ref14,ref15,ref16,ref17}, we formulate a \textbf{Unified Topological--Spinor--Metric Soliton Framework}. Combining analytical effective-field-theory derivations with numerical boundary-value and dynamical solvers, we establish five principal results and explicitly delineate the domain of validity of the effective theory:
+
+\begin{enumerate}
+  \item \textbf{Controlled EFT Generation of the 6-Derivative Action, WZW Fermionic Sign, and Truncation Error Budget:} Integrating out short-distance vector-meson excitations ($\rho_\mu \in \mathfrak{su}(2)$ and $\omega_\mu \in \mathfrak{u}(1)$) in a Hidden Local Symmetry Lagrangian systematically generates both the quartic Skyrme curvature term $\mathcal{L}_4$ ($e_S = g_\rho$) and the sextic topological-current stabilization term $\mathcal{L}_6 = +\frac{\lambda_6^2}{2} g_{\mu\nu} B^\mu B^\nu = -\frac{\lambda_6^2}{2}(B^0)^2 + \frac{\lambda_6^2}{2}\mathbf{B}^2$ ($\lambda_6 = g_\omega/m_\omega$) below the matching scale $\mu_{\text{match}} \sim m_\rho$. Simultaneously, the $N_c = 3$ Wess--Zumino--Witten (WZW) 5-form anomaly $\Gamma_{\text{WZW}}[U]$ fixes the Finkelstein--Rubinstein fermionic sign $(-1)^{N_c} = -1$ directly from the 3-meron triad number $N_c = 3$. We quantify the theoretical EFT truncation error budget from omitted $\mathcal{O}(\partial^8/m_\rho^4)$ operators ($7.61\text{--}10.47\%$), 1-loop Casimir and $1/N_c^2$ corrections ($5.5\%$ on $J=1/2$), and isospin breaking ($1.5\%$), establishing a combined theoretical uncertainty $\sigma_{\text{EFT}} = \pm 9.51\text{--}11.92\%$ on nucleon ground-state observables.
+  \item \textbf{Topological Quantization, Exact Collocation Virial Stability, and Flag-Manifold $F_2 = SU(3)/U(1)^2$ Meron Confinement:} Mapping compactified 3D space $\mathbb{R}^3 \cup \{\infty\} \cong S^3$ into $SU(2) \cong S^3$ locks baryon number to an exact homotopy invariant $B \in \pi_3(S^3) = \mathbb{Z}$ and stabilizes the finite soliton core via Derrick's virial relation \cite{ref18} ($|E_2 - E_4 - 3E_6 + 3E_0|/E = 2.11 \times 10^{-7}$ in 4-deriv and $2.32 \times 10^{-7}$ in 6-deriv directly from the un-rescaled 4th-order Lobatto collocation BVP solution). Projecting the baryon onto the flag manifold $F_2 = SU(3)/U(1)^2$ decomposes the $B=1$ knot into three fractional $B=1/3$ meron vortices whose Weyl root vectors sum to zero ($\sum_{a=1}^3 \boldsymbol{\alpha}_a = \mathbf{0}$) and whose $120^\circ$ phase-locked binding lowers their energy per unit charge below the vacuum radiation continuum ($E/(m_0 Q) = 0.9922 < 1$), rendering the composite $B=1$ baryon strictly stable while isolated fractional excitations radiatively decay ($E/(m_0 Q_1) = 1.1379 > 1$).
+  \item \textbf{Full Absolute Nucleon Spectroscopy and Near-BPS Multi-Soliton Nuclear Binding (4-Derivative ANW vs. KSRF Zero-Baryon-Fit vs. 6-Derivative VMD BVP):} Solving the exact 2nd-order nonlinear radial Euler--Lagrange boundary-value problem via 4th-order Lobatto collocation (\texttt{solve\_bvp}) and evaluating a single set of mode-independent HLS/VMD integral operators, we tabulate all absolute static nucleon observables ($f_\pi,\allowbreak e_S,\allowbreak M_0,\allowbreak M_N,\allowbreak M_\Delta,\allowbreak r_{E,I=0},\allowbreak r_{M,I=0},\allowbreak \mu_p,\allowbreak \mu_n,\allowbreak \mu_p/\mu_n,\allowbreak g_A,\allowbreak \Delta E_B$) against Particle Data Group (PDG) benchmarks \cite{ref19,ref20}. We compare (a) the minimal 4-derivative Adkins--Nappi--Witten (ANW) model, which captures ratios ($M_0/M_N = 92.2\%$, $\mu_p/\mu_n = -1.257$) but underpredicts $f_\pi$ ($54.14\text{ MeV}$) and absolute magnetic moments ($\mu_p = 1.784\,\mu_N, \mu_n = -1.419\,\mu_N$) while severely overbinding multi-baryon nuclei ($\Delta E_B(B=2) = 79.64\text{ MeV}$, $\Delta E_B(B=4) = 301.25\text{ MeV}$); (b) the \textbf{zero-baryon-fit KSRF meson-only prediction} \cite{ref9,ref10} ($f_\pi = 92.4\text{ MeV}, e_S = m_\rho/(\sqrt{2}f_\pi) = 5.933$), where all $J=1/2$ predictions ($M_N = 973.61\text{ MeV}$, $\mu_p = 2.646\,\mu_N$, $\mu_n = -1.870\,\mu_N$, $r_{E,I=0} = 0.703\text{ fm}$, $g_A = 1.106$) agree with experiment within $0.19\text{--}1.10\,\sigma_{\text{EFT}}$; and (c) the $(M_N, M_\Delta)$-calibrated 6-derivative Vector-Meson Dominance (VMD) BVP, which brings all static observables within $1.57\text{--}4.76\%$ of experiment ($\mu_p = 2.732\,\mu_N$, $\mu_n = -1.822\,\mu_N$, $r_{E,I=0} = 0.761\text{ fm}$, $g_A = 1.292$, $f_\pi = 81.41\text{ MeV}$, $e_S = 5.079$) and resolves the Skyrme nuclear overbinding problem via the near-BPS $\mathcal{L}_6 + \mathcal{L}_0$ structure ($\Delta E_B(B=2) = 1.98\text{ MeV}$ vs. $2.225\text{ MeV}$ exp; $\Delta E_B(B=4) = 28.62\text{ MeV}$ vs. $28.30\text{ MeV}$ exp).
+  \item \textbf{Sakharov-Induced Rank-2 Frame Gravity, Explicit Multipole Matching, and Non-Singular Cosmological Expansion:} Upgrading the static isotropic polarizable-vacuum metric ($\varepsilon = \mu = e^{-2\Phi/c^2}$, which yields $\gamma_{\text{PPN}}=\beta_{\text{PPN}}=1$ \cite{ref21} and regularizes the $r=0$ core to $\Phi(0) = -\sqrt{2/\pi}\,GM/R_0$), we evaluate the 1-loop heat-kernel induced rank-2 Einstein--Hilbert plus curvature-squared ($\alpha_1 R^2 + \alpha_2 R_{\mu\nu}R^{\mu\nu}$) action. Through an explicit multipole matching calculation, we show that all $l \ge 1$ static internal mass multipoles vanish identically by spherical symmetry and that the isotropic second moment $I_{ij}^{\text{int}} = M R_0^2 \delta_{ij}$ is annihilated by transverse-traceless projection, preserving exterior Kerr / Lense--Thirring frame-dragging up to $\mathcal{O}((r/R_0)^3 e^{-r^2/2R_0^2})$ and binary quadrupole gravitational-wave power up to 1PN spin-orbit/octupole terms $\mathcal{O}((R_0/a)^2 (GM/ac^2)) \sim 1.06 \times 10^{-41}$ at $a = 100\text{ km}$. In a homogeneous Friedmann--Lema\^{\i}tre--Robertson--Walker (FLRW) background, the repulsive sextic topological current ($\rho_{\mathcal{L}_6} \propto a^{-6}, w_6 = +1$), Einstein--Cartan spin-torsion repulsion ($\rho_{\text{crit}}^{\text{EC}} = 3.63 \times 10^{36}\text{ GeV}^4$) \cite{ref22,ref23,ref24,ref25,ref26}, and 1-loop curvature-squared terms replace the $a \to 0$ Big Bang singularity with a smooth cosmological bounce followed by Starobinsky $R^2$ inflation ($n_s = 0.9636, r = 0.0040$) \cite{ref27,ref28,ref29}. Volovik Gibbs--Duhem thermodynamic equilibrium cancels the bare $\Lambda_{\text{UV}}^4$ vacuum catastrophe and leaves a residual chiral-horizon dark energy density $\rho_\Lambda^{\text{chiral}} = \frac{\hbar H_0}{(2\pi)^2}f_\pi^2 m_\pi = (2.56\text{ meV})^4$ \cite{ref25,ref26,ref30,ref31,ref32} (matching the Planck 2018 observed $(2.24\text{ meV})^4$ scale \cite{ref28,ref29} to $14.4\%$ and $H(z)$ expansion data with $\chi^2/N_{\text{dof}} = 0.62$), while topologically neutral $B=0$ skyrmion--antiskyrmion breather condensates produced at the chiral transition yield $\Omega_{\text{DM}}/\Omega_B \approx 5.44$ (vs. $5.40$ Planck 2018 \cite{ref28,ref29}).
+  \item \textbf{High-$Q^2$ Parton Scaling Bridge, Topological Chiral Zero Modes, and Radiative Hopfion Leptons:} We construct a relativistic form-factor bridge across $Q^2 \in [0.1, 25.0]\text{ GeV}^2$, demonstrating that Lorentz-boosted 3-meron ($N_c=3$) clustering plus VMD recovers the Brodsky--Farrar $Q^{-4}$ scaling law \cite{ref33,ref34} with $\chi^2/N_{\text{dof}} = 0.948$ for the \textbf{zero-fit BVP cluster scale} ($\Lambda_{\text{meron}}^{\text{BVP}} = 0.897\text{ GeV}$, $N_{\text{dof}} = 10$) and $\chi^2/N_{\text{dof}} = 0.145$ for the 1-parameter calibrated scale ($\Lambda_{\text{meron}}^{\text{fit}} = 0.910\text{ GeV}$, $N_{\text{dof}} = 9$), vs. $1122.1$ for the unboosted static hedgehog. Finally, we verify the Jackiw--Rebbi / Atiyah--Patodi--Singer chiral index $\text{Index}(D_U) = N_L - N_R = 1$ \cite{ref35,ref36,ref37}, Whitehead Hopf invariant $Q_H = 1$ \cite{ref38} for $\pi_3(S^2)$ hopfion leptons \cite{ref39,ref40,ref41,ref42}, and 1-loop QED radiative induction of the hopfion stiffness scale ($\mu_e^{\text{1-loop}} = 9.31\text{ keV} \implies m_e^{\text{rad}} = 0.509\text{ MeV}$ vs. $0.511\text{ MeV}$ exp \cite{ref19,ref20}), explicitly separating derived topological results from open questions in multi-generation flavor hierarchies and high-energy perturbative QCD matching.
+
+\end{enumerate}
+
+\subsection{Demarcation of Prior Literature vs. Contributions and Scope of This Work}\label{sec:1.3}
+
+Because this work synthesizes and extends mechanisms across topological soliton theory, chiral effective field theory, and induced gravity, we explicitly demarcate established results recovered from the literature versus the specific synthesis, analytical matching calculations, and numerical investigations contributed here:
+
+\begin{itemize}
+  \item \textbf{Established Foundations Recovered from Prior Literature:}
+  \begin{enumerate}
+    \item \textit{Topological Baryon Solitons \& Vector-Meson EFT:} The identification of baryon number with $\pi_3(S^3) = \mathbb{Z}$ and the 4-derivative stabilizing term $\mathcal{L}_4$ originate with Skyrme \cite{ref1,ref2}, with large-$N_c$ QCD justification and the Wess--Zumino--Witten (WZW) anomaly given by Witten \cite{ref3,ref4,ref5}, collective-coordinate nucleon quantization by Adkins, Nappi, and Witten (ANW) \cite{ref43}, Hidden Local Symmetry (HLS) vector-meson effective Lagrangians and KSRF matching by Kawarabayashi--Suzuki, Riazuddin--Fayyazuddin, Mei\ss{}ner, Bando, Kugo, Yamawaki, and Meier--Walliser \cite{ref6,ref7,ref8,ref9,ref10}, and multi-baryon / BPS skyrmion structures by Manton, Battye, Sutcliffe, Adam--S\'anchez-Guill\'en--Wereszczy\'nski, and Rho--Ma \cite{ref44,ref45,ref46,ref47,ref48,ref49}.
+    \item \textit{Topological Spin-$1/2$ Quantization:} The theorem that a $2\pi$ spatial rotation of an odd-$B$ soliton defines a non-contractible loop in $\pi_1(\mathcal{Q}_1) = \mathbb{Z}_2$ equivalent to two-soliton exchange originates with Finkelstein and Rubinstein \cite{ref11}.
+    \item \textit{Dielectric, Sakharov Induced Gravity \& Emergent Vacuum Thermodynamics:} The optical/dielectric representation of weak-field curved spacetime ($\varepsilon = \mu = e^{-2\Phi/c^2}$) originates with Gordon \cite{ref12}, Dicke \cite{ref17}, and Puthoff \cite{ref14}, while the induction of the rank-2 Einstein--Hilbert + $R^2$ action from 1-loop vacuum polarization and the thermodynamic equilibrium cancellation of bare vacuum energy originate with Sakharov \cite{ref13}, Starobinsky \cite{ref27}, Volovik, and Visser \cite{ref15,ref16,ref25,ref26,ref30,ref31,ref32}.
+
+  \end{enumerate}
+  \item \textbf{Contributions and Extensions of the Present Manuscript:}
+  \begin{enumerate}
+    \item \textbf{Unified Action, Exact Collocation BVP Solver, Mode-Independent HLS/VMD Operators, and Near-BPS Nuclear Binding (\hyperref[sec:2.2]{Sections 2.2}, \hyperref[sec:4.3]{4.3} \& \hyperref[sec:4.4]{4.4}):} We integrate the 6-derivative vector-meson-dressed soliton Lagrangian ($\mathcal{L}_2 + \mathcal{L}_4 + \mathcal{L}_6 + \mathcal{L}_0$), the WZW anomaly $\Gamma_{\text{WZW}}$, and the Sakharov-induced rank-2 metric into a single variational framework. Solving the exact 2nd-order nonlinear Euler--Lagrange ODE via 4th-order Lobatto collocation (\texttt{solve\_bvp}) without post-hoc rescaling, we evaluate a single set of mode-independent HLS/VMD integral operators across both pure meson-sector KSRF predictions (zero baryon-sector free parameters) and $(M_N, M_\Delta)$-calibrated BVP solutions (\textbf{\hyperref[tab:table1]{Table 1}}), and demonstrate how the near-BPS $\mathcal{L}_6 + \mathcal{L}_0$ structure resolves the multi-baryon overbinding problem for the deuteron ($B=2$) and $\alpha$-particle ($B=4$).
+    \item \textbf{Flag-Manifold $F_2 = SU(3)/U(1)^2$ Abelian Projection and Dynamical 3-Meron Confinement Below the Vacuum Continuum Gap (\hyperref[sec:3.3]{Section 3.3}):} We derive the 3-meron baryon substructure via Cho--Faddeev--Niemi abelian projection onto the flag manifold $F_2 = SU(3)/U(1)^2$, showing that the three Cartan root vortices carry exact $B_a = 1/3$ topological charge and zero net Weyl color dipole ($\sum \boldsymbol{\alpha}_a = \mathbf{0}$). Using a 3D non-linear wave solver, we demonstrate quantitatively why an isolated $B=1/3$ meron entity lies above the vacuum mass gap ($E/(m_0 Q_1) = 1.1379 > 1$) and radiatively disperses, whereas a composite triad ($Q = 3Q_1$) drops below the continuum threshold ($E/(m_0 3Q_1) = 0.9922 < 1$) and relaxes into a $120^\circ$ phase-locked equilateral triangle confined by a linear string tension.
+    \item \textbf{Explicit Analytical \& Numerical Multipole Matching for Rank-2 Induced Gravity, Non-Singular Bounce, and Cosmological Dark Sectors (\hyperref[sec:5.3]{Sections 5.3} \& \hyperref[sec:5.4]{5.4}):} We perform the explicit multipole matching between the finite-core soliton stress-energy tensor $T_{\mu\nu}^{\text{soliton}}$, the 1-loop curvature-squared terms ($\alpha_1 R^2 + \alpha_2 R_{\mu\nu}R^{\mu\nu}$), and the exterior metric, proving why all $l \ge 1$ static internal mass multipoles vanish by spherical symmetry and why finite core size $R_0$ regularizes $r \to 0$ while preserving binary quadrupole gravitational-wave emission up to $\mathcal{O}((R_0/a)^2(GM/ac^2)) \sim 10^{-41}$. Extending this action to homogeneous FLRW cosmology, we derive the non-singular bounce equation from repulsive $\mathcal{L}_6$ baryon currents, Einstein--Cartan spin-torsion, and Born--Infeld dielectric saturation alongside Starobinsky $R^2$ inflation, show how Volovik equilibrium cancellation and the chiral-horizon shift $\rho_\Lambda^{\text{chiral}} = \frac{\hbar H_0}{(2\pi)^2}f_\pi^2 m_\pi = (2.56\text{ meV})^4$ reproduce the observed dark energy scale and $H(z)$ expansion history (\textbf{\hyperref[fig:fig4]{Figure 4}}), and show that neutral $B=0$ skyrmion--antiskyrmion breather condensates yield $\Omega_{\text{DM}}/\Omega_B \approx 5.44$.
+    \item \textbf{Quantitative High-$Q^2$ Parton Form-Factor Bridge \& Goodness-of-Fit (\hyperref[sec:7.1]{Section 7.1} \& \hyperref[tab:table2]{Table 2}):} We compute the proton electric form factor $G_E^p(Q^2)$ across $Q^2 \in [0.1, 25.0]\text{ GeV}^2$, tabulating 10 benchmark points with experimental uncertainties, ratios, and normalized pulls, and demonstrating that Lorentz-boosted 3-meron clustering plus VMD reduces $\chi^2/N_{\text{dof}}$ from $1122.1$ (unboosted static hedgehog) to $0.948$ (zero-fit BVP cluster scale $\Lambda_{\text{meron}}^{\text{BVP}} = 0.897\text{ GeV}$) and $0.145$ (1-parameter fit $\Lambda_{\text{meron}}^{\text{fit}} = 0.910\text{ GeV}$) while recovering the Brodsky--Farrar $Q^{-4}$ scaling law.
+    \item \textbf{Chiral Zero-Mode Spectrum, Radiative 1-Loop Hopfion Lepton Mass Scale, and Candid Scope Assessment (\hyperref[sec:7.2]{Sections 7.2}, \hyperref[sec:7.3]{7.3} \& \hyperref[sec:8.3]{8.3}):} We numerically verify the Jackiw--Rebbi chiral zero mode ($\text{Index}(D_U) = 1$) and Whitehead Hopf invariant ($Q_H = 1$), show that 1-loop QED radiative polarization of the hopfion core generates $\mu_e^{\text{1-loop}} = 9.31\text{ keV}$ ($m_e^{\text{rad}} = 0.509\text{ MeV}$ vs. $0.511\text{ MeV}$ exp), and rigorously define the UV breakdown scale of the effective theory, three near-term falsifiable observational signatures, and the remaining open problems in multi-generation flavor physics.
+
+  \end{enumerate}
+\end{itemize}
+
+\subsection{Methodological Note: Numerical Solver Precision vs. Empirical Accuracy}\label{sec:1.4}
+
+Throughout this paper, we distinguish between \textbf{internal numerical verification of mathematical identities} (such as topological winding integrals $B = 1.000000$, un-rescaled \texttt{solve\_bvp} Derrick virial residuals $|E_2 - E_4 - 3E_6 + 3E_0|/E = 2.32 \times 10^{-7}$, pointwise Euler--Lagrange ODE residuals $1.58 \times 10^{-8}$, and Lorentz invariance residuals $4.63 \times 10^{-14}$, which measure numerical quadrature and collocation convergence) and \textbf{empirical accuracy against experimental data} (such as comparing predicted nucleon magnetic moments, charge radii, nuclear binding energies, form factors, and post-Newtonian gravitational observables against Particle Data Group \cite{ref19,ref20} and astrophysical measurements \cite{ref21,ref28,ref29}, which test the physical model at the $1\text{--}5\%$ level).
+
+
+
+\section{Mathematical Formulation and Effective-Field-Theory Derivation of the Action}\label{sec:2}
+
+In this section, we construct the covariant Lagrangian density governing the $SU(2)$-valued wave medium and its emergent gravitational metric. Throughout this work, we adopt the mostly-plus Lorentzian metric signature $(-,+,+,+)$ with Minkowski metric $\eta_{\mu\nu} = \text{diag}(-1, +1, +1, +1)$ and totally antisymmetric Levi-Civita tensor $\epsilon^{0123} = +1/\sqrt{-g}$. Rather than introducing higher-derivative stabilizing operators phenomenologically, we derive both the quartic Skyrme term $\mathcal{L}_4$ and the sextic topological-current term $\mathcal{L}_6$ via a controlled low-energy effective field theory (EFT) reduction of the Hidden Local Symmetry (HLS) vector-meson Lagrangian, and establish a quantitative truncation error budget $\sigma_{\text{EFT}}$ for the resulting derivative expansion.
+
+
+\subsection{The Fundamental $SU(2)$ Wave Medium and Effective Vacuum Metric}\label{sec:2.1}
+
+We consider a continuous $(3+1)$-dimensional wave medium described at every spatial coordinate $\mathbf{x} \in \mathbb{R}^3$ and evolution parameter $t \in \mathbb{R}$ by a unitary matrix field $U(\mathbf{x}, t) \in SU(2)$:
+\begin{equation}
+\begin{gathered}
+U(\mathbf{x}, t) = \sigma(\mathbf{x}, t)\mathbf{I}_2 + i\,\boldsymbol{\pi}(\mathbf{x}, t)\cdot\boldsymbol{\tau}, \\
+\sigma^2(\mathbf{x}, t) + |\boldsymbol{\pi}(\mathbf{x}, t)|^2 = 1
+\end{gathered}
+\end{equation}
+where $\mathbf{I}_2$ is the $2\times 2$ identity matrix, $\boldsymbol{\tau} = (\tau_1, \tau_2, \tau_3)$ are the Pauli matrices, and $(\sigma,\allowbreak \pi_1,\allowbreak \pi_2,\allowbreak \pi_3) \in S^3$ parameterize the unit three-sphere manifold $SU(2) \cong S^3$.
+
+In the static, isotropic weak-field regime, the wave medium possesses a local dielectric permittivity and magnetic/elastic permeability $\varepsilon(\mathbf{x}, t) = \mu(\mathbf{x}, t) = n(\mathbf{x}, t)$, defining an effective optical spacetime metric $g_{\mu\nu}^{\text{eff}}$ experienced by all propagating and stationary wave excitations \cite{ref12,ref14,ref17}:
+\begin{multline}
+g_{\mu\nu}^{\text{eff}}(\mathbf{x}, t)\,dx^\mu dx^\nu = -e^{2\Phi(\mathbf{x}, t)/c^2} c^2 dt^2 \\
++ e^{-2\Phi(\mathbf{x}, t)/c^2}\left(dx^2 + dy^2 + dz^2\right)
+\end{multline}
+In \hyperref[sec:5.3]{Section 5.3}, we generalize this isotropic scalar metric to a full rank-2 dynamical frame metric $g_{\mu\nu} = \eta_{ab} e^a_\mu e^b_\nu$ induced by the 1-loop heat-kernel expansion of the wave medium.
+
+
+\subsection{Controlled EFT Generation of $\mathcal{L}_4$, $\mathcal{L}_6$, Parameter Accounting, and Truncation Error Budget}\label{sec:2.2}
+
+In a low-energy effective field theory (EFT), the fourth-order Skyrme term $\mathcal{L}_4$ and sixth-order topological-current term $\mathcal{L}_6$ arise systematically from a two-derivative gauge-coupled chiral Lagrangian when short-distance vector excitations ($\rho_\mu \in \mathfrak{su}(2)$ and $\omega_\mu \in \mathfrak{u}(1)$) are integrated out below the matching scale $\mu_{\text{match}} \sim m_\rho \approx 775\text{ MeV}$ via Hidden Local Symmetry (HLS) \cite{ref6,ref7,ref8,ref9,ref10,ref48,ref49}.
+
+Specifically, consider the two-derivative chiral wave medium coupled to dynamical isovector fields $\rho_\mu = \frac{1}{2}\boldsymbol{\rho}_\mu \cdot \boldsymbol{\tau}$ (mass $m_\rho = 775.26\text{ MeV}$, gauge coupling $g_\rho$) and the isoscalar $\omega_\mu$ field (mass $m_\omega = 782.65\text{ MeV}$, coupled to the topological baryon current $B^\mu$ with strength $g_\omega$) in signature $(-,+,+,+)$:
+\begin{multline}
+\mathcal{L}_{\text{HLS}} = \frac{f_\pi^2}{4}g^{\mu\nu}\text{Tr}(L_\mu L_\nu) - \frac{1}{2g_\rho^2}\text{Tr}(\rho_{\mu\nu}\rho^{\mu\nu}) \\
+- m_\rho^2\text{Tr}\!\left(\rho_\mu - \frac{i}{2}L_\mu\right)^2 - \frac{1}{4}\omega_{\mu\nu}\omega^{\mu\nu} \\
+- \frac{1}{2}m_\omega^2 g^{\mu\nu}\omega_\mu \omega_\nu - g_\omega \omega_\mu B^\mu + \mathcal{L}_0
+\end{multline}
+where $L_\mu = U^\dagger \partial_\mu U \in \mathfrak{su}(2)$ is the anti-Hermitian Maurer--Cartan strain current (satisfying $\text{Tr}(L_\mu L_\nu) = \allowbreak -\text{Tr}(\partial_\mu U^\dagger \partial_\nu U)$, so $\frac{f_\pi^2}{4}g^{\mu\nu}\text{Tr}(L_\mu L_\nu) = \allowbreak -\frac{f_\pi^2}{4}g^{\mu\nu}\text{Tr}(\partial_\mu U^\dagger \partial_\nu U) > 0$ for timelike variations) and $B^\mu = \allowbreak \frac{1}{24\pi^2}\epsilon^{\mu\nu\alpha\beta}\text{Tr}(L_\nu L_\alpha L_\beta)$ is the identically conserved topological current ($\nabla_\mu B^\mu \equiv 0$).
+
+At length scales $r \gtrsim m_\rho^{-1}, m_\omega^{-1} \approx 0.25\text{ fm}$, expanding the heavy vector propagators in powers of $\partial^2 / m_V^2$ yields the adiabatic field equations:
+\begin{multline}
+\rho_\mu = \frac{i}{2}L_\mu + \mathcal{O}\!\left(\frac{\partial^2}{m_\rho^2}\right) \\
+\implies \rho_{\mu\nu} = \partial_\mu \rho_\nu - \partial_\nu \rho_\mu - i[\rho_\mu, \rho_\nu] \longrightarrow \frac{i}{4}[L_\mu, L_\nu]
+\end{multline}
+\begin{multline}
+\left(-\Box + m_\omega^2\right)\omega_\mu = -g_\omega B_\mu \\
+\implies \omega_\mu \longrightarrow -\frac{g_\omega}{m_\omega^2} B_\mu + \mathcal{O}\!\left(\frac{\Box}{m_\omega^4}B_\mu\right)
+\end{multline}
+Substituting these expressions into $\mathcal{L}_{\text{HLS}}$ generates the quartic Skyrme term $\mathcal{L}_4$ (from $\rho_\mu$ exchange) and the sextic BPS topological-current term $\mathcal{L}_6$ (from short-range repulsive $\omega_\mu$ exchange):
+\begin{equation}
+\begin{gathered}
+\mathcal{L}_4 = \frac{1}{32 e_S^2}\text{Tr}\!\left([L_\mu, L_\nu][L^\mu, L^\nu]\right) \quad \left(e_S \equiv g_\rho\right), \\
+\mathcal{L}_6 = +\frac{\lambda_6^2}{2}\,g_{\mu\nu} B^\mu B^\nu = -\frac{\lambda_6^2}{2}(B^0)^2 + \frac{\lambda_6^2}{2}\mathbf{B}^2 \; \left(\lambda_6 \equiv \frac{g_\omega}{m_\omega}\right)
+\end{gathered}
+\end{equation}
+so that for a static configuration ($B^i = 0$), the sextic contribution to the static Hamiltonian density $\mathcal{H}_6 = -\mathcal{L}_6^{\text{static}} = +\frac{\lambda_6^2}{2}(B^0)^2 > 0$ is strictly positive and repulsive.
+
+\textbf{Explicit Parameter Accounting \& the KSRF Relation:}
+It is important to be transparent about how many independent parameters enter this EFT reduction:
+\begin{enumerate}
+  \item The UV meson Lagrangian $\mathcal{L}_{\text{HLS}}$ is specified by the empirical meson masses and decay constants $(f_\pi,\allowbreak m_\pi,\allowbreak m_\rho,\allowbreak m_\omega)$---all fixed directly by experiment ($f_\pi = 92.4\text{ MeV}$, $m_\pi = 138.0\text{ MeV}$, $m_\rho = 775.26\text{ MeV}$, $m_\omega = 782.65\text{ MeV}$ \cite{ref19,ref20})---plus the vector couplings $(g_\rho, g_\omega)$ at matching scale $\mu_{\text{match}} = m_\rho$.
+  \item In Hidden Local Symmetry, the \textbf{Kawarabayashi--Suzuki--Riazuddin--Fayyazuddin (KSRF) relation} \cite{ref9,ref10} fixes $g_\rho$ in terms of $m_\rho$ and $f_\pi$ with \textbf{zero free parameters}:
+\begin{multline}
+m_\rho^2 = 2 g_\rho^2 f_\pi^2 \implies e_S^{\text{KSRF}} = g_\rho = \frac{m_\rho}{\sqrt{2}\,f_\pi} \\
+= \frac{775.26\text{ MeV}}{\sqrt{2}\times 92.4\text{ MeV}} = 5.933
+\end{multline}
+  while $U(2)_V$ flavor symmetry relates $g_\omega \approx \frac{3}{2}g_\rho$, giving $\lambda_6 = g_\omega/m_\omega \approx 0.0114\text{ MeV}^{-1}$ (dimensionless $c_6 = 0.065$).
+  \item \textbf{Quantitative EFT Truncation Error Budget ($\sigma_{\text{EFT}}$):} Truncating the local derivative expansion at sixth order ($\mathcal{L}_2 + \mathcal{L}_4 + \mathcal{L}_6$) and quantizing via rigid collective coordinates introduces three quantifiable theoretical uncertainties:
+  \begin{itemize}
+    \item \textit{Omitted Eight-Derivative ($\mathcal{O}(\partial^8 / m_\rho^4)$) Terms:} For a soliton of VMD-dressed RMS radius $R_{\text{core}} \equiv r_{E,I=0} \approx 0.703\text{--}0.761\text{ fm}$, the ground-state cavity gradient momentum is $p_{\text{core}} = \frac{\pi \hbar c}{2 R_{\text{core}}} \approx 407\text{--}441\text{ MeV}$. Expanding the vector-meson propagators $(1 + p_{\text{core}}^2/m_\rho^2)^{-1}$ to second order omits terms of relative magnitude:
+\begin{multline}
+\delta_{\partial^8} \sim \left(\frac{p_{\text{core}}}{m_\rho}\right)^4 = \left(\frac{\pi \hbar c}{2 R_{\text{core}} m_\rho}\right)^4 \\
+= \begin{cases} 10.47\% & (\text{KSRF, } R_{\text{core}} = 0.703\text{ fm}) \\ 7.61\% & (\text{Calibrated VMD, } R_{\text{core}} = 0.761\text{ fm}) \end{cases}
+\end{multline}
+    \item \textit{Subleading $1/N_c^2$ and 1-Loop Chiral Casimir Renormalization:} Including the leading $\mathcal{O}(N_c^0)$ 1-loop chiral Casimir and HLS counterterm energy functional $E_{\text{eff}}^{\text{1-loop}}[F] = E_{\text{dimless}}[F] - \frac{3}{5}E_4[F]$ \cite{ref6,ref7,ref8} identically across both the meson-only KSRF and calibrated VMD evaluations, residual 2-loop / subleading $1/N_c^2$ operator renormalizations contribute $\delta_{\text{1-loop}/N_c} \approx 5.5\%$ on ground-state $J = I = 1/2$ nucleon observables. For the excited $J = I = 3/2$ $\Delta(1232)$ resonance, rapid collective rotation centrifugally deforms the static hedgehog core and couples strongly to the open $\Delta \to N\pi$ decay channel ($\Gamma_\Delta \approx 117\text{ MeV}$), introducing a known rigid-rotor truncation uncertainty $\delta_{\text{centrifugal}}(\Delta) \approx 13.5\%$ \cite{ref6,ref7,ref8}.
+    \item \textit{Isospin Breaking \& Electromagnetic Self-Energy:} Up-down quark mass splitting ($m_d - m_u$) and Coulomb self-energy contribute $\delta_{\text{iso/EM}} \approx 1.5\%$.
+    \item \textbf{Combined Theoretical EFT Uncertainty:} Adding these independent contributions in quadrature yields a total theoretical EFT uncertainty budget of:
+\begin{equation}
+\begin{gathered}
+\sigma_{\text{EFT}}(J=1/2) = \sqrt{\delta_{\partial^8}^2 + \delta_{\text{1-loop}/N_c}^2 + \delta_{\text{iso/EM}}^2} \\
+= \pm 11.92\% \;\text{(KSRF)}\quad [\pm 9.51\%\;\text{(VMD)}], \\
+\sigma_{\text{EFT}}(J=3/2, M_\Delta) = \pm 17.15\% \;\text{(KSRF)} \\
+[\pm 15.57\%\;\text{(VMD)}]
+\end{gathered}
+\end{equation}
+  \end{itemize}
+  \item Consequently, in \hyperref[sec:4.3]{Section 4.3} (\textbf{\hyperref[tab:table1]{Table 1}}), we report both the \textbf{pure meson-sector KSRF prediction (zero baryon-sector free parameters)}---which agrees with all experimental $J=1/2$ nucleon observables within $0.19\text{--}1.10\,\sigma_{\text{EFT}}$---and the \textbf{$(M_N, M_\Delta)$-calibrated BVP fit} ($f_\pi = 81.41\text{ MeV}, e_S = 5.079$), demonstrating that the $11.9\%$ renormalization of $f_\pi$ ($1.00\,\sigma_{\text{EFT}}$) and $14.4\%$ shift in $e_S$ ($1.21\,\sigma_{\text{EFT}}$) sit within the expected $\sigma_{\text{EFT}}$ finite-order renormalization window.
+
+\end{enumerate}
+
+\subsection{The Wess--Zumino--Witten (WZW) Anomaly and Complete Unified Lagrangian}\label{sec:2.3}
+
+Simultaneously, the underlying $N_c = 3$ meron substructure (\hyperref[sec:3.3]{Section 3.3}) induces the topological \textbf{Wess--Zumino--Witten (WZW) 5-form anomaly action} \cite{ref4,ref5} on the 5-dimensional manifold $\mathcal{B}_5$ bounding spacetime ($\partial \mathcal{B}_5 = M_4$):
+\begin{equation}
+\Gamma_{\text{WZW}}[U] = -\frac{i N_c}{240\pi^2}\!\int_{\mathcal{B}_5}\!\epsilon^{IJKLM}\text{Tr}\!\left(L_I L_J L_K L_L L_M\right) d^5x
+\end{equation}
+When a $B=1$ soliton is adiabatically rotated by $2\pi$ in space or when two identical $B=1$ solitons are exchanged, Witten demonstrated \cite{ref4,ref5} that $\Gamma_{\text{WZW}} = \pi N_c$, multiplying the quantum path-integral amplitude by:
+\begin{equation}
+\exp\!\left(i \Gamma_{\text{WZW}}\right) = e^{i \pi N_c} = (-1)^{N_c} = (-1)^3 = -1
+\end{equation}
+Thus, the Finkelstein--Rubinstein fermionic sign is uniquely mandated by the $N_c = 3$ triadic sub-entity structure of the baryon.
+
+Combining $\mathcal{L}_2$, $\mathcal{L}_4$, $\mathcal{L}_6$, the pion mass-gap potential $\mathcal{L}_0$, and the vacuum gravitational sector in signature $(-,+,+,+)$ yields the unified Lagrangian density:
+\begin{multline}
+\mathcal{L} = \sqrt{-g}\Bigl[ \frac{F_\pi^2}{16}\,\text{Tr}\!\left(g^{\mu\nu} L_\mu L_\nu\right) \\
++ \frac{1}{32 e_S^2}\,\text{Tr}\!\left([L_\mu, L_\nu][L_\alpha, L_\beta]\,g^{\mu\alpha} g^{\nu\beta}\right) + \frac{\lambda_6^2}{2}\,g_{\mu\nu}B^\mu B^\nu \\
++ \frac{F_\pi^2 m_\pi^2}{32}\,\text{Tr}\!\left(U + U^\dagger - 2\mathbf{I}_2\right) + \mathcal{L}_{\text{grav}}[g_{\mu\nu}] \Bigr]
+\end{multline}
+\textit{(Convention note: we record both the ANW normalization $F_\pi = 2 f_\pi \approx 184.8\text{ MeV}$ \cite{ref43} and the standard chiral perturbation theory normalization $f_\pi = F_\pi/2 \approx 92.4\text{ MeV}$, so that for $U = \cos F\,\mathbf{I}_2 + i\sin F\,(\hat{\mathbf{x}}\cdot\boldsymbol{\tau})$, $-\mathcal{L}_0 = \frac{1}{8}F_\pi^2 m_\pi^2(1 - \cos F) = \frac{1}{2}f_\pi^2 m_\pi^2(1 - \cos F)$, explicitly listing both $f_\pi$ and $F_\pi$ in \hyperref[tab:table1]{Table 1}).}
+
+
+
+\section{Topological Charge Quantization, Virial Stability, and Sub-Entity Confinement}\label{sec:3}
+
+Having established the effective action of the $SU(2)$ wave medium, we now analyze the static and dynamical stability of its localized soliton solutions. We show that compactification of spatial infinity quantizes baryon number as an exact homotopy invariant $B \in \pi_3(S^3) = \mathbb{Z}$, solve the un-rescaled 6-derivative Euler--Lagrange boundary-value problem via 4th-order Lobatto collocation, and prove that Cho--Faddeev--Niemi abelian projection onto the flag manifold $F_2 = SU(3)/U(1)^2$ decomposes the $B=1$ soliton into three confined $B=1/3$ meron sub-entities.
+
+
+\subsection{Homotopy Winding Number $B \in \pi_3(S^3) = \mathbb{Z}$}\label{sec:3.1}
+
+For any finite-energy wave configuration, the field must approach the uniform vacuum state at spatial infinity: $\lim_{|\mathbf{x}|\to\infty} U(\mathbf{x}, t) = \mathbf{I}_2$. This boundary condition compactifies three-dimensional physical space $\mathbb{R}^3 \cup \{\infty\}$ into a topological three-sphere $S^3_{\text{space}}$. Consequently, any smooth configuration $U(\mathbf{x})$ defines a map $S^3_{\text{space}} \to SU(2) \cong S^3_{\text{target}}$, classified by the third homotopy group $\pi_3(S^3) = \mathbb{Z}$:
+\begin{multline}
+B = \int_{\mathbb{R}^3} B^0(\mathbf{x})\,d^3x \\
+= -\frac{1}{24\pi^2} \int_{\mathbb{R}^3} \epsilon^{ijk}\,\text{Tr}\!\left(L_i L_j L_k\right) d^3x \in \mathbb{Z}
+\end{multline}
+Because $\partial_\mu B^\mu = 0$ holds as an algebraic geometric identity independent of the equations of motion, a wave entity with winding $B = 1$ cannot unwind into linear radiation under any smooth time evolution.
+
+
+\subsection{Exact Collocation Boundary-Value Problem and Derrick's Virial Theorem}\label{sec:3.2}
+
+For the fundamental $B = 1$ state, the energy-minimizing configuration takes the spherically symmetric ``hedgehog'' ansatz:
+\begin{multline}
+U_0(\mathbf{x}) = \exp\!\left(i F(r)\,\hat{\mathbf{x}}\cdot\boldsymbol{\tau}\right) \\
+= \cos F(r)\,\mathbf{I}_2 + i\sin F(r)\,(\hat{\mathbf{x}}\cdot\boldsymbol{\tau}), \qquad r = |\mathbf{x}|
+\end{multline}
+with boundary conditions $F(0) = \pi$ and $F(\infty) = 0$ (\textbf{\hyperref[fig:fig1]{Figure 1(a)}} and \textbf{\hyperref[fig:fig7]{Figure 7(a)}}). Substituting $U_0(\mathbf{x})$ into the topological density yields:
+\begin{multline}
+B = -\frac{2}{\pi}\int_0^\infty \sin^2 F(r)\,\frac{dF}{dr}\,dr \\
+= \frac{1}{\pi}\Bigl[F(0) - F(\infty) - \frac{1}{2}\left(\sin 2F(0) - \sin 2F(\infty)\right)\Bigr] = 1
+\end{multline}
+
+In dimensionless Skyrme length units $x = e_S F_\pi r$, the classical static soliton energy functional is $E_{\text{dimless}}[F] = E_2 + E_4 + E_6 + E_0$ (with physical core energy $E_{\text{static}}[F] = \frac{F_\pi}{e_S} E_{\text{dimless}}[F]$), where:
+\begin{multline}
+E_{\text{dimless}}[F] = \frac{\pi}{2}\int_0^\infty dx\Bigl\{ \underbrace{\left(x^2 F'^2 + 2\sin^2 F\right)\vphantom{\left(\frac{\sin^2 F}{x^2}\right)}}_{\mathcal{E}_2(x)} \\
++ \underbrace{4\sin^2 F\left(2 F'^2 + \frac{\sin^2 F}{x^2}\right)}_{\mathcal{E}_4(x)} + \underbrace{8 c_6\,\frac{\sin^4 F\,F'^2}{x^2}\vphantom{\left(\frac{\sin^2 F}{x^2}\right)}}_{\mathcal{E}_6(x)} \\
++ \underbrace{2\beta_\pi^2 x^2 (1 - \cos F)\vphantom{\left(\frac{\sin^2 F}{x^2}\right)}}_{\mathcal{E}_0(x)} \Bigr\}
+\end{multline}
+and the dimensionless sextic and pion-mass couplings are explicitly related to the Lagrangian parameters of \hyperref[sec:2.2]{Section 2.2} by:
+\begin{equation}\begin{gathered}
+c_6 \equiv \frac{e_S^4 F_\pi^2 \lambda_6^2}{2\pi^3} = \frac{2 e_S^4 f_\pi^2 \lambda_6^2}{\pi^3}, \\
+\beta_\pi \equiv \frac{m_\pi}{e_S F_\pi} = \frac{m_\pi}{2 e_S f_\pi}
+\end{gathered}\end{equation}
+Varying $E_{\text{dimless}}[F]$ with respect to $F(x)$ yields the \textbf{exact second-order nonlinear Euler--Lagrange boundary-value differential equation}:
+\begin{multline}
+\frac{d}{dx}\!\left[\left(x^2 + 8\sin^2 F + \frac{8 c_6 \sin^4 F}{x^2}\right) F'\right] \\
+= \sin(2F)\!\Bigl[1 + 4\left(F'^2 + \frac{\sin^2 F}{x^2}\right) \\
++ \frac{8 c_6 \sin^2 F\,F'^2}{x^2}\Bigr] + \beta_\pi^2 x^2 \sin F
+\end{multline}
+subject to $F(0) = \pi$ and $F(\infty) = 0$. Under a spatial dilation $\mathbf{x} \to \mathbf{x}/\lambda$ (scaling the soliton radius by $\lambda = R/R^*$), the static energy decomposes into scaling powers $E(\lambda) = \lambda E_2 + \lambda^{-1} E_4 + \lambda^{-3} E_6 + \lambda^3 E_0$, so any exact solution of the Euler--Lagrange ODE automatically satisfies the \textbf{Derrick Virial Identity} \cite{ref18} without any post-hoc coordinate rescaling:
+\begin{equation}\begin{gathered}
+E_2 - E_4 - 3E_6 + 3E_0 = 0, \\
+\left.\frac{d^2 E}{d\lambda^2}\right|_{\lambda=1} = 2E_4 + 12E_6 + 6E_0 > 0
+\end{gathered}\end{equation}
+
+Solving this two-point boundary-value problem directly via 4th-order Lobatto collocation (\texttt{scipy.integrate.solve\_bvp}, tolerance $10^{-9}$) on $x \in [10^{-4}, 25.0]$ with \textbf{zero post-rescaling} (\hyperref[sec:9]{Section 9}) yields the converged dimensionless functionals:
+\begin{itemize}
+  \item \textbf{4-Derivative ANW BVP ($c_6 = 0, \beta_\pi = 0.263$):} $B = 1.000000$, $E_2 = 15.992$, $E_4 = 21.043$, $E_6 = 0.000$, $E_0 = 1.684$, $E_{\text{dimless}} = 38.718$, pointwise ODE RMS residual $2.09 \times 10^{-8}$, and \textbf{un-rescaled Derrick virial residual} $|E_2 - E_4 - 3E_6 + 3E_0|/E_{\text{dimless}} = 2.11 \times 10^{-7}$.
+  \item \textbf{6-Derivative HLS/VMD BVP ($c_6 = 0.065, \beta_\pi = 0.263$):} $B = 1.000000$, $E_2 = 16.512$, $E_4 = 20.423$, $E_6 = 0.508$, $E_0 = 1.812$, $E_{\text{dimless}} = 39.254$, pointwise ODE RMS residual $1.58 \times 10^{-8}$, and \textbf{un-rescaled Derrick virial residual} $|E_2 - E_4 - 3E_6 + 3E_0|/E_{\text{dimless}} = 2.32 \times 10^{-7}$.
+
+\end{itemize}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig1_topological_soliton_structure.png}
+\caption{Topological Soliton Structure, Virial Stability, and Fractional Meron Confinement: (a) Converged radial chiral profile $F(r)$ from 4th-order Lobatto collocation (\texttt{solve\_bvp}) and topological baryon charge density $4\pi r^2 B^0(r)$ integrating to $B = 1.000000$; (b) Derrick scaling curve $E(\lambda) = \lambda E_2 + \lambda^{-1} E_4 + \lambda^{-3} E_6 + \lambda^3 E_0$ showing the non-singular equilibrium minimum at $\lambda = R/R^* = 1.0000$ where attractive quadratic gradient energy $E_2$ balances repulsive Skyrme/BPS core stiffness $E_4 + 3E_6$; (c) Dynamical confinement of fractional $B = 1/3$ meron sub-entities via linear topological flux-tube string tension $E_{\text{sep}}(d) \propto \sigma_{\text{string}} d$ (left axis) and spontaneous $120^\circ$ phase-locked equilateral relaxation (inset) alongside radiative decay of isolated $Q = 35$ sub-entities above the vacuum mass gap versus infinite lifetime of the bound $Q = 105$ triad below the continuum threshold (right axis).}
+\label{fig:fig1}
+\end{figure*}
+
+
+
+\subsection{Flag-Manifold $F_2 = SU(3)/U(1)^2$ Abelian Projection, $B=1/3$ Merons, and Confinement}\label{sec:3.3}
+
+The internal decomposition of a $B = 1$ baryon into \textbf{three fractional $B = 1/3$ sub-entities (merons)} follows geometrically when the $SU(2)$ chiral field is embedded into the flavor/color $SU(3)$ manifold, where the \textbf{Cho--Faddeev--Niemi (CFN) abelian projection} \cite{ref39,ref40,ref41,ref42} maps the soliton onto the \textbf{maximal flag manifold}:
+\begin{equation}\begin{gathered}
+F_2 = \frac{SU(3)}{U(1)_3 \times U(1)_8}, \\
+\pi_2\!\left(F_2\right) = \pi_1\!\left(U(1)^2\right) = \mathbb{Z} \oplus \mathbb{Z}
+\end{gathered}\end{equation}
+Specifically, let $\mathbf{n}_3(\mathbf{x}) = U^\dagger(\mathbf{x}) T_3 U(\mathbf{x})$ and $\mathbf{n}_8(\mathbf{x}) = U^\dagger(\mathbf{x}) T_8 U(\mathbf{x})$ denote the two orthogonal Cartan subalgebra color directions. The Weyl group $W(SU(3)) \cong S_3$ permutes the three fundamental weight/root vectors in the two-dimensional Cartan plane:
+\begin{equation}\begin{gathered}
+\boldsymbol{\alpha}_1 = (1,\,0), \qquad \boldsymbol{\alpha}_2 = \left(-\frac{1}{2},\,\frac{\sqrt{3}}{2}\right), \\
+\boldsymbol{\alpha}_3 = \left(-\frac{1}{2},\,-\frac{\sqrt{3}}{2}\right), \qquad \sum_{a=1}^3 \boldsymbol{\alpha}_a = (0,\,0)
+\end{gathered}\end{equation}
+Decomposing the topological baryon density $B^0(\mathbf{x})$ onto the three Weyl root sectors ($\Phi_a(\mathbf{x}) = r e^{i(\phi - \phi_a)} - d_0$ with $\phi_a = 2\pi(a-1)/3$) splits the integer $\pi_3(S^3)$ wrapping into three symmetric monopole-vortex intersections (merons), each carrying exact fractional topological charge (with the color-neutral root sum verified numerically to $< 10^{-15}$):
+\begin{equation}\begin{gathered}
+B_a = \frac{1}{N_c}\int_{\mathbb{R}^3} B^0(\mathbf{x})\,d^3x = \frac{1}{3}, \\
+\sum_{a=1}^3 B_a = 1, \qquad \left\|\sum_{a=1}^3 \boldsymbol{\alpha}_a\right\| = 0
+\end{gathered}\end{equation}
+Furthermore, our 3D non-linear wave simulations demonstrate two complementary dynamical confinement mechanisms shown in \textbf{\hyperref[fig:fig1]{Figure 1(c)}} and \textbf{\hyperref[fig:fig7]{Figure 7(b)}}:
+
+\begin{enumerate}
+  \item \textbf{Mass-Gap Stability Threshold (Why Isolated Sub-Entities Decay While Triads Persist):} In a 3D non-linear Klein--Gordon/Q-ball representation of the sub-entities, a single constituent entity with charge $Q_1 = 35$ has an energy per unit charge \textbf{above} the vacuum continuum mass gap:
+\begin{equation}\begin{gathered}
+\frac{E(Q_1)}{m_0 Q_1} = 1.1379 > 1 \implies \Gamma_{\text{rad}} = 0.0434 > 0 \\
+(\tau_{1/2} = 15.96\text{ time units})
+\end{gathered}\end{equation}
+  Consequently, an isolated single sub-entity is merely metastable and radiatively disperses into continuum waves. However, when \textbf{three} such entities coalesce into a composite baryon ($Q_{\text{comp}} = 3Q_1 = 105$), mutual non-linear self-trapping deepens the central potential well and lowers the energy per unit charge \textbf{below} the vacuum mass gap:
+\begin{equation}\begin{gathered}
+\frac{E(3Q_1)}{m_0 (3Q_1)} = 0.9922 < 1, \\
+\omega_{\text{comp}} = 0.7950\,m_0 < m_0 \implies \Gamma_{\text{rad}} = 0, \quad \tau_{1/2} = \infty
+\end{gathered}\end{equation}
+  Because its internal oscillation frequency $\omega_{\text{comp}}$ lies below the minimum propagation frequency $m_0$ of free vacuum waves, radiative dispersion is kinematically forbidden.
+  \item \textbf{Triadic $120^\circ$ Phase-Locking and Linear Topological String Tension:} When three $B=1/3$ wave entities interact via internal phase-exchange coupling, damped relaxation from random initial positions and phases converges spontaneously into an \textbf{equilateral triangle} (side lengths $[3.671, 3.702, 3.718]$) with exact \textbf{$120^\circ$ phase locking} ($[119.99^\circ, 120.00^\circ, 120.00^\circ]$), neutralizing their far-field color dipole moment to $|\mathbf{D}_{\text{net}}| = 9.06 \times 10^{-5}$. Attempting to pull a single $B=1/3$ meron to a macroscopic distance $d$ creates a topological domain-wall flux tube whose energy grows linearly ($E_{\text{sep}}(d) \propto \sigma_{\text{string}} d$, reaching $121.25$ vs. the unstretched equilibrium energy $74.76$ at $d = 14 R_0$ in 3D lattice units $f_\pi/e_S$, corresponding to $2 E_{\text{dimless}}$ in the $F_\pi = 2f_\pi$ ANW convention of \hyperref[sec:3.2]{Section 3.2}), strictly confining fractional sub-entities within the composite nucleon.
+
+\end{enumerate}
+
+
+\section{Spinor Quantization, Relativistic Kinematics, Full Nucleon Spectroscopy, and Near-BPS Nuclear Binding}\label{sec:4}
+
+We next quantize the rotational and translational collective coordinates of the $B=1$ soliton to extract its spin statistics, relativistic dispersion, and static electroweak observables. By evaluating a single set of mode-independent HLS/VMD integral operators on our converged boundary-value profiles, we compare the minimal 4-derivative Adkins--Nappi--Witten (ANW) baseline, the zero-baryon-fit KSRF meson-sector prediction, and the $(M_N, M_\Delta)$-calibrated 6-derivative VMD solution across both single-nucleon spectroscopy and $B=2,4$ multi-soliton nuclear binding.
+
+
+\subsection{Finkelstein--Rubinstein Spin-$1/2$ Quantization and Vector-Meson-Dressed Inertia}\label{sec:4.1}
+
+Because the fundamental group of the $B=1$ field configuration space $\mathcal{Q}_1$ is $\pi_1(\mathcal{Q}_1) = \pi_4(S^3) = \mathbb{Z}_2$, a continuous $2\pi$ spatial rotation of a $B=1$ soliton defines a non-contractible loop in configuration space, whereas a $4\pi$ ($720^\circ$) rotation is contractible \cite{ref11}. Promoting the soliton's collective orientation to an adiabatic $SU(2)$ rotor matrix $A(t) \in SU(2)$ via $U(\mathbf{x}, t) = A(t)\,U_0(\mathbf{x})\,A^\dagger(t)$ yields the collective rotor Lagrangian:
+\begin{equation}\begin{gathered}
+L_{\text{rot}} = -M_0 c^2 + \frac{\Lambda}{2}\,\text{Tr}\!\left(\dot{A}\dot{A}^\dagger\right) = -M_0 c^2 + \frac{1}{2}\Lambda\,\boldsymbol{\Omega}^2, \\
+\Lambda_{\text{bare}} = \frac{1}{e_S^3 F_\pi}\,\Lambda_{\text{dimless}}[F]
+\end{gathered}\end{equation}
+where the dimensionless bare moment of inertia functional decomposes into quadratic, quartic, and sextic contributions $\Lambda_{\text{dimless}}[F] = \Lambda_2 + \Lambda_4 + \Lambda_6$:
+\begin{multline}
+\Lambda_{\text{dimless}}[F] = \frac{2\pi}{3}\int_0^\infty dx\,x^2 \sin^2 F\Bigl[\underbrace{1\vphantom{\left(\frac{\sin^2 F}{x^2}\right)}}_{\Lambda_2} \\
++ \underbrace{4\left(F'^2 + \frac{\sin^2 F}{x^2}\right)}_{\Lambda_4} + \underbrace{8 c_6\,\frac{\sin^2 F\,F'^2}{x^2}\vphantom{\left(\frac{\sin^2 F}{x^2}\right)}}_{\Lambda_6}\Bigr]
+\end{multline}
+For our converged \texttt{solve\_bvp} profiles, $\Lambda_2 = 23.434, \Lambda_4 = 39.509$ ($\Lambda_{\text{dimless}} = 62.943$) in the 4-derivative ANW model, and $\Lambda_2 = 25.029, \Lambda_4 = 41.034, \Lambda_6 = 1.030$ ($\Lambda_{\text{dimless}} = 67.093$) in the 6-derivative HLS model. Moreover, in Hidden Local Symmetry / Vector-Meson Dominance (HLS/VMD) \cite{ref6,ref7,ref8}, adiabatic rotation excites the spatial $\rho_i$ and temporal $\omega_0$ vector meson fields ($\rho_i^{\text{rot}} \propto \allowbreak \epsilon_{ijk}\Omega_j x_k$, $\omega_0^{\text{rot}} \propto \allowbreak (\boldsymbol{\Omega}\times\mathbf{x})\cdot\mathbf{B}$), doubling the vector-meson-mediated $\Lambda_4 + \Lambda_6$ contribution to the total physical moment of inertia:
+\begin{equation}\begin{gathered}
+\Lambda_{\text{VMD}}[F] = \Lambda_{\text{dimless}}[F] + \Lambda_4[F] + \Lambda_6[F] \\
+= 67.093 + 41.034 + 1.030 = 109.157, \\
+\Lambda_{\text{phys}} = \frac{\Lambda_{\text{VMD}}[F]}{e_S^3 F_\pi}
+\end{gathered}\end{equation}
+
+Imposing the WZW-derived Finkelstein--Rubinstein constraint $\Psi(-A) = (-1)^{N_c}\Psi(A) = -\Psi(A)$ restricts the rotor Hilbert space to half-odd-integer spin/isospin Wigner $D$-matrices $D^{(j)}_{m_I, m_S}(A)$ with $j = I = S \in \{1/2, 3/2, 5/2, \dots\}$. As verified in \textbf{\hyperref[fig:fig2]{Figure 2(a)}}, the resulting $j = 1/2$ nucleon state transforms under spatial rotation by angle $\theta$ as $\langle \Psi_{1/2} | \hat{R}(\theta) | \Psi_{1/2} \rangle = \cos(\theta/2)$, yielding $-1.0000$ at $\theta = 2\pi$ (and under two-soliton exchange) and $+1.0000$ at $\theta = 4\pi$.
+
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig2_spinor_quantization_and_hadron_observables.png}
+\caption{Finkelstein--Rubinstein Spin-$1/2$ Quantization, Relativistic Inertia, and Baryon Spectroscopy: (a) Adiabatic $SU(2)$ rotor spinor phase $\langle\Psi_{1/2}|\hat{R}(\theta)|\Psi_{1/2}\rangle = \cos(\theta/2)$ demonstrating exact fermionic sign inversion ($-1.0000$) at $\theta = 2\pi$ (and under two-soliton exchange) and identity restoration ($+1.0000$) at $\theta = 4\pi$; (b) Relativistic spatial momentum $P(v) = \gamma(v)M_0 v$ (solid blue) and Lorentz core contraction $W(v) = W_0/\gamma(v)$ (dashed green) confirming $M_{\text{inertial}} = E_{\text{rest}}/c^2$ to $4.63 \times 10^{-14}$ across $v/c \in [0, 0.90]$; (c) Comparison of the static soliton core mass $M_0$ ($92.2\%$ of $M_N$), nucleon mass $M_N$ ($J=1/2$), $\Delta(1232)$ resonance mass $M_\Delta$ ($J=3/2$), and scaled magnetic moment ratio $|\mu_p/\mu_n|\times 500$ across the 4-derivative ANW baseline, 6-derivative KSRF zero-baryon-fit, and 6-derivative VMD-calibrated BVP against PDG experimental benchmarks.}
+\label{fig:fig2}
+\end{figure*}
+
+
+
+\subsection{Emergent Relativistic Inertia ($M = E_{\text{rest}}/c^2$) and De Broglie Kinematics}\label{sec:4.2}
+
+A stationary standing-wave soliton $\phi_0(\mathbf{x})e^{-i\omega_0 t}$ boosted to velocity $v$ transforms automatically into:
+\begin{equation}\begin{gathered}
+\phi_v(x, y, z, t) = \phi_0\!\left(\gamma(x - vt), y, z\right) \\
+\times \exp\!\left[-i\gamma\omega_0\!\left(t - \frac{v x}{c^2}\right)\right], \\
+\gamma(v) = \frac{1}{\sqrt{1 - v^2/c^2}}
+\end{gathered}\end{equation}
+Integrating the canonical field momentum density $T^{0x}$ over 3D space (\textbf{\hyperref[fig:fig2]{Figure 2(b)}} and \textbf{\hyperref[fig:fig7]{Figure 7(c)}}) confirms that total field momentum obeys $P(v) = \gamma(v) M_{\text{inertial}} v$ with $M_{\text{inertial}} = E_{\text{rest}}/c^2$ (solver consistency residual $4.63 \times 10^{-14}$ across $v/c \in [0, 0.90]$), while the boosted temporal oscillation $\exp(-i\omega_0 t')$ generates a relativistic Doppler phase modulation $\exp(i k_{\text{dB}} x)$ with De Broglie wavevector $k_{\text{dB}} = \gamma \omega_0 v / c^2 = P / \hbar_{\text{eff}}$.
+
+
+\subsection{Full Absolute Nucleon Spectroscopy via Mode-Independent HLS/VMD Integral Operators}\label{sec:4.3}
+
+To guarantee complete algorithmic transparency and zero hard-coded observable values, every static nucleon observable in the 6-derivative HLS/VMD framework is computed from \textbf{one identical set of mode-independent HLS/VMD integral operators} evaluated directly on the converged \texttt{solve\_bvp} solution $F(x)$ (with the corresponding bare 4-derivative ANW baseline operators \cite{ref43} at $c_6 = 0$, $\Lambda_{\text{phys}}^{\text{ANW}} = \Lambda_{\text{dimless}}/(e_S^3 F_\pi)$ recorded alongside for direct comparison):
+\begin{enumerate}
+  \item \textbf{1-Loop Renormalized Soliton Core Mass and Spin-Isospin Spectrum:} Including the 1-loop chiral pion-cloud Casimir + HLS counterterm subtraction $\Delta E_{\text{1-loop}}[F] = -\frac{3}{5}E_4[F]$ \cite{ref6,ref7,ref8} identically across both 6-derivative regimes ($E_{\text{eff}}^{\text{1-loop}}[F] = \allowbreak E_{\text{dimless}}[F] - \frac{3}{5}E_4[F] = \allowbreak 39.254 - 0.60(20.423) = 27.001$, and $38.718 - 0.60(21.043) = 26.092$ in 4-derivative ANW), the static core mass and rotor states are:
+\begin{equation}\begin{gathered}
+M_0 = \frac{F_\pi}{e_S}\,E_{\text{eff}}^{\text{1-loop}}[F], \qquad M_N = M_0 + \frac{3}{8\Lambda_{\text{phys}}}, \\
+M_\Delta = M_0 + \frac{15}{8\Lambda_{\text{phys}}}, \qquad \Delta M \equiv M_\Delta - M_N = \frac{3}{2\Lambda_{\text{phys}}}
+\end{gathered}\end{equation}
+  For any model calibrated to $(M_N, M_\Delta)$, these rotor relations algebraically fix $M_0 = M_N - \frac{1}{4}(M_\Delta - M_N) = 865.65\text{ MeV}$ ($92.2\%$ of $M_N$), whereas the uncalibrated KSRF meson prediction yields $M_0^{\text{KSRF}} = 841.04\text{ MeV}$ ($86.4\%$ of $M_N^{\text{KSRF}} = 973.61\text{ MeV}$).
+  \item \textbf{Bare Core and VMD-Dressed Isoscalar Radii ($r_{E,I=0}, r_{M,I=0}$):} From the BVP radial moments $\langle x^2 \rangle_{E,I=0} = \allowbreak -\frac{2}{\pi}\int_0^\infty x^2 \sin^2 F\,F'\,dx = \allowbreak 3.480$ ($3.347$ in 4-deriv ANW) and $\langle x^2 \rangle_{M,I=0} = \allowbreak (3/5)\allowbreak\bigl(\int_0^\infty x^4 \sin^2 F\,F'\,dx\bigr) / \allowbreak \bigl(\int_0^\infty x^2 \sin^2 F\,F'\,dx\bigr) = \allowbreak 4.022$ ($3.928$ in 4-deriv ANW), the bare soliton core radius (which equals $r_{E,I=0}^{\text{ANW}} = r_{E,\text{bare}}$ and $r_{M,I=0}^{\text{ANW}} = r_{M,\text{bare}}$ in the contact 4-derivative model without vector-meson propagators) and the $\omega_\mu$-dressed 6-derivative charge/magnetic radii are:
+\begin{equation}\begin{gathered}
+r_{E,\text{bare}} = \frac{\hbar c}{e_S F_\pi}\sqrt{\langle x^2 \rangle_{E,I=0}}, \\
+r_{E,I=0} = \sqrt{r_{E,\text{bare}}^2 + \frac{6(\hbar c)^2}{m_\omega^2}}, \\
+r_{M,I=0} = \sqrt{r_{M,\text{bare}}^2 + \frac{6(\hbar c)^2}{m_\omega^2}}
+\end{gathered}\end{equation}
+  \item \textbf{Mode-Independent Isoscalar and Isovector Magnetic Moment Operators ($\mu_{I=0}, \mu_{I=1}$):} Expressed in standard PDG nuclear magnetons $\mu_N = e\hbar / (2 M_N^{\text{PDG}} c)$ with the physical $N$--$\Delta$ kinematical scale $\Delta M_{N\Delta}^{\text{PDG}} = M_\Delta^{\text{PDG}} - M_N^{\text{PDG}} = 293.08\text{ MeV}$ (evaluating all regimes in identical magneton units without conflating $J=3/2$ centrifugal softening with the $J=1/2$ current operator), the VMD-dressed isoscalar moment incorporates the $\omega_\mu$-meson spatial current enhancement (prefactor $2/9$ on $r_{E,I=0}^2 = r_{E,\text{bare}}^2 + 6(\hbar c/m_\omega)^2$ \cite{ref6,ref7,ref8}), while the isovector moment includes the HLS rotational fraction $(\Lambda_4 + \Lambda_6)/\Lambda_{\text{VMD}}$ and radius ratio $r_{M,I=0}/r_{E,I=0}$ across both KSRF and VMD modes (reducing in 4-deriv ANW \cite{ref43} to $\mu_{I=0}^{\text{ANW}} = (1/9)[M_N^{\text{PDG}}\Delta M_{N\Delta}^{\text{PDG}}/(\hbar c)^2]\,r_{E,\text{bare}}^2$ and $\mu_{I=1}^{\text{ANW}} = M_N^{\text{PDG}}/\Delta M_{N\Delta}^{\text{PDG}} = (2/3)M_N^{\text{PDG}}\Lambda_{\text{phys}}^{\text{ANW}}$):
+\begin{equation}\begin{gathered}
+\mu_{I=0} = \frac{2}{9}\frac{M_N^{\text{PDG}}\,\Delta M_{N\Delta}^{\text{PDG}}}{(\hbar c)^2}\,r_{E,I=0}^2, \\
+\mu_{I=1} = \frac{M_N^{\text{PDG}}}{\Delta M_{N\Delta}^{\text{PDG}}}\!\left(1 + \frac{\Lambda_4[F] + \Lambda_6[F]}{\Lambda_{\text{VMD}}[F]}\right)\frac{r_{M,I=0}}{r_{E,I=0}}, \\
+\mu_{p,n} = \frac{1}{2}\!\left(\mu_{I=0} \pm \mu_{I=1}\right)
+\end{gathered}\end{equation}
+  \item \textbf{Axial-Vector Coupling Operator ($g_A$):} Evaluating the quadratic, quartic, and sextic axial-current integrals $D_{\text{axial}}[F] = D_2 + D_4 + D_6 = 11.357 + 8.732 + 1.494 = 21.584$ ($D_2 + D_4 = 10.678 + 8.455 = 19.133$ in 4-deriv ANW, where $g_A^{\text{ANW}} = (D_2 + D_4)/e_S^2$ \cite{ref43}) with the HLS rotational factor $\eta_{\text{VMD}} \equiv \Lambda_{\text{VMD}}[F]/\Lambda_{\text{dimless}}[F]$ and short-range core dressing $2(D_4 + D_6)$---where $1/e_S$ arises from the core scale $(e_S F_\pi)^{-1}$ and $1/g_\rho^{\text{KSRF}}$ from the HLS $\rho/a_1$ vertex \cite{ref6,ref7,ref8} (reducing to $1/e_S^2$ at $e_S = g_\rho^{\text{KSRF}}$)---yields:
+\begin{multline}
+D_{\text{axial}}[F] = -\frac{\pi}{3}\int_0^\infty dx\,x^2\Bigl\{ \left(F' + \frac{\sin 2F}{x}\right) \\
++ 4\left[\frac{2\sin^2 F}{x}F' + \sin(2F)\left(F'^2 + \frac{\sin^2 F}{x^2}\right)\right] \\
++ 12 c_6\,\frac{\sin^2 F}{x^2}\left[\frac{2\sin^2 F}{x}F' + \sin(2F)F'^2\right] \Bigr\}
+\end{multline}
+\begin{equation}\begin{gathered}
+g_A = \frac{\eta_{\text{VMD}}\,D_2[F] + 2\left(D_4[F] + D_6[F]\right)}{e_S\,g_\rho^{\text{KSRF}}}, \\
+\eta_{\text{VMD}} \equiv \frac{\Lambda_{\text{VMD}}[F]}{\Lambda_{\text{dimless}}[F]}
+\end{gathered}\end{equation}
+
+\end{enumerate}
+We compare three distinct regimes in \textbf{\hyperref[tab:table1]{Table 1}} and \textbf{\hyperref[fig:fig6]{Figure 6(a)}} against the EFT truncation uncertainty budget $\sigma_{\text{EFT}}(J=1/2) = \pm 11.92\%$ ($\sigma_{\text{EFT}}(J=3/2) = \pm 17.15\%$) derived in \hyperref[sec:2.2]{Section 2.2}:
+\begin{enumerate}
+  \item \textbf{Minimal 4-Derivative ANW BVP ($\mathcal{L}_2+\mathcal{L}_4+\mathcal{L}_0$, $c_6 = 0$, calibrated to $M_N, M_\Delta$):} Solving the exact 4-derivative BVP gives $f_\pi = 54.14\text{ MeV}$ ($F_\pi = 108.28\text{ MeV}$) and $e_S = 4.843$. While the dimensionless ratios $M_0/M_N = 92.2\%$ and $\mu_p/\mu_n = -1.257$ are qualitatively reasonable, the individual absolute moments ($\mu_p = 1.784\,\mu_N$, $\mu_n = -1.419\,\mu_N$), pion decay constant ($f_\pi = 54.14\text{ MeV}$ vs. $92.4\text{ MeV}$ exp), and axial coupling ($g_A = 0.816$ vs. $1.272$ exp) are systematically too low by $26\text{--}41\%$ ($> 3\,\sigma_{\text{EFT}}$) because the contact 4-derivative approximation omits finite-range $\rho_\mu, \omega_\mu$ meson propagation.
+  \item \textbf{6-Derivative KSRF Zero-Baryon-Fit Prediction ($\mathcal{L}_2+\mathcal{L}_4+\mathcal{L}_6+\mathcal{L}_0$ with pure meson inputs $f_\pi = 92.4\text{ MeV}$, $e_S = m_\rho/(\sqrt{2}f_\pi) = 5.933$):} Fixing the Lagrangian couplings $(f_\pi, e_S)$ strictly from empirical meson-sector data with \textbf{zero fitted baryon parameters} and evaluating the exact same integral operators above (with magnetic moments expressed at the physical kinematical scale $\Delta M_{N\Delta}^{\text{PDG}} = 293.08\text{ MeV}$ as defined in item 3), every ground-state $J=1/2$ observable falls within \textbf{$0.19\text{--}1.10\,\sigma_{\text{EFT}}$} of experiment: $M_N = 973.61\text{ MeV}$ ($+3.70\% = +0.31\sigma_{\text{EFT}}$), $\mu_p = 2.646\,\mu_N$ ($-5.26\% = -0.44\sigma_{\text{EFT}}$), $\mu_n = -1.870\,\mu_N$ ($-2.25\% = -0.19\sigma_{\text{EFT}}$), $\mu_p/\mu_n = -1.415$ ($-3.08\% = -0.26\sigma_{\text{EFT}}$), $r_{E,I=0} = 0.703\text{ fm}$ ($-10.1\%$ vs. $0.782\text{ fm} = -0.85\sigma_{\text{EFT}}$; $-2.36\%$ vs. $0.720\text{--}0.790\text{ fm}$ band), and $g_A = 1.106$ ($-13.1\% = -1.10\sigma_{\text{EFT}}$), while the rigid-rotor $\Delta(1232)$ mass prediction $M_\Delta = 1503.92\text{ MeV}$ ($+22.1\% = +1.29\sigma_{\text{EFT}}(\Delta)$) reflects the expected centrifugal pion-cloud softening of the $J=3/2$ resonance.
+  \item \textbf{6-Derivative + VMD Calibrated BVP ($\mathcal{L}_2+\mathcal{L}_4+\mathcal{L}_6+\mathcal{L}_0$, calibrated to $M_N, M_\Delta$):} Solving the exact algebraic system $(M_N(F_\pi, e_S) = 938.92\text{ MeV}, M_\Delta(F_\pi, e_S) = 1232.0\text{ MeV})$ using the identical integral functionals $E_{\text{eff}}^{\text{1-loop}} = 27.001$ and $\Lambda_{\text{VMD}} = 109.157$ yields $f_\pi = 81.41\text{ MeV}$ ($-11.9\% = -1.00\sigma_{\text{EFT}}$) and $e_S = 5.079$ ($-14.4\% = -1.21\sigma_{\text{EFT}}$), bringing all static nucleon observables simultaneously within $1.57\text{--}4.76\%$ of experiment: $\mu_p = 2.732\,\mu_N$ ($-2.18\%$), $\mu_n = -1.822\,\mu_N$ ($-4.76\%$), $\mu_p/\mu_n = -1.499$ ($+2.67\%$), $r_{E,I=0} = 0.761\text{ fm}$ ($-2.69\%$ vs. $0.782\text{ fm}$; $0.00\%$ band error), $r_{M,I=0} = 0.781\text{ fm}$ ($-4.05\%$ vs. $0.814\text{ fm}$; $-3.54\%$ vs. $0.810\text{ fm}$), and $g_A = 1.292$ ($+1.57\%$).
+
+\end{enumerate}
+
+\begin{table*}[t]
+\centering
+\caption{Complete Comparison of Absolute Static Nucleon Observables \& EFT Truncation Error Budget}
+\label{tab:table1}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.15}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+\theadl{Static Nucleon \\ Observable} & \thead{Symbol \\ \& Units} & \thead{4-Deriv ANW BVP \\ ($\mathcal{L}_2+\mathcal{L}_4+\mathcal{L}_0$)} & \thead{6-Deriv KSRF BVP \\ (\textbf{Zero Baryon Fit})} & \thead{6-Deriv + VMD BVP \\ ($M_N, M_\Delta$ Calibrated)} & \thead{Experimental \\ Value (PDG)} & \thead{KSRF Zero-Fit \\ Error vs. $\sigma_{\text{EFT}}$} & \thead{6-Deriv VMD \\ Calibrated Error} \\
+\midrule
+\theadl{\textbf{Topological Winding} \\ \textbf{Number}} & $B \in \pi_3(S^3)$ & $1.000000$ & $1.000000$ & $1.000000$ & \thead{$1$ \\ (Exact Integer)} & \thead{$< 10^{-6}$ \\ (\texttt{solve\_bvp})} & \thead{$< 10^{-6}$ \\ (\texttt{solve\_bvp})} \\
+\theadl{\textbf{Un-Rescaled Virial} \\ \textbf{Residual}} & $|E_{\text{vir}}|/E_{\text{tot}}$ & $2.11 \times 10^{-7}$ & $2.32 \times 10^{-7}$ & $2.32 \times 10^{-7}$ & \thead{$0$ \\ (Exact Identity)} & \thead{Un-Rescaled \\ Collocation} & \thead{Un-Rescaled \\ Collocation} \\
+\theadl{\textbf{Dimensionless Energy} \\ \textbf{\& Inertia}} & $E_{\text{dimless}},\;\Lambda_{\text{dimless}}$ & $38.718,\;62.943$ & \thead{$39.254\;(27.001^*),$ \\ $67.093$} & \thead{$39.254\;(27.001^*),$ \\ $67.093$} & \thead{BVP \\ Functionals} & \thead{Identical \\ Integrals} & \thead{Identical \\ Integrals} \\
+\textbf{Pion Decay Constant} & $f_\pi = F_\pi/2\text{ (MeV)}$ & \thead{$54.14$ \\ $(F_\pi = 108.3)$} & \thead{\textbf{$92.40^*$} \\ \textbf{(Meson Input)}} & \thead{\textbf{$81.41$} \\ \textbf{$(F_\pi = 162.8)$}} & \thead{\textbf{$92.40$} \\ \textbf{$(F_\pi = 184.8)$}} & \thead{\textbf{$0.00\%$} \\ \textbf{(Exact Input)}} & \thead{\textbf{$-11.9\%$} \\ ($-1.00\sigma_{\text{EFT}}$)} \\
+\theadl{\textbf{Skyrme / HLS Gauge} \\ \textbf{Coupling}} & $e_S = g_\rho$ & $4.843$ & \thead{\textbf{$5.933^*$} \\ \textbf{($m_\rho/\sqrt{2}f_\pi$)}} & \textbf{$5.079$} & \thead{$4.8\text{--}5.9$ \\ ($\rho\pi\pi$/KSRF)} & \thead{\textbf{Exact KSRF} \\ \textbf{Input}} & \thead{Within Exp. \\ Range} \\
+\theadl{\textbf{Classical Soliton Core} \\ \textbf{Mass}} & $M_0\text{ (MeV)}$ & $865.65\;(92.2\%)$ & $841.04\;(86.4\%)$ & $865.65\;(92.2\%)$ & \thead{Non-Perturbative \\ Core} & $86.4\%$ of $M_N$ & $92.2\%$ of $M_N$ \\
+\textbf{Nucleon Mass ($J=1/2$)} & $M_N\text{ (MeV)}$ & \thead{$938.92^*$ \\ (Input)} & \thead{\textbf{$973.61$} \\ \textbf{(Predicted)}} & \thead{$938.92^*$ \\ (Input)} & \textbf{$938.92$} & \thead{\textbf{$+3.70\%$} \\ \textbf{($+0.31\sigma_{\text{EFT}}$)}} & Input ($0.00\%$) \\
+\textbf{$\Delta(1232)$ Mass ($J=3/2$)} & $M_\Delta\text{ (MeV)}$ & \thead{$1232.0^*$ \\ (Input)} & \thead{\textbf{$1503.92$} \\ \textbf{(Predicted)}} & \thead{$1232.0^*$ \\ (Input)} & \textbf{$1232.0$} & \thead{\textbf{$+22.1\%$} \\ \textbf{($+1.29\sigma_{\text{EFT}}^\Delta$)}} & Input ($0.00\%$) \\
+\theadl{\textbf{Bare Core / VMD} \\ \textbf{Electric Radius}} & $r_{\text{bare}},\;r_{E,I=0}\text{ (fm)}$ & $0.682,\;0.682$ & \textbf{$0.336,\;0.703$} & \textbf{$0.445,\;0.761$} & \thead{\textbf{$0.782$} \\ \textbf{$(0.720\text{--}0.790)$}} & \thead{\textbf{$-10.1\%$} \\ \textbf{($-0.85\sigma_{\text{EFT}}$)}} & \thead{\textbf{$-2.69\%$} \\ ($0.00\%$ Band)} \\
+\theadl{\textbf{Isoscalar Magnetic} \\ \textbf{Radius}} & $r_{M,I=0}\text{ (fm)}$ & $0.739$ & \textbf{$0.715$} & \textbf{$0.781$} & \textbf{$0.814\;(0.810)$} & \thead{\textbf{$-12.2\%$} \\ \textbf{($-1.02\sigma_{\text{EFT}}$)}} & \thead{\textbf{$-4.05\%$} \\ (vs. $-9.2\%$ ANW)} \\
+\theadl{\textbf{Isoscalar Magnetic} \\ \textbf{Moment}} & $\mu_{I=0}\;(\mu_N)$ & $0.365$ & \textbf{$0.776$} & \textbf{$0.910$} & \textbf{$0.880$} & \thead{\textbf{$-11.8\%$} \\ \textbf{($-0.99\sigma_{\text{EFT}}$)}} & \thead{\textbf{$+3.41\%$} \\ (vs. $-58.5\%$ ANW)} \\
+\theadl{\textbf{Isovector Magnetic} \\ \textbf{Moment}} & $\mu_{I=1}\;(\mu_N)$ & $3.204$ & \textbf{$4.516$} & \textbf{$4.555$} & \textbf{$4.706$} & \thead{\textbf{$-4.04\%$} \\ \textbf{($-0.34\sigma_{\text{EFT}}$)}} & \thead{\textbf{$-3.21\%$} \\ (vs. $-31.9\%$ ANW)} \\
+\textbf{Absolute Proton Moment} & $\mu_p\;(\mu_N)$ & $1.784$ & \textbf{$2.646$} & \textbf{$2.732$} & \textbf{$2.793$} & \thead{\textbf{$-5.26\%$} \\ \textbf{($-0.44\sigma_{\text{EFT}}$)}} & \thead{\textbf{$-2.18\%$} \\ (vs. $-36.1\%$ ANW)} \\
+\textbf{Absolute Neutron Moment} & $\mu_n\;(\mu_N)$ & $-1.419$ & \textbf{$-1.870$} & \textbf{$-1.822$} & \textbf{$-1.913$} & \thead{\textbf{$-2.25\%$} \\ \textbf{($-0.19\sigma_{\text{EFT}}$)}} & \thead{\textbf{$-4.76\%$} \\ (vs. $-25.8\%$ ANW)} \\
+\textbf{Magnetic Moment Ratio} & $\mu_p / \mu_n$ & $-1.257$ & \textbf{$-1.415$} & \textbf{$-1.499$} & \textbf{$-1.460$} & \thead{\textbf{$-3.08\%$} \\ \textbf{($-0.26\sigma_{\text{EFT}}$)}} & \thead{\textbf{$+2.67\%$} \\ (vs. $-13.9\%$ ANW)} \\
+\textbf{Axial Vector Coupling} & $g_A$ & $0.816$ & \textbf{$1.106$} & \textbf{$1.292$} & \textbf{$1.272$} & \thead{\textbf{$-13.1\%$} \\ \textbf{($-1.10\sigma_{\text{EFT}}$)}} & \thead{\textbf{$+1.57\%$} \\ (vs. $-35.8\%$ ANW)} \\
+\theadl{\textbf{Deuteron Binding ($B=2$)} \\ \textbf{(Near-BPS Virial)}} & $\Delta E_B(B=2)\text{ (MeV)}$ & $79.64$ & \textbf{$1.93$} & \textbf{$1.98$} & \textbf{$2.225$} & \thead{\textbf{$-13.3\%$} \\ (vs. $35.8\times$ ANW)} & \thead{\textbf{$-11.0\%$} \\ (Near-BPS $\mathcal{L}_6$)} \\
+\theadl{\textbf{$\alpha$-Particle Binding ($B=4$)} \\ \textbf{(Near-BPS Virial)}} & $\Delta E_B(B=4)\text{ (MeV)}$ & $301.25$ & \textbf{$27.80$} & \textbf{$28.62$} & \textbf{$28.296$} & \thead{\textbf{$-1.75\%$} \\ (vs. $10.6\times$ ANW)} & \thead{\textbf{$+1.14\%$} \\ (Near-BPS $\mathcal{L}_6$)} \\
+\textbf{EFT Truncation Budget} & \thead{$\sigma_{\text{EFT}} =$ \\ $\sqrt{\delta_{\partial^8}^2 + \delta_{\text{loop}}^2 + \delta_{\text{iso}}^2}$} & \thead{$\pm 13.14\%$ \\ ($J=\frac{1}{2}$)} & \thead{\textbf{$\pm 11.92\%$ ($J=\frac{1}{2}$),} \\ \textbf{$\pm 17.15\%$ ($\Delta$)}} & \thead{\textbf{$\pm 9.51\%$ ($J=\frac{1}{2}$),} \\ \textbf{$\pm 15.57\%$ ($\Delta$)}} & \thead{Theoretical \\ Bound} & \thead{\textbf{All within} \\ \textbf{$0.19\text{--}1.10\sigma_{\text{EFT}}$}} & \thead{\textbf{All within} \\ \textbf{$0.00\text{--}0.50\sigma_{\text{EFT}}$}} \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+
+\subsection{Near-BPS $\mathcal{L}_6 + \mathcal{L}_0$ Multi-Soliton Nuclear Binding ($B=2$ Deuteron and $B=4$ $\alpha$-Particle)}\label{sec:4.4}
+
+A well-known limitation of the minimal 4-derivative Skyrme model ($\mathcal{L}_2 + \mathcal{L}_4$) is that it severely \textbf{overbinds} multi-baryon nuclei: because the static $B=1$ hedgehog energy ($E_{\text{dimless}} = 38.718$) sits $\sim 23\%$ above the topological Faddeev--Bogomolny lower bound ($36\pi^2 / (8\sqrt{2}) \approx 31.404$), merging two $B=1$ solitons into an axisymmetric $B=2$ torus ($E_{B=2}/2E_1 \approx 0.954$) or four solitons into an octahedral $B=4$ $\alpha$-cluster ($E_{B=4}/4E_1 \approx 0.913$) \cite{ref44,ref45,ref46} releases a classical binding energy of $\Delta E_B^{\text{ANW}}(B=2) = 79.64\text{ MeV}$ (vs. $2.225\text{ MeV}$ measured for the deuteron) and $\Delta E_B^{\text{ANW}}(B=4) = 301.25\text{ MeV}$ (vs. $28.296\text{ MeV}$ measured for $^4\text{He}$).
+
+In our 6-derivative HLS vector-meson framework, the sextic topological-current operator $\mathcal{L}_6 = +\frac{\lambda_6^2}{2} g_{\mu\nu} B^\mu B^\nu = -\frac{\lambda_6^2}{2}(B^0)^2 + \frac{\lambda_6^2}{2}\mathbf{B}^2$ combined with the pion mass potential $\mathcal{L}_0$ forms the \textbf{Bogomolny--Prasad--Sommerfield (BPS) Skyrme submodel} \cite{ref48,ref49}:
+\begin{multline}
+\mathcal{E}_{\text{BPS}} = \frac{\lambda_6^2}{2}\left(B^0\right)^2 + \frac{F_\pi^2 m_\pi^2}{8}\left(1 - \cos F\right) \\
+= \frac{1}{2}\Bigl(\lambda_6 B^0 \mp \frac{F_\pi m_\pi}{2}\sqrt{1 - \cos F}\Bigr)^2 \\
+\pm \lambda_6 \frac{F_\pi m_\pi}{2}\sqrt{1 - \cos F}\,B^0
+\end{multline}
+Because the topological integral of $\sqrt{1-\cos F}\,B^0$ is strictly proportional to the integer winding number $B$, the pure BPS submodel $\mathcal{L}_6 + \mathcal{L}_0$ saturates a topological Bogomolny bound $E_{\text{BPS}}(B) = B\,E_{\text{BPS}}(1)$ with \textbf{identically zero classical binding energy} ($\Delta E_B^{\text{BPS}} \equiv 0$) for all $B \ge 2$ \cite{ref48,ref49}. In the full physical Lagrangian $\mathcal{L}_2 + \mathcal{L}_4 + \mathcal{L}_6 + \mathcal{L}_0$, the short-range repulsive $\omega_\mu$-meson core pressure ($E_6 / E_{\text{tot}}$) counteracts intermediate-range attractive two-pion exchange ($E_2, E_4$) when neighboring solitons overlap in the maximally attractive product ansatz $U_{12} = U_1(\mathbf{x} - \mathbf{R}/2)\,A_{\text{rel}}\,U_2(\mathbf{x} + \mathbf{R}/2)\,A_{\text{rel}}^\dagger$. Evaluating the \textbf{analytical near-BPS virial reduction calibrated to the 3D multi-skyrmion interaction ratios} ($\delta_2 = 1 - E_{B=2}/2E_1 = 0.046$ for the $B=2$ torus and $\delta_4 = 1 - E_{B=4}/4E_1 = 0.087$ for the $B=4$ octahedron \cite{ref44,ref45,ref46}, suppressed by the near-BPS fractions $\eta_{\text{BPS},2} = (E_6 + E_0)/(2.371\,E_{\text{dimless}})$ and $\eta_{\text{BPS},4} = 0.095$ with matching coefficients $2.371$ and $0.095$ calibrated to Refs. \cite{ref48,ref49}, so $\Delta E_B(B=2) = 2 M_0 \delta_2 \eta_{\text{BPS},2}$ and $\Delta E_B(B=4) = 4 M_0 \delta_4 \eta_{\text{BPS},4}$) directly from our exact $B=1$ BVP integrals $(E_2, E_4, E_6, E_0, M_0)$---leaving full 3D lattice PDE relaxation of $B=2,4$ to future work---yields (\textbf{\hyperref[tab:table1]{Table 1}}):
+\begin{equation}\begin{gathered}
+\Delta E_B(B=2, \text{Deuteron}) \\
+= \begin{cases} 1.93\text{ MeV} & (\text{KSRF }\text{Zero-Baryon-Fit}) \\ 1.98\text{ MeV} & (\text{6-Deriv VMD Calibrated}) \end{cases} \\
+\text{vs.} \qquad \Delta E_B^{\text{exp}}(^2\text{H}) = 2.225\text{ MeV}
+\end{gathered}\end{equation}
+\begin{equation}\begin{gathered}
+\Delta E_B(B=4, \,^4\text{He }\alpha\text{-particle}) \\
+= \begin{cases} 27.80\text{ MeV} & (\text{KSRF Zero-Baryon-Fit}) \\ 28.62\text{ MeV} & (\text{6-Deriv }\text{VMD Calibrated}) \end{cases} \\
+\text{vs.} \qquad \Delta E_B^{\text{exp}}(^4\text{He}) = 28.296\text{ MeV}
+\end{gathered}\end{equation}
+reducing the $35\times$ deuteron and $10.6\times$ $\alpha$-particle overbinding of the 4-derivative ANW model down to the observed $1\text{--}7\text{ MeV/nucleon}$ nuclear binding scale without introducing ad-hoc nuclear potentials.
+
+
+
+\section{Emergent Gravity \& Cosmology: From Isotropic Dielectric Refraction to Sakharov-Induced Rank-2 Dynamics and Cosmic Expansion}\label{sec:5}
+
+At macroscopic scales $r \gg R_0$, the localized stress-energy and vacuum polarization of topological solitons deform the long-wavelength propagation metric of the surrounding medium. In this section, we first show how isotropic dielectric polarization reproduces the weak-field Parameterized Post-Newtonian (PPN) limit ($\gamma_{\text{PPN}} = \beta_{\text{PPN}} = 1$) while regularizing the $r=0$ curvature singularity. We then perform the 1-loop Schwinger--DeWitt heat-kernel integration to derive the full rank-2 Einstein--Hilbert plus curvature-squared action, establish exterior multipole matching for Kerr frame-dragging and binary gravitational radiation, and analyze homogeneous FLRW cosmological dynamics.
+
+
+\subsection{Weak-Field Isotropic Tensor Dielectric Metric and Post-Newtonian Tests}\label{sec:5.1}
+
+In the static weak-field limit, the localized energy density $\rho_{\text{soliton}}(\mathbf{x}) = T_{00}(\mathbf{x})/c^2$ of a wave entity sources the vacuum polarization potential $\Phi(\mathbf{x})$ via the 3D Poisson equation $\nabla^2 \Phi(\mathbf{x}) = 4\pi G\,\rho_{\text{soliton}}(\mathbf{x})$. In the far field ($r \gg R_0$), Gauss's theorem guarantees $\Phi(r) = -GM/r$ and $|\nabla \Phi| = GM/r^2$.
+
+Whereas a naive scalar model that only shifts temporal clock rates ($\omega(\mathbf{x}) = \omega_0(1 + \Phi/c^2)$, $\gamma_{\text{PPN}} = 0$) predicts only half of Einstein's light deflection ($\Delta\theta_{\text{scalar}} = \frac{2GM}{bc^2} = 0.500\,\Delta\theta_{\text{GR}}$), a symmetric dielectric vacuum polarization \cite{ref12,ref14,ref17} modifies permittivity $\varepsilon(\mathbf{x})$ and permeability $\mu(\mathbf{x})$ equally:
+\begin{multline}
+\varepsilon(\mathbf{x}) = \mu(\mathbf{x}) = e^{-2\Phi(\mathbf{x})/c^2} \\
+\implies n(\mathbf{x}) = \sqrt{\varepsilon(\mathbf{x})\mu(\mathbf{x})} = e^{-2\Phi(\mathbf{x})/c^2} \\
+\approx 1 - \frac{2\Phi(\mathbf{x})}{c^2} + \frac{2\Phi^2(\mathbf{x})}{c^4}
+\end{multline}
+A soliton immersed in $\Phi < 0$ experiences both temporal clock redshift ($\omega(r) = \omega_0 e^{\Phi(r)/c^2}$, $g_{00} = -e^{2\Phi/c^2}$) and spatial virial ruler contraction ($R^*(r) = R^*_0 e^{\Phi(r)/c^2}$, $g_{ij} = e^{-2\Phi/c^2}\delta_{ij}$), yielding the exact isotropic Parameterized Post-Newtonian (PPN) coefficients of General Relativity:
+\begin{equation}
+\gamma_{\text{PPN}} = 1, \qquad \beta_{\text{PPN}} = 1
+\end{equation}
+
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig3_tensor_dielectric_gravity.png}
+\caption{Ultraviolet Core Regularization, Tensor Dielectric Light Deflection, and Post-Newtonian Perihelion Precession: (a) Finite-core gravitational potential $\Phi(r) = -(GM/r)\,\text{erf}(r/(\sqrt{2}R_0))$ regularizing the point-mass $1/r$ divergence to $\Phi(0) = -\sqrt{2/\pi}\,GM/R_0 \approx -0.7979\,GM/R_0$ at $r = 0$; (b) Optical ray-tracing deflection angle $\Delta\theta(b)$ across impact parameters $b \in [20, 160]\,GM/c^2$ showing exact agreement between the symmetric tensor dielectric medium ($\varepsilon = \mu = \exp(-2\Phi/c^2)$, $\gamma_{\text{PPN}} = 1$) and General Relativity ($\Delta\theta_{\text{tensor}}/\Delta\theta_{\text{GR}} = 0.999992$), whereas a scalar clock-only model ($\gamma_{\text{PPN}} = 0$) predicts only $1/2$ of the GR deflection; (c) Relativistic rosette trajectory and cumulative perihelion advance $\Delta\phi = 0.04815\text{ rad/orbit}$ for a bound soliton test particle ($\beta_{\text{PPN}} = 1$).}
+\label{fig:fig3}
+\end{figure*}
+
+
+
+\subsection{Singularity Regularization at $r=0$, Light Deflection, and Perihelion Precession}\label{sec:5.2}
+
+As shown in \textbf{\hyperref[fig:fig3]{Figure 3}}, numerical integration confirms:
+\begin{enumerate}
+  \item \textbf{Finite-Core Regularization of the $r=0$ Singularity (\hyperref[fig:fig3]{Figure 3(a)}):} Because every wave entity has a finite equilibrium core radius $R_0 > 0$ held up by $\mathcal{L}_4 + \mathcal{L}_6$ stiffness, solving $\nabla^2 \Phi = 4\pi G \rho_{\text{soliton}}(r)$ yields a strictly finite central potential:
+\begin{equation}\begin{gathered}
+\Phi(r) = -\frac{GM}{r}\,\text{erf}\!\left(\frac{r}{\sqrt{2}R_0}\right) \\
+\implies \lim_{r \to 0} \Phi(r) = -\sqrt{\frac{2}{\pi}}\frac{GM}{R_0} \approx -0.7979\,\frac{GM}{R_0}, \\
+\nabla\Phi(\mathbf{0}) = \mathbf{0}
+\end{gathered}\end{equation}
+  \item \textbf{Einstein Light Deflection (\hyperref[fig:fig3]{Figure 3(b)}):} Optical ray-tracing $\frac{d}{ds}(n\hat{\mathbf{k}}) = \nabla n$ across $b \in [20, 160]\,GM/c^2$ yields $\Delta\theta_{\text{tensor}}/\Delta\theta_{\text{GR}} = 0.999992$, consistent with the Cassini bound $|\gamma_{\text{PPN}} - 1| < 2.3 \times 10^{-5}$ \cite{ref21}.
+  \item \textbf{Relativistic Perihelion Precession (\hyperref[fig:fig3]{Figure 3(c)}):} Geodesic integration for a bound orbit with semi-latus rectum $p = a(1 - e^2) = 399\,GM/c^2$ ($a = 420\,GM/c^2$, $e = 0.2236$) produces a rosette trajectory advancing by $\Delta\phi_{\text{sim}} = 0.04815\text{ rad/orbit}$ vs. the leading 1PN weak-field formula $\Delta\phi_{\text{1PN}} = \frac{6\pi GM}{p c^2} = 0.04724\text{ rad/orbit}$ ($1.92\%$ difference from 2PN terms; including the analytical 2PN correction $\Delta\phi_{\text{2PN}} = \Delta\phi_{\text{1PN}}\!\left(1 + \frac{15}{2}\frac{GM}{p c^2}\right) = 0.04813\text{ rad/orbit}$ agrees with $\Delta\phi_{\text{sim}}$ to $4.3 \times 10^{-4}$, or $0.04\%$).
+
+\end{enumerate}
+
+\subsection{Sakharov 1-Loop Induced Rank-2 Gravity and Explicit Multipole Matching for Kerr Frame-Dragging and Quadrupole Gravitational Waves}\label{sec:5.3}
+
+A purely scalar refractive index $n(\mathbf{x}) = e^{-2\Phi/c^2}$ cannot generate gravitomagnetic frame-dragging ($g_{0i}$) around spinning masses or propagate the two independent transverse-traceless (TT) tensor polarizations ($h_+, h_\times$) of luminal gravitational waves. To establish a complete rank-2 tensor dynamics from the wave medium itself, we invoke \textbf{Sakharov's induced gravity mechanism} \cite{ref13,ref15,ref16}. When the linear chiral wave perturbations $\delta\boldsymbol{\pi}(\mathbf{x}, t)$ of the $SU(2)$ medium propagate on a general rank-2 background frame metric $g_{\mu\nu}(\mathbf{x}, t) = \eta_{ab} e^a_\mu e^b_\nu$, integrating out the 1-loop zero-point vacuum fluctuations up to the short-distance cutoff $\Lambda_{\text{UV}} \sim L_{\text{Pl}}^{-1}$ via the Schwinger--DeWitt heat-kernel expansion ($S_{\text{eff}}[g] = -\frac{i\hbar}{2}\text{Tr}\ln(\Box_g + m_\pi^2)$) induces the covariant \textbf{Einstein--Hilbert action plus 1-loop curvature-squared terms}:
+\begin{equation}\begin{gathered}
+\mathcal{L}_{\text{grav}}^{\text{ind}}[g_{\mu\nu}] = \sqrt{-g}\Bigl[ -\Lambda_{\text{vac}} + \frac{c^4}{16\pi G_{\text{ind}}}\,R \\
++ \alpha_1 R^2 + \alpha_2 R_{\mu\nu}R^{\mu\nu} + \mathcal{O}(\Lambda_{\text{UV}}^{-2}) \Bigr], \\
+\frac{c^4}{16\pi G_{\text{ind}}} = \frac{N_{\text{modes}}\hbar c\,\Lambda_{\text{UV}}^2}{96\pi^2}
+\end{gathered}\end{equation}
+where the dimensionless 1-loop heat-kernel coefficients are $\alpha_{1,2} \sim \frac{N_{\text{modes}}\hbar c}{1152\pi^2}\ln(\Lambda_{\text{UV}}^2/m_\pi^2)$.
+
+
+\subsubsection{Explicit Multipole Matching: Why $R^2$ Curvature Terms and Finite Soliton Cores $R_0$ Preserve Exterior Kerr and Quadrupole Radiation}
+
+Varying $\mathcal{L}_{\text{grav}}^{\text{ind}} + \mathcal{L}_{\text{soliton}}$ with respect to $h_{\mu\nu} = g_{\mu\nu} - \eta_{\mu\nu}$ in harmonic gauge ($\partial^\mu \bar{h}_{\mu\nu} = 0$, $\bar{h}_{\mu\nu} = h_{\mu\nu} - \frac{1}{2}\eta_{\mu\nu}h$) yields the fourth-order field equation:
+\begin{equation}\begin{gathered}
+\left(1 - \ell_{\text{curv}}^2 \Box\right)\Box \bar{h}_{\mu\nu}(\mathbf{x}, t) = -\frac{16\pi G_{\text{ind}}}{c^4}\,T_{\mu\nu}^{\text{soliton}}(\mathbf{x}, t), \\
+\ell_{\text{curv}}^2 \equiv \frac{16\pi G_{\text{ind}} |\alpha_2|}{c^4} \sim \Lambda_{\text{UV}}^{-2} \sim L_{\text{Pl}}^2
+\end{gathered}\end{equation}
+We now perform the explicit multipole matching calculation showing how both $\ell_{\text{curv}}$ and the finite soliton radius $R_0$ enter the exterior metric and binary inspiral radiation flux:
+
+\begin{enumerate}
+  \item \textbf{Suppression of 1-Loop $R^2$ Terms at Macroscopic Scales:} Factoring the fourth-order operator into $(1 - \ell_{\text{curv}}^2\Box)^{-1}\Box^{-1} = \Box^{-1} - (\Box - \ell_{\text{curv}}^{-2})^{-1}$ shows that the curvature-squared terms add a short-range Yukawa potential $-\frac{4}{3}e^{-r/\ell_{\text{curv}}}/r$ to static metrics and shift the radiative dispersion relation by $\mathcal{O}(k_{\text{GW}}^2 \ell_{\text{curv}}^2)$. For $\ell_{\text{curv}} \sim L_{\text{Pl}} = 1.616 \times 10^{-35}\text{ m}$ and astrophysical gravitational waves ($f_{\text{GW}} \sim 100\text{ Hz}$, $k_{\text{GW}} = 2\pi f_{\text{GW}}/c \approx 2.09 \times 10^{-6}\text{ m}^{-1}$), the curvature-squared correction to the wave flux is:
+\begin{equation}
+\delta_{\text{curv}} \sim \left(k_{\text{GW}} \ell_{\text{curv}}\right)^2 \approx 1.15 \times 10^{-81}
+\end{equation}
+  which is completely negligible outside Planckian cores while regularizing $r \to 0$ at $r \lesssim \ell_{\text{curv}}$.
+
+  \item \textbf{Exact Multipole Matching for Spinning Soliton Frame-Dragging ($g_{0\phi}$):} For an axisymmetric Finkelstein--Rubinstein spinning soliton with total spin angular momentum $\mathbf{J} = J\hat{\mathbf{z}}$ and normalized Gaussian rotational mass density $\rho_{\text{core}}(r) = \frac{M}{(2\pi R_0^2)^{3/2}}e^{-r^2/(2R_0^2)}$ (moment of inertia $I_{\text{sol}} = 2 M R_0^2$, angular velocity $\omega_{\text{rot}} = J / I_{\text{sol}}$), the momentum density is $T_{0i}(\mathbf{x}) = \omega_{\text{rot}}(\hat{\mathbf{z}} \times \mathbf{x})_i\,\rho_{\text{core}}(r)$. Expanding the Green's function $\int d^3x' \frac{T_{0i}(\mathbf{x}')}{|\mathbf{x} - \mathbf{x}'|}$ in spherical harmonics ($l=1$ current-dipole channel) yields the exact radial integral for $g_{0\phi}(r, \theta)$:
+\begin{multline}
+g_{0\phi}(r, \theta) = -\frac{16\pi G J \sin^2\theta}{3 c^3 I_{\text{sol}}}\Bigl[ \frac{1}{r}\int_0^r r'^4 \rho_{\text{core}}(r')\,dr' \\
++ r^2 \int_r^\infty r' \rho_{\text{core}}(r')\,dr' \Bigr]
+\end{multline}
+  Evaluating the incomplete Gaussian integrals explicitly yields the closed-form gravitomagnetic metric and Lense--Thirring precession rate $\boldsymbol{\Omega}_{\text{LT}}(r)$:
+\begin{equation}\begin{gathered}
+g_{0\phi}(r, \theta) = -\frac{2 G J \sin^2\theta}{c^3 r}\Bigl[ \text{erf}\!\left(\frac{r}{\sqrt{2}R_0}\right) \\
+- \sqrt{\frac{2}{\pi}}\frac{r}{R_0}\,e^{-r^2/(2R_0^2)} \Bigr], \\
+\Omega_{\text{LT}}(r) = \frac{2 G J}{c^2 r^3}\Bigl[ \text{erf}\!\left(\frac{r}{\sqrt{2}R_0}\right) \\
+- \sqrt{\frac{2}{\pi}}\frac{r}{R_0}\,e^{-r^2/(2R_0^2)} \Bigr]
+\end{gathered}\end{equation}
+  \begin{itemize}
+    \item \textbf{Interior Regularization ($r \to 0$):} Expanding for $r \ll R_0$, the bracket scales as $\frac{1}{3}\sqrt{\frac{2}{\pi}}(r/R_0)^3$, cancelling the $1/r^3$ singularity so $\Omega_{\text{LT}}(0) = \frac{2\sqrt{2/\pi}\,GJ}{3 c^2 R_0^3}$ is strictly finite.
+    \item \textbf{Exterior Kerr Matching ($r \gg R_0$):} Because $\rho_{\text{core}}(r)$ is exponentially localized, all higher multipoles vanish by spherical symmetry and the exterior deviation from the exact point-mass Kerr / Lense--Thirring metric is purely the Gaussian tail $\Delta\Omega_{\text{LT}}/\Omega_{\text{Kerr}} = \text{erfc}(r/\sqrt{2}R_0) + \sqrt{2/\pi}(r/R_0)e^{-r^2/2R_0^2}$. At $r = 10 R_0$, this tail residual is $< 10^{-16}$ (\texttt{0.0} in double precision, \textbf{\hyperref[tab:table3]{Table 3}}).
+
+  \end{itemize}
+  \item \textbf{Explicit Multipole Order Analysis and Orbital Separation Scaling for Binary Gravitational-Wave Emission:} Consider a binary of two finite-core solitons ($M_1, M_2$, total mass $M = M_1 + M_2$, reduced mass $\mu_{\text{red}} = M_1 M_2 / M$) with core radius $R_0$ orbiting at separation $\mathbf{a}(t) = a(\cos\Omega_{\text{orb}} t, \sin\Omega_{\text{orb}} t, 0)$. We now determine the exact post-Newtonian and multipole order at which finite-core corrections first enter the gravitational-wave flux:
+  \begin{itemize}
+    \item \textit{Identical Vanishing of All $l \ge 1$ Static Internal Mass Multipoles:} In the rest frame of each undistorted spherical soliton core $\rho_{\text{core}}(r')$, rotational $SO(3)$ invariance guarantees that \textbf{all trace-free (TF) internal static mass multipole moments of order $l \ge 1$ vanish identically}:
+\begin{multline}
+I_{L}^{\text{int,TF}} = \int d^3x'\,\rho_{\text{core}}(r')\,x'_{\langle i_1} x'_{i_2} \cdots x'_{i_l\rangle} \\
+= \int_0^\infty dr'\,r'^{l+2}\rho_{\text{core}}(r') \underbrace{\oint_{S^2} d\Omega'\,n'_{\langle i_1}\cdots n'_{i_l\rangle}}_{=\,0\;\text{for all }l \ge 1} \equiv 0
+\end{multline}
+  Specifically, the static internal mass dipole ($l=1$), trace-free mass quadrupole ($l=2$, $Q_{ij}^{\text{int,TF}} = 0$), mass octupole ($l=3$, $O_{ijk}^{\text{int,TF}} = 0$), and hexadecapole ($l=4$) are identically zero.
+    \item \textit{Annihilation of the $l=0$ Isotropic Second Moment Under TT Projection:} The only non-zero second-rank moment of a spherical core is its isotropic trace $I_{ij}^{\text{int}} = \int d^3x'\,\rho_{\text{core}}(r')\,x'_i x'_j = M_A R_0^2 \delta_{ij}$. Thus, the total second mass moment tensor of the binary is:
+\begin{multline}
+M_{ij}(t) = \mu_{\text{red}}\,a_i(t) a_j(t) + (M_1 + M_2) R_0^2\,\delta_{ij} \\
++ \Delta Q_{ij}^{\text{1PN,SO/oct}}(t) + \Delta Q_{ij}^{\text{5PN,tidal}}(t)
+\end{multline}
+  When computing the radiative strain $h_{ij}^{\text{TT}}(t) = \frac{2G}{c^4 r}\mathcal{P}_{ijkl}^{\text{TT}}\ddot{M}_{kl}(t_{\text{ret}})$, the static trace $(M_1 + M_2)R_0^2\delta_{kl}$ is annihilated \textbf{both} by the time derivative ($\frac{d^2}{dt^2}[(M_1+M_2)R_0^2\delta_{kl}] \equiv 0$) and by the transverse-traceless projector ($\mathcal{P}_{ijkl}^{\text{TT}}\delta_{kl} \equiv 0$).
+    \item \textit{First Non-Vanishing Finite-Core Multipole Corrections and Explicit Separation Scaling:} Consequently, the first non-vanishing finite-core corrections to the gravitational-wave luminosity $P_{\text{GW}}(a)$ enter through:
+    \begin{enumerate}
+      \item \textbf{1PN Relativistic Spin-Orbit / Current-Quadrupole ($l=2$) and Radiative Mass-Octupole ($l=3$) Coupling} of the moving extended core at $\mathcal{O}\!\left((R_0/a)^2 (GM/ac^2)\right)$, and
+      \item \textbf{5PN Adiabatic Tidal Quadrupole Deformation ($l=2$, Love number $k_2^{\text{sol}}$)} induced by the companion's tidal field $\mathcal{E}_{ij} = -\partial_i\partial_j\Phi_{\text{ext}} \sim G M / a^3$, which induces a time-dependent trace-free quadrupole $\Delta Q_{ij}^{\text{5PN,tidal}}(t) \propto k_2^{\text{sol}} R_0^5 \mathcal{E}_{ij}(t)$ scaling as $\mathcal{O}\!\left(k_2^{\text{sol}}(R_0/a)^5\right)$.
+
+    \end{enumerate}
+  \end{itemize}
+  Combining these terms yields the \textbf{explicit fractional gravitational-wave luminosity correction as a function of orbital separation $a$}:
+\begin{multline}
+\frac{\Delta P_{\text{GW}}(a)}{P_{\text{GW}}^{\text{point}}(a)} \equiv \frac{P_{\text{GW}}^{\text{soliton}}(a) - P_{\text{GW}}^{\text{point}}(a)}{P_{\text{GW}}^{\text{point}}(a)} \\
+= -4\left(\frac{R_0}{a}\right)^2\left(\frac{G(M_1 + M_2)}{a c^2}\right) \\
++ 6\,k_2^{\text{sol}}\left(\frac{R_0}{a}\right)^5 + \frac{16\pi G_{\text{ind}}|\alpha_2|}{c^4}\left(\frac{2\Omega_{\text{orb}}}{c}\right)^2
+\end{multline}
+  Evaluating this formula for a representative $M_1 + M_2 = 2.8\,M_\odot$ binary ($G(M_1+M_2)/c^2 = 4.135\text{ km}$) with fundamental hadronic soliton core scale $R_0 = 0.8\text{ fm}$ across inspiral separations $a = 10^2, 10^3, 10^4\text{ km}$ yields:
+  \begin{itemize}
+    \item At $a = 10^2\text{ km}$: $\left|\Delta P_{\text{GW}} / P_{\text{GW}}^{\text{point}}\right| = 1.059 \times 10^{-41}$
+    \item At $a = 10^3\text{ km}$: $\left|\Delta P_{\text{GW}} / P_{\text{GW}}^{\text{point}}\right| = 1.059 \times 10^{-44}$
+    \item At $a = 10^4\text{ km}$: $\left|\Delta P_{\text{GW}} / P_{\text{GW}}^{\text{point}}\right| = 1.059 \times 10^{-47}$
+
+  \end{itemize}
+  \textit{(For macroscopic composite neutron-star solitons of stellar radius $R_{\text{NS}} \approx 12\text{ km}$ and tidal Love number $k_2^{\text{NS}} \approx 0.082$, the 5PN tidal quadrupole term $6 k_2^{\text{NS}}(R_{\text{NS}}/a)^5$ reaches $1.2 \times 10^{-4}$ at $a = 100\text{ km}$ and $3.8 \times 10^{-2}$ near merger contact, generating the directly observable 5PN gravitational-wave tidal phase shift analyzed in \hyperref[sec:8.1]{Section 8.1}).} Meanwhile, the two TT polarizations $h_+(t)$ and $h_\times(t)$ (\textbf{\hyperref[fig:fig6]{Figure 6(b)}}) remain orthogonal to $1.42 \times 10^{-17}$.
+
+\end{enumerate}
+
+\subsection{Cosmological Expansion, Non-Singular Soliton Bounce, Chiral-Horizon Dark Energy, and $B=0$ Condensate Dark Matter}\label{sec:5.4}
+
+A foundational question for any wave-medium unification of matter and gravity is whether the framework can account for the cosmological expansion of the universe, early-universe inflation without a Big Bang singularity, late-time dark energy acceleration, and the dark-to-baryonic matter ratio without adding ad-hoc scalar fields. Applying the unified action (\hyperref[sec:2.2]{Section 2.2}) and the Sakharov 1-loop induced gravitational action (\hyperref[sec:5.3]{Section 5.3}) to a spatially homogeneous and isotropic background reveals four directly testable mechanisms displayed in \textbf{\hyperref[fig:fig4]{Figure 4}}.
+
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig4_cosmological_expansion_and_bounce.png}
+\caption{Cosmological Expansion in the Polarizable Wave Medium --- Non-Singular Soliton Bounce, Starobinsky $R^2$ Inflation, and Chiral-Horizon Dark Energy: (a) Early-universe non-singular soliton bounce $a(t)/a_{\min} = (1 + 9t^2/\tau_B^2)^{1/6}$ (solid green) and normalized Hubble rate $\tau_B H(t)$ (dashed blue) driven by stiff $\mathcal{L}_6$ baryon-current repulsion and Einstein--Cartan spin-torsion vs. the singular classical GR trajectory (red dotted); (b) Hierarchy of vacuum energy densities ($\log_{10}[\rho_{\text{vac}}/\text{GeV}^4]$) showing Volovik Gibbs--Duhem cancellation of the bare Planckian cutoff $\rho_{\text{UV}} \sim 10^{74}\text{ GeV}^4$ and the residual non-equilibrium chiral-horizon dark energy scale $\rho_\Lambda^{\text{chiral}} = (\hbar H_0 / 4\pi^2) f_\pi^2 m_\pi = (2.56\text{ meV})^4$ matching the Planck 2018 observed value $(2.24\text{ meV})^4$; (c) Late-time Hubble expansion history $H(z)$ and deceleration parameter $q(z)$ (inset) compared against Baryon Acoustic Oscillation (BOSS/eBOSS/DESI) and Cosmic Chronometer data across $z \in [0.07, 2.33]$ ($\chi^2/N_{\text{dof}} = 0.616$).}
+\label{fig:fig4}
+\end{figure*}
+
+
+
+\subsubsection{Duality of FLRW Metric Expansion and Homogeneous Dielectric Evolution (Why Bound Soliton Rulers Do Not Expand)}
+
+In the polarizable-vacuum representation (\hyperref[sec:2.1]{Section 2.1} and \hyperref[sec:5.1]{Section 5.1}), a spatially homogeneous, time-dependent background dielectric state with permittivity and permeability $\varepsilon_{\text{cos}}(t) = \mu_{\text{cos}}(t) = a(t)$ in comoving coordinates $\mathbf{x}$ induces the exact spatially flat \textbf{Friedmann--Lema\^{\i}tre--Robertson--Walker (FLRW) line element}:
+\begin{equation}\begin{gathered}
+ds^2 = g_{\mu\nu}^{\text{cos}}(t)\,dx^\mu dx^\nu \\
+= -c^2 dt^2 + a^2(t)\left(dx^2 + dy^2 + dz^2\right), \\
+H(t) \equiv \frac{\dot{a}(t)}{a(t)}
+\end{gathered}\end{equation}
+A classic conceptual question in cosmology is why cosmic expansion stretches intergalactic separations and photon wavelengths without stretching local nuclear or atomic rulers. In our framework, this distinction follows directly from the \textbf{Derrick virial theorem (\hyperref[sec:3.2]{Section 3.2})} \cite{ref18}:
+\begin{itemize}
+  \item \textbf{Invariance of Bound Topological Solitons (Rulers \& Clocks):} Under the spatial rescaling $\mathbf{r}_{\text{phys}} \to \mathbf{r}_{\text{phys}}/\lambda$ (i.e., $R \to \lambda R$, matching \hyperref[sec:3.2]{Section 3.2}), a localized $B=1$ baryon or hopfion lepton in proper physical coordinates $\mathbf{r}_{\text{phys}} = a(t)\mathbf{x}$ minimizes the static energy functional $E(\lambda) = \lambda E_2 + \lambda^{-1} E_4 + \lambda^{-3} E_6 + \lambda^3 E_0$ around its local equilibrium core radius $R^*_0 = 0.761\text{ fm}$, which is determined solely by the intrinsic microphysical stiffness constants $(F_\pi, e_S, \lambda_6)$ of the $SU(2)$ medium. In an expanding background, the cosmic Hubble drag adds a tidal potential $-\frac{1}{2} M_0 (\dot{H} + H^2) r_{\text{phys}}^2$ to the soliton core, shifting the Derrick virial minimum by only:
+\begin{multline}
+\frac{\Delta R^*}{R^*_0} \sim \left(\frac{H_0 R_0}{c}\right)^2 = \left(\frac{\hbar H_0\,R_0}{\hbar c}\right)^2 \\
+\approx \Bigl(\frac{1.4377 \times 10^{-42}\text{ GeV} \times 0.761\text{ fm}}{0.197327\text{ GeV}\cdot\text{fm}}\Bigr)^2 \\
+= 3.08 \times 10^{-83}
+\end{multline}
+  Thus, localized topological solitons---and all nuclear and atomic rulers and clocks built from them---maintain strictly invariant proper sizes $R^*_0$ and rest frequencies $\omega_0 = M_0 c^2 / \hbar$ as $a(t)$ evolves.
+  \item \textbf{Cosmological Redshift of Unbound Gapless Waves:} By contrast, a freely propagating electromagnetic or gravitational wave ripple ($\nabla^2 \mathbf{A} - \frac{a^2(t)}{c^2}\ddot{\mathbf{A}} - \frac{a(t)\dot{a}(t)}{c^2}\dot{\mathbf{A}} = 0$) has no topological winding ($B = 0$) and no local Derrick restoring minimum. Its comoving wavevector $\mathbf{k}_{\text{com}}$ is conserved, so its physical wavelength stretches as $\lambda_{\text{phys}}(t) = \frac{2\pi}{k_{\text{com}}}a(t)$ and its frequency measured by invariant soliton clocks redshifts by the exact cosmological relation:
+\begin{equation}
+1 + z = \frac{\omega_{\text{emit}}}{\omega_{\text{obs}}} = \frac{\lambda_{\text{phys}}(t_0)}{\lambda_{\text{phys}}(t_{\text{emit}})} = \frac{a(t_0)}{a(t_{\text{emit}})}
+\end{equation}
+
+\end{itemize}
+
+\subsubsection{Analytical Derivation of the Non-Singular Soliton Bounce ($1 - \rho/\rho_{\text{crit}}^{\text{UV}}$) and Starobinsky $R^2$ Inflation}
+
+When the FLRW metric $g_{\mu\nu}^{\text{cos}}(t)$ is substituted into our unified action $\mathcal{L}_{\text{grav}}^{\text{ind}} + \mathcal{L}_{\text{soliton}}$, two ultraviolet mechanisms \textbf{already present in the action} regularize the $a \to 0$ Big Bang singularity and drive early-universe inflation without introducing an external inflaton field (\textbf{\hyperref[fig:fig4]{Figure 4(a)}}):
+\begin{enumerate}
+  \item \textbf{Stiff $\mathcal{L}_6$ Baryon-Current Repulsion Plus Einstein--Cartan Spin-Torsion \& Born--Infeld Dielectric Saturation:} At supranuclear early-universe compression ($a \to a_{\min}$), overlapping topological winding currents activate the $\omega_\mu$-meson-induced sextic operator $\mathcal{L}_6 = +\frac{\lambda_6^2}{2} g_{\mu\nu} B^\mu B^\nu$ (\hyperref[sec:2.2]{Section 2.2}). For a homogeneous baryon density $n_B(a) = n_{B,0}(a_0/a)^3$ with $B^\mu = (n_B, \mathbf{0})$ and $B_\alpha B^\alpha = -n_B^2$ in signature $(-,+,+,+)$, the sextic stress-energy tensor $T_{\mu\nu}^{(6)} = \lambda_6^2\left(B_\mu B_\nu - \frac{1}{2}g_{\mu\nu} B_\alpha B^\alpha\right)$ yields an ultra-stiff repulsive equation of state $w_6 = +1$:
+\begin{equation}
+P_{\mathcal{L}_6}(a) = +\rho_{\mathcal{L}_6}(a) c^2 = +\frac{1}{2}\lambda_6^2 n_B^2(a) \propto a^{-6}
+\end{equation}
+  The negative quadratic density correction $-\rho^2/\rho_{\text{crit}}^{\text{UV}}$ in the high-density Friedmann equation arises analytically---rather than as an ad-hoc phenomenological ansatz---from two mutually reinforcing ultraviolet mechanisms inherent to the polarizable spinor-soliton action:
+  \begin{itemize}
+    \item \textbf{Einstein--Cartan Spin-Torsion Repulsion of Finkelstein--Rubinstein Spin-$1/2$ Solitons \cite{ref22,ref23,ref24,ref25,ref26}:} Because our $B=1$ solitons are Finkelstein--Rubinstein spin-$1/2$ fermions carrying intrinsic spin density $s^\mu_{ab} = \frac{\hbar}{2} n_B \epsilon_{ab0}^\mu$ coupled to the frame tetrad $e^a_\mu$ and spin connection $\omega_\mu^{ab}$ (\hyperref[sec:5.3]{Section 5.3}) with $\omega_\mu$-meson core stiffness scale $m_\omega = 0.78265\text{ GeV}$, varying the 1-loop induced gravitational action with respect to the antisymmetric Cartan torsion tensor $T^\lambda_{\mu\nu} = e^\lambda_a(\partial_\mu e^a_\nu - \partial_\nu e^a_\mu + \omega_{\mu b}^a e^b_\nu - \omega_{\nu b}^a e^b_\mu)$ yields the algebraic Cartan equation $T^\lambda_{\mu\nu} + 2\delta^\lambda_{[\mu}T^\sigma_{\nu]\sigma} = \frac{8\pi G_{\text{ind}}}{c^3} s^\lambda_{\mu\nu}$. Substituting the torsion tensor and $\mathcal{L}_6$ vector-meson scale back into the Einstein--Cartan Friedmann equation generates a repulsive \textbf{Weyssenhoff--Hehl--Trautman spin-torsion / $\omega$-core energy density} $-\rho^2 / \rho_{\text{crit}}^{\text{EC}}$ \cite{ref22,ref23,ref24,ref25,ref26} with critical bounce density:
+\begin{multline}
+\rho_{\text{crit}}^{\text{EC}} = M_{\text{Pl,red}}^2\,m_\omega^2 = \frac{m_\omega^2 c^6}{8\pi G_{\text{ind}} \hbar^2} \\
+= \Bigl(2.435 \times 10^{18}\text{ GeV}\Bigr)^2\Bigl(0.78265\text{ GeV}\Bigr)^2 \\
+\approx 3.63 \times 10^{36}\text{ GeV}^4
+\end{multline}
+    \item \textbf{Born--Infeld Nonlinear Dielectric Vacuum Saturation:} Equivalently, in the polarizable-vacuum dielectric representation, any physical medium has a maximum breakdown field strength $b_{\text{BI}} = \sqrt{\rho_{\text{crit}}^{\text{UV}}} \sim c^2 / (\sqrt{16\pi G_{\text{ind}}}\,\ell_{\text{curv}})$ captured by the Born--Infeld Lagrangian $\mathcal{L}_{\text{BI}} = b_{\text{BI}}^2 (1 - \sqrt{1 - 2\mathcal{S}/b_{\text{BI}}^2})$. Coupling $\mathcal{L}_{\text{BI}}$ in Palatini/Eddington--inspired Born--Infeld gravity \cite{ref22,ref23,ref24} yields the exact modified Friedmann equation at high density:
+\begin{equation}
+H^2(t) = \left(\frac{\dot{a}}{a}\right)^2 = \frac{8\pi G_{\text{ind}}}{3}\,\rho(a)\left(1 - \frac{\rho(a)}{\rho_{\text{crit}}^{\text{UV}}}\right)
+\end{equation}
+  \end{itemize}
+  During the $\rho \propto a^{-6}$ stiff-matter epoch, integrating this equation yields the exact analytical \textbf{Non-Singular Soliton Bounce} (\textbf{\hyperref[fig:fig4]{Figure 4(a)}}, solid green curve for $a(t)/a_{\min}$, with the normalized Hubble expansion rate $\tau_B H(t)$ shown as the dashed blue curve):
+\begin{equation}\begin{gathered}
+\frac{a(t)}{a_{\min}} = \left(1 + \frac{9 t^2}{\tau_B^2}\right)^{1/6}, \qquad H(0) = 0, \\
+\ddot{a}(0) = \frac{3 a_{\min}}{\tau_B^2} > 0, \qquad \tau_B = \sqrt{\frac{3}{8\pi G_{\text{ind}}\rho_{\text{crit}}^{\text{UV}}}}
+\end{gathered}\end{equation}
+  completely eliminating the $a = 0$ curvature divergence of classical General Relativity (red dotted curve in \textbf{\hyperref[fig:fig4]{Figure 4(a)}}).
+  \item \textbf{Emergent Starobinsky $R^2$ Inflation from the 1-Loop Sakharov Action:} Immediately following the bounce, the 1-loop curvature-squared terms $\alpha_1 R^2 + \alpha_2 R_{\mu\nu}R^{\mu\nu}$ derived in \hyperref[sec:5.3]{Section 5.3} govern the expansion rate. Because any 4D spatially flat FLRW metric is \textbf{conformally flat} ($C_{\mu\nu\rho\sigma} = 0$), the Gauss--Bonnet topological identity $\mathcal{G} = R^2 - 4 R_{\mu\nu}R^{\mu\nu} + R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ implies that $\sqrt{-g}\left(R_{\mu\nu}R^{\mu\nu} - \frac{1}{3}R^2\right)$ is a total divergence in 4D FLRW spacetime. Consequently, our 1-loop Sakharov gravitational action (\hyperref[sec:5.3]{Section 5.3}) reduces \textbf{identically} to the \textbf{Starobinsky $R + R^2 / (6 M_S^2)$ inflationary action} \cite{ref27}:
+\begin{equation}\begin{gathered}
+\mathcal{L}_{\text{grav,FLRW}}^{\text{ind}} = \sqrt{-g}\,\frac{c^4}{16\pi G_{\text{ind}}}\left[ R + \frac{R^2}{6 M_S^2} \right], \\
+M_S^2 = \frac{c^4}{96\pi G_{\text{ind}}\left(\alpha_1 + \frac{1}{3}\alpha_2\right)}
+\end{gathered}\end{equation}
+  Without introducing any fundamental scalar inflaton field, this curvature-squared elasticity drives a quasi-de Sitter inflationary phase with scalar spectral tilt $n_s$ and tensor-to-scalar ratio $r$ for $N_e = 55$ e-folds \cite{ref27,ref28,ref29}:
+\begin{equation}\begin{gathered}
+n_s = 1 - \frac{2}{N_e} \approx 0.9636 \\
+(\text{Planck 2018: } 0.9649 \pm 0.0042, \;-0.30\sigma), \\
+r = \frac{12}{N_e^2} \approx 0.00397 \quad (\text{BICEP/Keck: } r < 0.036)
+\end{gathered}\end{equation}
+
+\end{enumerate}
+
+\subsubsection{Volovik Thermodynamic Cancellation of Bare $\Lambda_{\text{UV}}^4$ and Chiral-Horizon Dark Energy}
+
+A central challenge for any induced gravity theory with ultraviolet cutoff $\Lambda_{\text{UV}} \sim M_{\text{Pl}}$ is the suppression of the bare 1-loop vacuum energy density $\rho_{\text{UV}} \sim M_{\text{Pl}}^4 / (16\pi^2) \sim 10^{74}\text{ GeV}^4$ ($10^{121}\times$ larger than the observed dark energy density). In our framework, this suppression is governed by two thermodynamic mechanisms:
+\begin{itemize}
+  \item \textbf{Thermodynamic Equilibrium Cancellation of the Bare Vacuum Energy (Volovik Gibbs--Duhem Identity \cite{ref15,ref16}):} Unlike a fundamental empty geometry, our Level 0/Level 1 substrate is a \textbf{self-sustained continuous medium} characterized by a conserved vacuum state variable $q_{\text{vac}}$ (analogous to superfluid number density or nonlinear wave norm $\langle E^\dagger E \rangle$) and energy density $\epsilon_{\text{vac}}(q_{\text{vac}})$. In a static, unperturbed Minkowski vacuum ($H = 0$) isolated from external pressure ($P_{\text{ext}} = 0$), thermodynamic stability $\frac{\partial}{\partial V}[\epsilon_{\text{vac}}(Q/V)V] = 0$ enforces the exact \textbf{Gibbs--Duhem equilibrium identity} \cite{ref15,ref16}:
+\begin{equation}\begin{gathered}
+\mu_{\text{vac}} = \frac{\partial \epsilon_{\text{vac}}}{\partial q_{\text{vac}}}, \\
+\rho_{\text{vac}}^{\text{eq}} c^2 \equiv \epsilon_{\text{vac}}(q_{\text{vac}}) - \mu_{\text{vac}}\,q_{\text{vac}} \\
+= -P_{\text{vac}}^{\text{eq}} = -P_{\text{ext}} \equiv 0
+\end{gathered}\end{equation}
+  That is, microscopic elastic adjustments of the equilibrium medium density $q_{\text{vac}}$ automatically cancel the bare ultraviolet zero-point energy density $\Lambda_{\text{UV}}^4$ and chiral condensate offset in static flat space ($\rho_{\text{vac}}^{\text{eq}} = 0$, \textbf{\hyperref[fig:fig4]{Figure 4(b)}}).
+  \item \textbf{Residual Non-Equilibrium Chiral-Horizon Dark Energy ($\rho_\Lambda \propto H_0 f_\pi^2 m_\pi$):} In an \textit{expanding} universe with Hubble rate $H(t) > 0$, the finite de Sitter / Hubble causal horizon $R_H = c / H(t)$ acts as an infrared boundary at wavevector $k_{\text{IR}} = H(t)/c$ that slightly perturbs the non-perturbative pion chiral condensate $\mathcal{L}_0 = \frac{f_\pi^2 m_\pi^2}{8}\,\text{Tr}(U(\mathbf{x}, t) + U^\dagger(\mathbf{x}, t) - 2\mathbf{I}_2)$ out of static thermodynamic equilibrium. As shown for QCD chiral condensates in curved spacetime by Veneziano, Sch\"utzhold, Urban--Zhitnitsky, Ohta, and Volovik \cite{ref15,ref16,ref25,ref26,ref30,ref31,ref32}, the infrared horizon shift of a non-perturbative chiral vacuum condensate of scale $\mathcal{E}_{\text{chiral}} \sim f_\pi^2 m_\pi$ across the Hubble horizon $R_H = c/H_0$ leaves a residual non-equilibrium vacuum energy density ($w_{\text{DE}} = -1$):
+\begin{equation}
+\rho_\Lambda^{\text{chiral}}(H_0) = \frac{\hbar H_0}{(2\pi)^2}\,f_\pi^2 m_\pi
+\end{equation}
+  Evaluating this expression using \textbf{only the already-fixed experimental meson parameters from \hyperref[tab:table1]{Table 1}} ($f_\pi = 92.4\text{ MeV}$, $m_\pi = 138.0\text{ MeV}$) and the Planck 2018 Hubble constant $H_0 = 67.4\text{ km s}^{-1}\text{ Mpc}^{-1}$ ($\hbar H_0 = 1.4377 \times 10^{-33}\text{ eV}$) \cite{ref28,ref29} yields (\textbf{\hyperref[fig:fig4]{Figure 4(b)}}):
+\begin{equation}\begin{gathered}
+\rho_\Lambda^{\text{chiral}}(H_0) = 4.294 \times 10^{-47}\text{ GeV}^4 = \left(2.560\text{ meV}\right)^4 \\
+\text{vs.} \qquad \rho_{\Lambda,\text{obs}}^{\text{Planck}} = 2.506 \times 10^{-47}\text{ GeV}^4 \\
+= \left(2.237\text{ meV}\right)^4
+\end{gathered}\end{equation}
+  With unit geometric prefactor ($c_H = 1$), this parameter-free chiral-horizon formula predicts the fourth-root dark energy scale $\rho_\Lambda^{1/4}$ to within \textbf{$+14.4\%$} of the Planck 2018 measurement ($\rho_\Lambda^{\text{chiral}} / \rho_{\Lambda,\text{obs}} = 1.714$, requiring an $\mathcal{O}(1)$ horizon geometry factor $c_H = 0.584$ for exact identity)---bridging $121$ orders of magnitude from the Planck cutoff and $44$ orders of magnitude from the naive chiral condensate $f_\pi^2 m_\pi^2 = (112.9\text{ MeV})^4$ directly from the medium's measured pion parameters.
+
+\end{itemize}
+
+\subsubsection{Late-Time Hubble History $H(z)$, Neutral $B=0$ Topological Breather Dark Matter ($\Omega_{\text{DM}}/\Omega_B \approx 5.44$), and Cosmological Demarcation}
+
+Because the chiral-horizon vacuum energy couples weakly to the evolving Hubble horizon via a running vacuum coefficient $\nu_H \ll 1$, the late-time normalized expansion rate $E(z) \equiv H(z)/H_0$ satisfies the modified Friedmann equation:
+\begin{multline}
+E^2(z) \equiv \frac{H^2(z)}{H_0^2} = \Omega_{r,0}(1+z)^4 + \Omega_{m,0}(1+z)^3 \\
++ \Omega_{\Lambda,0} + \nu_H\left(E(z) - 1\right) \qquad (\nu_H = 0.0012)
+\end{multline}
+Integrating this equation (\textbf{\hyperref[fig:fig4]{Figure 4(c)}}) yields a deceleration-to-acceleration transition ($\ddot{a} = 0$, $q(z) = 0$) at redshift:
+\begin{equation}\begin{gathered}
+z_{\text{acc}} = \left(\frac{2\Omega_{\Lambda,0}}{\Omega_{m,0}}\right)^{1/3} - 1 = 0.631, \\
+q_0 = \frac{\Omega_{m,0}}{2} - \Omega_{\Lambda,0} = -0.525
+\end{gathered}\end{equation}
+and reproduces observational Baryon Acoustic Oscillation (BOSS/eBOSS/DESI) and Cosmic Chronometer $H(z)$ measurements across $z \in [0.07, 2.33]$ with reduced chi-squared \textbf{$\chi^2 / N_{\text{dof}} = 0.616$} ($N_{\text{dof}} = 9$).
+
+Moreover, the topological soliton spectrum naturally contains an exploratory dark matter candidate within the same $SU(2)$ chiral field without introducing new fundamental particles: \textbf{Neutral $B=0$ Topological Skyrmion--Antiskyrmion Breather / Sphaleron Condensates}. During the cosmological chiral symmetry breaking phase transition at $T_c \sim \sqrt{3}f_\pi \approx 160\text{ MeV}$, Kibble--Zurek domain formation populates both net-winding baryons ($B = \pm 1$) and topologically neutral bound skyrmion--antiskyrmion / sphaleron breather states ($B = 1 - 1 = 0$, $Q_{\text{EM}} = 0$) stabilized in a metastable local energy minimum by the competing $\mathcal{L}_4 + \mathcal{L}_6$ and $\mathcal{L}_0$ potentials. Because $B=0$ breathers carry vanishing net baryon number and vanishing electric dipole/monopole charge, they decouple from photons and nuclear forces after freeze-out. As an exploratory Kibble--Zurek topological freeze-out scaling estimate---assuming a metastable three-meron-pair sphaleron/breather mass ratio $M_{B=0}/M_N \approx 3/2$ (corresponding to $M_{B=0} = 2 M_0(1 - \eta_{\text{bind}}) \approx 1.408\text{ GeV}$ with pair binding fraction $\eta_{\text{bind}} \approx 0.187$) and a relative orientational Kibble--Zurek defect freeze-out abundance $n_{B=0}/n_B = 2\pi/\sqrt{3} \approx 3.628$ between neutral $SU(2)/U(1) \cong S^2$ dipole defects and $Z_3$ Weyl-triad baryons---the resulting cosmological dark-to-baryonic mass density ratio compared to Planck 2018 \cite{ref28,ref29} is:
+\begin{equation}\begin{gathered}
+\frac{\Omega_{\text{DM}}}{\Omega_B} = \frac{n_{B=0}}{n_B}\,\frac{M_{B=0}}{M_N} \approx \left(\frac{2\pi}{\sqrt{3}}\right)\left(\frac{3}{2}\right) = \pi\sqrt{3} \approx 5.441 \\
+\text{vs.} \qquad \left(\frac{\Omega_{\text{DM}}}{\Omega_B}\right)_{\text{Planck}} = \frac{0.265}{0.0493} = 5.375 \\
+(+1.23\%\;\text{vs. }5.375;\;+0.84\%\;\text{vs. }\Omega_c h^2/\Omega_b h^2 = 5.396)
+\end{gathered}\end{equation}
+
+\begin{itemize}
+  \item \textbf{Explicit Demarcation of Derived vs. Postulated / Open Elements in Cosmology:}
+  \begin{itemize}
+    \item \textbf{Derived from the Unified Action (Zero New Fields):} (i) Exact equivalence between homogeneous dielectric evolution $\varepsilon_{\text{cos}}(t)=\mu_{\text{cos}}(t)=a(t)$ and the FLRW metric; (ii) invariance of bound soliton ruler sizes ($\Delta R^*/R^*_0 \sim (H_0 R_0/c)^2 \approx 3.08 \times 10^{-83}$) alongside exact cosmological redshift $1+z = a_0/a(t)$ for unbound waves; (iii) stiff repulsive pressure $P_{\mathcal{L}_6} = +\rho_{\mathcal{L}_6} c^2 \propto a^{-6}$ and the analytical non-singular bounce factor $(1 - \rho/\rho_{\text{crit}}^{\text{UV}})$ derived from Einstein--Cartan spin-torsion / $\omega$-core repulsion ($\rho_{\text{crit}}^{\text{EC}} = M_{\text{Pl,red}}^2 m_\omega^2 = \frac{m_\omega^2 c^6}{8\pi G_{\text{ind}}\hbar^2} \approx 3.63 \times 10^{36}\text{ GeV}^4$) and Born--Infeld dielectric saturation; (iv) exact reduction of the 1-loop Sakharov curvature-squared action in 4D conformally flat FLRW spacetime to the Starobinsky $R + R^2/(6M_S^2)$ inflationary action ($n_s = 0.9636, r = 0.0040$); and (v) the chiral-horizon dark energy scale $\left(\frac{\hbar H_0}{(2\pi)^2}f_\pi^2 m_\pi\right)^{1/4} = 2.56\text{ meV}$ matching $(2.24\text{ meV})_{\text{obs}}$ to $14.4\%$ using measured $(f_\pi, m_\pi, H_0)$.
+    \item \textbf{Postulated / Open Cosmological Frontiers:} (i) The exact order-unity de Sitter horizon boundary coefficient $c_H = 0.584$ requires a non-perturbative lattice or Schwinger--Keldysh calculation of the pion condensate in a time-dependent FLRW background; (ii) the quantitative Starobinsky scalaron amplitude $M_S \approx 1.3 \times 10^{-5} M_{\text{Pl}}$ depends on the total ultraviolet mode multiplicity $N_{\text{modes}}$ at the bounce scale; and (iii) while the exploratory Kibble--Zurek scaling ansatz $\Omega_{\text{DM}}/\Omega_B \approx \pi\sqrt{3} \approx 5.441$ is consistent with the Planck dark-to-baryonic ratio, a first-principles derivation of the non-equilibrium Kibble--Zurek freeze-out abundance $n_{B=0}/n_B$, the non-perturbative $B=0$ breather tunneling lifetime, and the primordial baryon asymmetry $\eta_B \approx 6.1 \times 10^{-10}$ remain open problems for future investigation.
+
+  \end{itemize}
+\end{itemize}
+
+
+\section{Configuration-Space Quantum Entanglement and Bell Inequality Violation}\label{sec:6}
+
+By Bell's theorem \cite{ref50,ref51}, any local hidden-variable model in which a two-particle state is a separable product of local waves in 3D space, $\Phi(\mathbf{x}_1, t)\otimes\Phi(\mathbf{x}_2, t)$, is bounded by $S_{\text{LHV}} \le 2.0000$ (and classical 3D rotor dipoles average to $E_{\text{classical}}(\theta) = -\frac{1}{3}\cos\theta$, yielding $S_{\max} = \frac{2\sqrt{2}}{3} \approx 0.9428$).
+
+In our framework, the quantum state (Level 0) is a \textbf{wavefunctional $\Psi[U(\mathbf{x}), t]$ on the configuration space of the field}. For a two-soliton system localized at $\mathbf{X}_1$ and $\mathbf{X}_2$, projecting $\Psi[U(\mathbf{x}), t]$ onto the two-soliton collective-coordinate moduli space $\mathcal{M}_2 \cong (\mathbb{R}^3 \times SU(2)/\mathbb{Z}_2)^2$ yields a joint spinor wavefunction $\Psi(A_1, A_2)$ on the six-dimensional rotor bundle $SU(2)_1 \times SU(2)_2$. In the spin-singlet sector ($J_{\text{total}} = 0$), the unique rotationally invariant state is $\Psi_{\text{singlet}}(A_1, A_2) = \frac{1}{\sqrt{2}}\,\text{Tr}(A_1\,\tau_2\,A_2^\dagger\,\tau_2)$.
+
+Evaluating the spin measurement operators $\hat{S}_1(\mathbf{a}) = \mathbf{a}\cdot\hat{\boldsymbol{\sigma}}_1$ and $\hat{S}_2(\mathbf{b}) = \mathbf{b}\cdot\hat{\boldsymbol{\sigma}}_2$ over the $SU(2) \times SU(2)$ Haar measure (\textbf{\hyperref[fig:fig5]{Figure 5}}) yields $E(\mathbf{a}, \mathbf{b}) = -\mathbf{a}\cdot\mathbf{b} = -\cos(\theta_a - \theta_b)$ and violates the CHSH inequality at the exact Tsirelson bound $S_{\text{moduli}} = 2\sqrt{2} \approx 2.828427 > 2.0$ \cite{ref52}, while spatial energy transport in $\mathbb{R}^3$ remains bounded by the local wave speed $c/n(\mathbf{x})$.
+
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig5_moduli_bell_entanglement.png}
+\caption{Configuration-Space Singlet Entanglement and CHSH Bell Inequality Violation: (a) Spin-measurement correlation function $E(\theta_a - \theta_b)$ comparing the non-separable $SU(2)\times SU(2)$ moduli-space singlet state $E_{\text{moduli}}(\theta) = -\cos\theta$ (solid blue) against separable 3D local hidden-variable rotor dipoles $E_{\text{classical}}(\theta) = -(1/3)\cos\theta$ (dashed red); (b) CHSH Bell parameter $S(\theta)$ as a function of relative analyzer angle, comparing the classical 3D dipole bound ($0.9428$, gray dotted) and the Bell local realism bound ($2.0000$, red dashed) against the configuration-space moduli singlet reaching the exact Tsirelson bound $S = 2\sqrt{2} \approx 2.828427 > 2.0$ at $\theta = 45^\circ$.}
+\label{fig:fig5}
+\end{figure*}
+
+
+
+
+\section{High-$Q^2$ Parton Scaling Bridge, Chiral Zero Modes, and Hopfion Leptons}\label{sec:7}
+
+To evaluate how the framework extends to high-momentum-transfer scattering and chiral electroweak structure, we formulate and numerically test three extensions displayed in \textbf{\hyperref[fig:fig6]{Figure 6}}.
+
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig6_unified_theory_extensions.png}
+\caption{High-$Q^2$ Parton Scaling Bridge, Rank-2 Gravitational Radiation, and Topological Chiral Zero Modes: (a) Mode-independent 6-derivative BVP + VMD nucleon observables normalized to empirical PDG values across proton/neutron magnetic moments, charge radii, axial coupling $g_A$, and deuteron/alpha binding energies; (b) Transverse-traceless rank-2 gravitational-wave polarizations $h_+(t)$ and $h_\times(t)$ in mutual phase quadrature (inner product $1.42 \times 10^{-17}$); (c) Relativistic high-$Q^2$ proton electric form factor scaling $Q^4 G_E^p(Q^2)$ comparing the zero-fit BVP 3-meron + VMD prediction ($\Lambda_{\text{meron}} = 0.897\text{ GeV}$, $\chi^2/N_{\text{dof}} = 0.948$) and 1-parameter fit ($\Lambda_{\text{meron}} = 0.910\text{ GeV}$, $\chi^2/N_{\text{dof}} = 0.145$) against SLAC/JLab dipole data and the unboosted static hedgehog; (d) Radial Jackiw--Rebbi domain-wall superpotential $W(r) = m_f \cos F(r)$ and normalizable left-handed chiral zero mode $u_L^{(0)}(r)$ ($E_{0,L}/m_f = 1.10 \times 10^{-14}$) with topological index $N_L - N_R = 1$.}
+\label{fig:fig6}
+\end{figure*}
+
+
+
+\subsection{Bridging Low-$Q^2$ Solitons to High-$Q^2$ Parton Scaling ($G_E^p(Q^2) \propto Q^{-4}$) and $\chi^2 / N_{\text{dof}}$ Analysis}\label{sec:7.1}
+
+In non-relativistic static coordinates, the spatial Fourier transform of a single smooth hedgehog profile $B^0(r)$ decays rapidly and oscillates at high momentum transfer $Q^2 \gg 1\text{ GeV}^2$ (red dotted curve in \textbf{\hyperref[fig:fig6]{Figure 6(c)}}). However, in relativistic electron-proton elastic scattering at spacelike four-momentum transfer squared $Q^2 = q^\mu q_\mu = \mathbf{q}^2 - (q^0)^2 > 0$ in signature $(-,+,+,+)$, two physical mechanisms inherent to our vector-meson-coupled 3-meron baryon govern the high-momentum asymptotics \cite{ref6,ref7,ref8,ref33,ref34}:
+\begin{enumerate}
+  \item \textbf{Vector-Meson Dominance (VMD) Propagator:} Because the electromagnetic current couples to the soliton core through the $\rho_\mu / \omega_\mu$ gauge fields of \hyperref[sec:2.2]{Section 2.2}, the electromagnetic vertex acquires the vector-meson propagator factor $(1 + Q^2/m_\rho^2)^{-1}$ where $m_\rho = 0.77526\text{ GeV}$ is fixed directly by the PDG $\rho(770)$ meson mass \cite{ref19,ref20}.
+  \item \textbf{Relativistic Lorentz Contraction of the $N_c = 3$ Meron Triad:} As established by Ji, Brodsky, and Farrar \cite{ref33,ref34}, boosting a composite $N_c = 3$ bound state to the Breit frame contracts the longitudinal cluster thickness by $\gamma^{-1} \sim (1 + Q^2/\Lambda_{\text{meron}}^2)^{-1/2}$, projecting the scattering amplitude onto the $N_c = 3$ valence meron cluster.
+
+\end{enumerate}
+Combining the parameter-free VMD propagator $(1 + Q^2/m_\rho^2)^{-1}$ with the Lorentz-boosted 3-meron valence cluster factor $(1 + Q^2/\Lambda_{\text{meron}}^2)^{-1}$ yields the relativistic electric form factor:
+\begin{multline}
+G_E^{p,\text{rel}}(Q^2) = \frac{1}{\left(1 + \frac{Q^2}{m_\rho^2}\right)\left(1 + \frac{Q^2}{\Lambda_{\text{meron}}^2}\right)} \\
+\underset{Q^2 \to \infty}{\sim} \frac{m_\rho^2 \Lambda_{\text{meron}}^2}{Q^4} \propto Q^{-2(N_c - 1)} \quad (N_c = 3)
+\end{multline}
+
+\textbf{Explicit Derivation of the Valence Cluster Scale $\Lambda_{\text{meron}}^{\text{BVP}}$, Uncertainty Model, and Zero-Fit vs. 1-Parameter Comparison:}
+To ensure full transparency in \textbf{\hyperref[tab:table2]{Table 2}} and \textbf{\hyperref[fig:fig6]{Figure 6(c)}}, we distinguish the \textbf{bare topological core radius} $R_{\text{bare}} = \sqrt{\langle r^2\rangle_{\text{bare}}} = 0.445\text{ fm}$ of the exact \texttt{solve\_bvp} solution from the \textbf{VMD-dressed isoscalar charge radius} $r_{E,I=0} = \sqrt{R_{\text{bare}}^2 + 6(\hbar c/m_\omega)^2} = 0.761\text{ fm}$ (\hyperref[tab:table1]{Table 1}), since the $\rho/\omega$ meson cloud is already accounted for in the VMD factor $(1 + Q^2/m_\rho^2)^{-1}$. For an equilateral $N_c = 3$ meron triad of inter-meron separation $d_m \approx R_{\text{bare}}$, the valence cluster RMS radius is $R_{\text{cluster}} = \sqrt{\frac{22}{15}}\,R_{\text{bare}} = 0.539\text{ fm}$, which directly fixes the zero-fit dipole cluster scale:
+\begin{multline}
+\Lambda_{\text{meron}}^{\text{BVP}} = \frac{\sqrt{6}\,\hbar c}{R_{\text{cluster}}} \\
+= \frac{\sqrt{6} \times 0.197327\text{ GeV}\cdot\text{fm}}{0.539\text{ fm}} = 0.897\text{ GeV}
+\end{multline}
+We evaluate $G_E^p(Q^2)$ across 10 benchmark points $Q^2 \in [0.1, 25.0]\text{ GeV}^2$ against the empirical proton dipole form factor $G_E^{\text{data}}(Q^2) = (1 + Q^2/0.71\text{ GeV}^2)^{-2}$ with the experimental uncertainty envelope $\sigma_{\text{exp}}(Q^2) = \sqrt{(0.035)^2 + (0.004)^2}\,G_E^{\text{data}}(Q^2) = 0.03523\,G_E^{\text{data}}(Q^2)$ ($3.5\%$ combined SLAC/JLab Rosenbluth and recoil-polarization point-to-point error plus $0.4\%$ normalization uncertainty), in \textbf{two ways}:
+\begin{enumerate}
+  \item \textbf{Zero-Fit BVP 3-Meron + VMD Prediction ($\Lambda_{\text{meron}}^{\text{BVP}} = 0.897\text{ GeV}$, $0$ adjusted parameters, $N_{\text{dof}} = 10$):} Using $m_\rho = 0.77526\text{ GeV}$ and the unadjusted BVP cluster scale $\Lambda_{\text{meron}}^{\text{BVP}} = 0.897\text{ GeV}$ yields a reduced chi-squared of \textbf{$\chi^2 / N_{\text{dof}} = 0.948$} across all 10 points ($N_{\text{dof}} = 10$), with model-to-data ratios $G_E^{\text{BVP}}/G_E^{\text{data}} \in [0.960, 0.993]$ and normalized pulls $z_i^{\text{BVP}} = (G_E^{\text{BVP}} - G_E^{\text{data}})/\sigma_{\text{exp}} \in [-1.14\sigma, -0.21\sigma]$.
+  \item \textbf{1-Parameter Calibrated 3-Meron + VMD Fit ($\Lambda_{\text{meron}}^{\text{fit}} = 0.910\text{ GeV}$, $1$ fitted scale parameter, $N_{\text{dof}} = 9$):} Allowing a $1.4\%$ adjustment of the cluster scale to $\Lambda_{\text{meron}}^{\text{fit}} = 0.910\text{ GeV}$ ($N_{\text{dof}} = 10 - 1 = 9$) yields \textbf{$\chi^2 / N_{\text{dof}} = 0.145$}, with model-to-data ratios $G_E^{\text{rel}}/G_E^{\text{data}} \in [0.986, 0.996]$ and pulls $z_i^{\text{fit}} \in [-0.40\sigma, -0.12\sigma]$ (and asymptotic power law $G_E^p \propto (Q^2)^{-1.939} = Q^{-3.88} \to Q^{-4}$), compared to $\chi^2 / N_{\text{dof}} = 1122.1$ for the unboosted static hedgehog.
+
+\end{enumerate}
+
+\begin{table*}[t]
+\centering
+\caption{Quantitative High-$Q^2$ Proton Electric Form Factor Comparison ($Q^2 = 0.1$ to $25.0\text{ GeV}^2$)}
+\label{tab:table2}
+\footnotesize
+\setlength{\tabcolsep}{4.5pt}
+\renewcommand{\arraystretch}{1.12}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccccc}
+\toprule
+\theadl{$Q^2$ \\ ($\text{GeV}^2$)} & \thead{Unboosted \\ Hedgehog \\ $G_E^{\text{soft}}$} & \thead{Zero-Fit BVP \\ $G_E^{\text{BVP}}$ \\ ($\Lambda=0.897$)} & \thead{1-Param Fit \\ $G_E^{\text{rel}}$ \\ ($\Lambda=0.910$)} & \thead{Empirical Data \\ $G_E^{\text{data}} \pm \sigma_{\text{exp}}$} & \thead{Scaled $Q^4 G_E^{\text{BVP}}$ \\ ($\text{GeV}^4$)} & \thead{Scaled $Q^4 G_E^{\text{rel}}$ \\ ($\text{GeV}^4$)} & \thead{Scaled Data \\ $Q^4 G_E^{\text{data}} \pm \sigma$} & \thead{Ratio \\ $G_E^{\text{BVP}} / G_E^{\text{data}}$ \\ (Pull $z_i^{\text{BVP}}$)} & \thead{Ratio \\ $G_E^{\text{rel}} / G_E^{\text{data}}$ \\ (Pull $z_i^{\text{fit}}$)} \\
+\midrule
+\textbf{$0.1$} & $0.9194$ & \textbf{$0.7626$} & \textbf{$0.7650$} & $0.7683 \pm 0.0271$ & $0.00763$ & \textbf{$0.00765$} & $0.00768 \pm 0.00027$ & $0.993$ ($-0.21\sigma$) & \textbf{$0.996$ ($-0.12\sigma$)} \\
+\textbf{$0.5$} & $0.6624$ & \textbf{$0.3367$} & \textbf{$0.3404$} & $0.3443 \pm 0.0121$ & $0.08417$ & \textbf{$0.08509$} & $0.08608 \pm 0.00303$ & $0.978$ ($-0.63\sigma$) & \textbf{$0.989$ ($-0.32\sigma$)} \\
+\textbf{$1.0$} & $0.4468$ & \textbf{$0.1674$} & \textbf{$0.1701$} & $0.1724 \pm 0.0061$ & $0.16738$ & \textbf{$0.17005$} & $0.17239 \pm 0.00607$ & $0.971$ ($-0.83\sigma$) & \textbf{$0.986$ ($-0.39\sigma$)} \\
+\textbf{$2.0$} & $0.2116$ & \textbf{$0.06629$} & \textbf{$0.06766$} & $0.06864 \pm 0.00242$ & $0.26517$ & \textbf{$0.27064$} & $0.27456 \pm 0.00967$ & $0.966$ ($-0.97\sigma$) & \textbf{$0.986$ ($-0.40\sigma$)} \\
+\textbf{$4.0$} & $0.05430$ & \textbf{$0.02188$} & \textbf{$0.02241$} & $0.02272 \pm 0.00080$ & $0.35002$ & \textbf{$0.35848$} & $0.36358 \pm 0.01281$ & $0.963$ ($-1.06\sigma$) & \textbf{$0.986$ ($-0.40\sigma$)} \\
+\textbf{$6.0$} & $0.01691$ & \textbf{$0.01077$} & \textbf{$0.01104$} & $0.01120 \pm 0.00039$ & $0.38759$ & \textbf{$0.39753$} & $0.40306 \pm 0.01420$ & $0.962$ ($-1.09\sigma$) & \textbf{$0.986$ ($-0.39\sigma$)} \\
+\textbf{$10.0$} & $0.002854$ & \textbf{$0.004222$} & \textbf{$0.004336$} & $0.004395 \pm 0.000155$ & $0.42220$ & \textbf{$0.43359$} & $0.43948 \pm 0.01548$ & $0.961$ ($-1.12\sigma$) & \textbf{$0.987$ ($-0.38\sigma$)} \\
+\textbf{$15.0$} & $0.000445$ & \textbf{$0.001961$} & \textbf{$0.002016$} & $0.002043 \pm 0.000072$ & $0.44129$ & \textbf{$0.45350$} & $0.45956 \pm 0.01619$ & $0.960$ ($-1.13\sigma$) & \textbf{$0.987$ ($-0.37\sigma$)} \\
+\textbf{$20.0$} & $0.000071$ & \textbf{$0.001128$} & \textbf{$0.001160$} & $0.001175 \pm 0.000041$ & $0.45133$ & \textbf{$0.46398$} & $0.47013 \pm 0.01656$ & $0.960$ ($-1.14\sigma$) & \textbf{$0.987$ ($-0.37\sigma$)} \\
+\textbf{$25.0$} & $0.000016$ & \textbf{$0.000732$} & \textbf{$0.000753$} & $0.000763 \pm 0.000027$ & $0.45751$ & \textbf{$0.47044$} & $0.47664 \pm 0.01679$ & $0.960$ ($-1.14\sigma$) & \textbf{$0.987$ ($-0.37\sigma$)} \\
+\theadl{\textbf{Fit} \\ \textbf{Summary}} & \thead{$\chi^2/N_{\text{dof}} = 1122.1$} & \thead{\textbf{$\chi^2/N_{\text{dof}} = 0.948$} \\ ($N_{\text{dof}}=10$)} & \thead{\textbf{$\chi^2/N_{\text{dof}} = 0.145$} \\ ($N_{\text{dof}}=9$)} & \thead{SLAC / JLab \\ Dipole} & \thead{\textbf{Flat $Q^{-4}$} \\ \textbf{Plateau}} & \thead{\textbf{Flat $Q^{-4}$} \\ \textbf{Plateau}} & \thead{\textbf{Flat $Q^{-4}$} \\ \textbf{Plateau}} & \thead{\textbf{Max $|z_i| = 1.14\sigma$}} & \thead{\textbf{Max $|z_i| = 0.40\sigma$}} \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+
+\subsection{Evasion of the Nielsen--Ninomiya Theorem via the Topological Chiral Index ($\text{Index}(D_U) = N_L - N_R = 1$)}\label{sec:7.2}
+
+Although the Nielsen--Ninomiya theorem \cite{ref53} proves that any local, translationally invariant, parity-symmetric wave medium in flat bulk space possesses an equal number of left- and right-handed fermion modes ($N_L = N_R$), chiral fermion zero modes emerge naturally in the presence of topological solitons. As established by Jackiw and Rebbi, Callan and Harvey \cite{ref35,ref36}, and the Atiyah--Patodi--Singer index theorem \cite{ref37}, \textbf{a topological soliton breaks bulk translational invariance and acts as a 3D spherical domain wall where the effective mass twist changes sign from $F(0) = \pi$ to $F(\infty) = 0$}. In the grand-spin $K = 0$ channel ($\mathbf{K} = \mathbf{J} + \mathbf{I} = \mathbf{0}$), a spinor excitation coupled to the background soliton twist $U_0(\mathbf{x}) = \exp(i F(r)\hat{\mathbf{x}}\cdot\boldsymbol{\tau})$ satisfies the radial Dirac/Bogoliubov--de Gennes system:
+\begin{equation}\begin{gathered}
+\left(\frac{d}{dr} + W(r)\right) u_L(r) = E\,u_R(r), \\
+\left(-\frac{d}{dr} + W(r)\right) u_R(r) = E\,u_L(r), \\
+W(r) = m_f \cos F(r)
+\end{gathered}\end{equation}
+Because $F(0) = \pi$ and $F(\infty) = 0$, the topological superpotential $W(r)$ changes sign continuously across the soliton core wall $F(r_*) = \pi/2$ (\textbf{\hyperref[fig:fig7]{Figure 7(a)}}):
+\begin{multline}
+W(0) = m_f \cos(\pi) = -m_f < 0 \\
+\rightarrow \; W(\infty) = m_f \cos(0) = +m_f > 0
+\end{multline}
+Consequently, setting $E = 0$ yields two formal solutions:
+\begin{equation}\begin{gathered}
+u_L^{(0)}(r) = \mathcal{N}\exp\!\left(-\int_0^r W(s)\,ds\right) \\
+\underset{r\to\infty}{\sim} e^{-m_f r} \in L^2(\mathbb{R}_+), \\
+u_R^{(0)}(r) = \mathcal{N}\exp\!\left(+\int_0^r W(s)\,ds\right) \\
+\underset{r\to\infty}{\sim} e^{+m_f r} \notin L^2(\mathbb{R}_+)
+\end{gathered}\end{equation}
+
+As verified numerically using Crank--Nicolson midpoint discretization and plotted in \textbf{\hyperref[fig:fig6]{Figure 6(d)}}, the left-chiral mode $u_L^{(0)}(r)$ is strictly normalizable and localized on the soliton domain wall $W(r_*) = 0$ with zero energy ($E_{0,L}/m_f = 1.10 \times 10^{-14} \approx 0$ to machine precision), whereas the opposite-chirality partner $u_R^{(0)}(r)$ is non-normalizable and its lowest continuum state is gapped at the bulk threshold ($E_{0,R}/m_f = 1.0131 \ge 1$). Thus, the topological soliton enforces an exact chiral index:
+\begin{equation}
+\text{Index}(D_U) = N_L(E=0) - N_R(E=0) = 1 - 0 = B = 1
+\end{equation}
+Furthermore, by Callan--Harvey anomaly inflow \cite{ref35,ref36}, coupling the chiral zero-mode sector to weak $SU(2)_L$ gauge fields cancels the bulk topological anomaly between the baryonic winding current $B^\mu$ and the leptonic hopfion current $L^\mu$, preserving exact $B - L$ conservation ($\partial_\mu(J_B^\mu - J_L^\mu) = 0$).
+
+
+\subsection{The Leptonic Sector: Electromagnetic $\pi_3(S^2) = \mathbb{Z}$ Hopfion Solitons and Radiative 1-Loop QED Mass Hierarchy ($m_e^{\text{rad}} = 0.509\text{ MeV}$)}\label{sec:7.3}
+
+While baryons live in the full $SU(2) \cong S^3$ manifold classified by $\pi_3(S^3) = \mathbb{Z}$ and carry strong short-range Skyrme/vector-meson interactions, the unbroken electromagnetic $U(1)_{\text{EM}}$ subgroup of the medium projects $U(\mathbf{x}) \in SU(2)$ onto the unit two-sphere $S^2$ via the Hopf map:
+\begin{equation}\begin{gathered}
+\mathbf{n}(\mathbf{x})\cdot\boldsymbol{\tau} = U^\dagger(\mathbf{x})\,\tau_3\,U(\mathbf{x}), \\
+\mathbf{n}(\mathbf{x}) \in S^2 \quad (|\mathbf{n}|^2 = 1)
+\end{gathered}\end{equation}
+Substituting $\mathbf{n}(\mathbf{x})$ into the unified action reduces the model to the \textbf{Faddeev--Niemi $S^2$ non-linear sigma model} \cite{ref39,ref40,ref41,ref42}:
+\begin{multline}
+\mathcal{L}_{\text{Hopf}} = -\frac{\mu_e^2}{2}\,\partial_\mu \mathbf{n}\cdot\partial^\mu \mathbf{n} \\
+- \frac{1}{4 e_H^2}\left(\mathbf{n}\cdot(\partial_\mu \mathbf{n} \times \partial_\nu \mathbf{n})\right)^2
+\end{multline}
+Smooth finite-energy configurations $\mathbf{n}: S^3_{\text{space}} \to S^2$ have zero baryon number ($B = 0$, hence zero strong nuclear interaction), yet are topologically classified by the \textbf{Hopf homotopy group $\pi_3(S^2) = \mathbb{Z}$}. Their integer topological charge is the \textbf{Whitehead Hopf linking invariant} $Q_H$ \cite{ref38}:
+\begin{equation}\begin{gathered}
+Q_H = \frac{1}{4\pi^2}\int_{\mathbb{R}^3} \mathbf{A}\cdot\mathbf{B}\,d^3x \in \mathbb{Z}, \\
+B_i = \frac{1}{2}\epsilon_{ijk} F_{jk} = \frac{1}{2}\epsilon_{ijk}\,\mathbf{n}\cdot(\partial_j \mathbf{n} \times \partial_k \mathbf{n}), \\
+\nabla\times\mathbf{A} = \mathbf{B}
+\end{gathered}\end{equation}
+Moreover, the static energy of any knotted hopfion is bounded from below by the \textbf{Vakulenko--Kapitansky topological inequality} \cite{ref39,ref40,ref41,ref42}:
+\begin{equation}
+E_{\text{Hopf}} \ge c_{\text{VK}}\,\frac{\mu_e}{e_H}\,|Q_H|^{3/4}
+\end{equation}
+which prevents the toroidal hopfion core from collapsing (in Skyrme-normalized dimensionless units where $c_{\text{VK}} = (3/2)^{3/8} 4\pi^2 \approx 45.99$, numerical 3D relaxation for $Q_H = 1$ yields $E_{\text{Hopf}}/E_{\text{VK}} \approx 1.19\text{--}1.225 \ge 1$ \cite{ref39,ref40,ref41,ref42,ref44,ref45,ref46}, corresponding to the dimensionless energy coefficient $C_{\text{Hopf}} \approx 54.73$, and numerical quadrature of the Whitehead integral confirms $Q_H = 0.9999999994 = 1$, with the linked 3D preimage fibers $\mathcal{C}_1, \mathcal{C}_2$ illustrated in \textbf{\hyperref[fig:fig7]{Figure 7(d)}}).
+
+
+\subsubsection{Radiative 1-Loop QED Induction of the Hopfion Stiffness Scale ($\mu_e^{\text{1-loop}} / e_H$) and the $m_e / M_N$ Mass Hierarchy}
+
+The three-order-of-magnitude mass ratio between the fundamental $Q_H = 1$ hopfion lepton ($m_e = 0.511\text{ MeV}$) and the $B=1$ nucleon ($M_N = 938.9\text{ MeV}$) follows from the absence of tree-level strong chiral stiffness in the $B=0$ hopfion sector: along the unbroken $U(1)_{\text{EM}}$ fiber, $\mathbf{n}(\mathbf{x}) \in S^2$ carries zero strong winding ($B=0$). However, integrating out 1-loop $U(1)_{\text{EM}}$ gauge fluctuations coupled to the $S^2$ hopfion current across the Skyrme-unit scale $\Lambda_{\text{Skyrme}} = F_\pi / (2 e_S) = 162.82\text{ MeV} / (2 \times 5.079) = 16.03\text{ MeV}$ induces the characteristic 1-loop QED stiffness scale $\mu_e^{\text{1-loop}} / e_H$ \cite{ref19,ref20}:
+\begin{multline}
+\frac{\mu_e^{\text{1-loop}}}{e_H} = \frac{\alpha_{\text{EM}}}{4\pi}\,\frac{F_\pi}{2 e_S} \\
+= \frac{1/137.036}{4\pi}\,\frac{162.82\text{ MeV}}{2 \times 5.079} = 9.31\text{ keV}
+\end{multline}
+Evaluating the $Q_H = 1$ hopfion rest energy at this 1-loop QED stiffness scale with the Skyrme-normalized Faddeev--Niemi hopfion coefficient $C_{\text{Hopf}} = 54.73$ provides a semi-quantitative scaling relation for the electron mass compared to the empirical PDG value \cite{ref19,ref20}:
+\begin{equation}\begin{gathered}
+m_e^{\text{rad}} = C_{\text{Hopf}}\,\frac{\mu_e^{\text{1-loop}}}{e_H} = 54.73 \times 9.31\text{ keV} = 0.509\text{ MeV} \\
+\text{vs.} \qquad m_e^{\text{exp}} = 0.5110\text{ MeV} \quad (0.39\%\text{ discrepancy}), \\
+\frac{m_e^{\text{rad}}}{M_N} = 5.42 \times 10^{-4}
+\end{gathered}\end{equation}
+accounting for the three-order-of-magnitude lepton-to-baryon mass hierarchy $m_e / M_N \sim \frac{\alpha_{\text{EM}}}{4\pi}$ through radiative QED loop suppression rather than tree-level parameter tuning.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig7_spatial_soliton_and_hopfion_topology.png}
+\caption{Spatial Field Topologies Across the Baryonic and Leptonic Soliton Sectors: (a) Equatorial cross-section ($z = 0$) of the $B = 1$ hedgehog skyrmion showing the normalized topological shell density $\sin^2 F(r)\,|F'(r)|$, the radial pion-isospin vector field $\hat{\mathbf{r}}\sin F(r)$, the regularized core origin $F(0) = \pi$, and the chiral domain-wall sphere $F(r_*) = \pi/2$ where the Jackiw--Rebbi superpotential vanishes ($W(r_*) = 0$); (b) Cho--Faddeev--Niemi flag-manifold ($F_2 = SU(3)/U(1)^2$) abelian projection of the $B = 1$ baryon into three phase-locked $B_a = 1/3$ meron cores ($\Delta\phi = 120^\circ$, $\sum \boldsymbol{\alpha}_a = 0$) connected by a confining Y-junction topological flux tube ($E_{\text{sep}} \propto \sigma_{\text{string}} d$); (c) Relativistic Lorentz contraction ($R_\parallel = R_0/\gamma$) and emergent De Broglie phase wavefronts ($\lambda_{\text{dB}} = h/(\gamma M_0 v)$) of a soliton boosted to $v = 0.75c$; (d) Three-dimensional $Q_H = 1$ electromagnetic Hopfion knot ($\pi_3(S^2) = \mathbb{Z}, B = 0$) illustrating two linked preimage fibers $\mathcal{C}_1 = \mathbf{n}^{-1}(\mathbf{p}_1)$ and $\mathcal{C}_2 = \mathbf{n}^{-1}(\mathbf{p}_2)$ with exact Whitehead linking number $\text{Lk}(\mathcal{C}_1, \mathcal{C}_2) = +1$ around the toroidal core ring $n_3 = 0$.}
+\label{fig:fig7}
+\end{figure*}
+
+
+\subsubsection{Explicit Demarcation: Derived Topological \& Radiative Results vs. Open Elements in the Lepton Sector}
+
+To avoid over-claiming, we explicitly separate what is mathematically derived in the hopfion lepton sector from what remains open:
+
+\begin{itemize}
+  \item \textbf{Derived from Topology, Index Theory \& 1-Loop QED Scaling:}
+  \begin{enumerate}
+    \item \textbf{Exact Integer Leptonic Charge Quantization ($Q_H \in \mathbb{Z}$):} The homotopy group $\pi_3(S^2) = \mathbb{Z}$ locks the Whitehead linking integral to exact integers ($Q_H = \pm 1, \pm 2, \dots$) \cite{ref38}, verified numerically to $Q_H = 0.9999999994$.
+    \item \textbf{Strong-Interaction Immunity ($B \equiv 0$):} Because the target manifold $S^2$ is 2-dimensional, the 3-form baryon winding density $B^0 \propto \epsilon^{ijk}\text{Tr}(L_i L_j L_k)$ vanishes identically everywhere ($B = 0$), explaining why hopfion excitations are color-singlets that do not experience strong nuclear forces.
+    \item \textbf{Core Stability Bound ($E_{\text{Hopf}} \ge c_{\text{VK}}(\mu_e/e_H)|Q_H|^{3/4}$):} Derrick's theorem \cite{ref18} combined with the Sobolev--Vakulenko--Kapitansky inequality \cite{ref39,ref40,ref41,ref42} guarantees a non-zero equilibrium core radius and prevents ultraviolet collapse ($E_{\text{Hopf}}/E_{\text{VK}} \approx 1.19\text{--}1.225$ for $Q_H = 1$ \cite{ref44,ref45,ref46}).
+    \item \textbf{Fermionic Spin-$1/2$ and Unpaired Chiral Zero Mode ($\text{Index}(D_U) = 1$):} The configuration space fundamental group $\pi_1(\mathcal{Q}_{Q_H=1}) = \mathbb{Z}_2$ permits Finkelstein--Rubinstein spin-$1/2$ quantization \cite{ref11}, while the radial domain-wall twist traps a single normalizable left-handed zero mode ($N_L - N_R = 1$, $E_{0,L}/m_f = 1.10 \times 10^{-14}$) with anomaly-free $B - L$ conservation \cite{ref35,ref36,ref37}.
+    \item \textbf{Radiative 1-Loop Lepton-to-Baryon Mass Scale ($m_e^{\text{rad}} = 0.509\text{ MeV}$):} One-loop $U(1)_{\text{EM}}$ vacuum polarization across the Skyrme scale induces $\mu_e^{\text{1-loop}}/e_H = \frac{\alpha_{\text{EM}}}{4\pi}\frac{F_\pi}{2 e_S} = 9.31\text{ keV}$, yielding the semi-quantitative scaling relation $m_e^{\text{rad}} = 0.509\text{ MeV}$ ($0.39\%$ from $0.511\text{ MeV}$ \cite{ref19,ref20}).
+
+  \end{enumerate}
+  \item \textbf{Open Theoretical Problems in the Lepton \& Flavor Sector:}
+  \begin{enumerate}
+    \item \textbf{Termination at Exactly Three Fermion Generations ($N_{\text{gen}} = 3$):} While toroidal/knotted hopfion states ($Q_H = 1, 2, 3$ or radial/toroidal breathing excitations) and the $F_2 = SU(3)/U(1)^2$ flag-manifold Weyl chamber provide candidate three-fold symmetries, a rigorous dynamical proof of why chiral replication terminates at $N_{\text{gen}} = 3$ remains open.
+    \item \textbf{Inter-Generational Charged-Lepton Mass Hierarchy ($m_e : m_\mu : m_\tau \approx 1 : 206.77 : 3477.2$) and Flavor Mixing:} While 1-loop QED induction sets the baseline electron scale $m_e \approx 0.51\text{ MeV}$, the fractional Vakulenko--Kapitansky knot scaling $|Q_H|^{3/4}$ ($1 : 1.68 : 2.28$) does not by itself reproduce the $m_\mu / m_e$ and $m_\tau / m_e$ ratios or the CKM/PMNS flavor mixing matrices without incorporating rotational/vibrational Casimir excitations or flavor-symmetry-breaking potentials.
+
+  \end{enumerate}
+\end{itemize}
+
+
+\section{Testable Predictions, Engineering Applications, and Scope of the Effective Theory}\label{sec:8}
+
+To distinguish the 6-derivative vector-meson-coupled soliton framework from both minimal 4-derivative Skyrme models and standard phenomenological parameterizations, we formulate three quantitative, near-term falsifiable observational predictions in dense nuclear astrophysics and high-$Q^2$ scattering, catalog laboratory realizations in graded-index and topological wave media, and explicitly specify the ultraviolet breakdown scales of the effective theory.
+
+
+\subsection{Three Sharp, Near-Term Falsifiable Signatures in Nuclear and Gravitational-Wave Physics}\label{sec:8.1}
+
+Beyond reproducing established static observables and post-Newtonian tests, the 6-derivative vector-meson-coupled 3-meron framework makes \textbf{three quantitative, near-term falsifiable predictions} that distinguish it from both minimal 4-derivative Skyrme models and standard nucleonic equations of state:
+
+\begin{enumerate}
+  \item \textbf{Super-Conformal Sound-Speed Peak ($c_s^2 / c^2 \approx 0.58$) and Tidal Deformability ($\Lambda_{1.4} = 410 \pm 45$) in Dense Neutron Stars (LIGO O4/O5 \& NICER):}
+  At super-nuclear baryon densities $n_B \sim 3.0\text{--}4.0\,n_0$ ($n_0 = 0.16\text{ fm}^{-3}$), the topological parity-doubling transition from a face-centered-cubic (FCC) $B=1$ skyrmion crystal to a body-centered half-skyrmion ($B=1/2$) crystal \cite{ref48,ref49}, combined with the repulsive $\omega_\mu$-induced sextic term $\mathcal{L}_6 = +\frac{\lambda_6^2}{2}g_{\mu\nu}B^\mu B^\nu = -\frac{\lambda_6^2}{2}(B^0)^2 + \frac{\lambda_6^2}{2}\mathbf{B}^2$ ($P_{\mathcal{L}_6} = +\frac{1}{2}\lambda_6^2 n_B^2$), produces a characteristic non-monotonic peak in the adiabatic speed of sound:
+\begin{equation}
+\left.\frac{c_s^2}{c^2}\right|_{\text{peak}} = \frac{\partial P}{\partial \mathcal{E}} \approx 0.58 \pm 0.06 \quad \text{at } n_B \approx 3.5\,n_0
+\end{equation}
+  exceeding the conformal bound $c_s^2/c^2 = 1/3$ in the transition shell before relaxing toward the scale-invariant half-skyrmion plateau $c_s^2/c^2 \to 1/3$ at $n_B \gtrsim 6\,n_0$. Integrating the Tolman--Oppenheimer--Volkoff (TOV) equations with our meson-calibrated $\lambda_6 = g_\omega/m_\omega = 0.0114\text{ MeV}^{-1}$ predicts:
+\begin{equation}\begin{gathered}
+M_{\max}^{\text{NS}} = 2.22 \pm 0.08\,M_\odot, \\
+R_{1.4\,M_\odot} = 12.1 \pm 0.4\text{ km}, \qquad \Lambda_{1.4\,M_\odot} = 410 \pm 45
+\end{gathered}\end{equation}
+  \textit{Falsification criterion:} An observational confirmation by NICER or LIGO/Virgo/KAGRA of $M_{\max}^{\text{NS}} < 2.00\,M_\odot$, $R_{1.4} < 11.0\text{ km}$ (which would rule out the repulsive $\mathcal{L}_6$ core pressure), or $\Lambda_{1.4} > 600$ (which would rule out the $B=1 \to B=1/2$ crystal softening at intermediate density) would directly falsify the model's high-density equation of state.
+
+  \item \textbf{Proton Electric-to-Magnetic Form-Factor Ratio Zero-Crossing at $Q_0^2 \approx 9.6 \pm 1.2\text{ GeV}^2$ (Jefferson Lab 12 GeV SBS):}
+  Whereas the unboosted 4-derivative ANW hedgehog predicts a premature form-factor node at $Q^2 \approx 3.1\text{ GeV}^2$ (contradicted by JLab data), in our relativistic 6-derivative 3-meron + VMD model (\hyperref[sec:7.1]{Section 7.1}) the electric distribution contracts longitudinally in the Breit frame faster than the transverse collective rotational magnetic current $G_M^p(Q^2)$, predicting a linear recoil-polarization ratio drop:
+\begin{equation}
+\frac{\mu_p G_E^p(Q^2)}{G_M^p(Q^2)} \approx 1 - \frac{Q^2}{Q_0^2}, \qquad Q_0^2 \approx 9.6 \pm 1.2\text{ GeV}^2
+\end{equation}
+  with a shallow negative trough ($\mu_p G_E^p / G_M^p \approx -0.15$) across $Q^2 \in [10, 15]\text{ GeV}^2$ before asymptotic restoration.
+  \textit{Falsification criterion:} Precision recoil-polarization measurements by the \textbf{Super BigBite Spectrometer (SBS)} in Hall A at Jefferson Lab up to $Q^2 = 14\text{ GeV}^2$ will directly test whether $\mu_p G_E^p / G_M^p$ crosses zero in the $Q_0^2 \in [8.4, 10.8]\text{ GeV}^2$ window.
+
+  \item \textbf{5PN Binary Neutron-Star Gravitational-Wave Tidal Phase Shift ($\delta\Psi_{\text{tidal}} \approx -2.4 \pm 0.3\text{ rad}$ at $f_{\text{GW}} = 1000\text{ Hz}$):}
+  From our explicit multipole matching formula in \hyperref[sec:5.3]{Section 5.3}, while fundamental $R_0 = 0.8\text{ fm}$ single-nucleon finite-core corrections are suppressed by $\sim 10^{-41}$, for a coalescing equal-mass $1.4 + 1.4\,M_\odot$ binary neutron star composed of a skyrmion crystal ($R_{\text{NS}} = 12.1\text{ km}$, $k_2^{\text{NS}} = 0.082$, $\Lambda_{1.4} = 410$), the 5PN tidal quadrupole deformation term $6 k_2^{\text{NS}}(R_{\text{NS}}/a)^5$ imprints a cumulative gravitational-wave phase advance of:
+\begin{multline}
+\delta\Psi_{\text{tidal}}(f_{\text{GW}}) = -\frac{39}{2}\,\tilde{\Lambda}\,\left(\frac{\pi G M_{\text{tot}} f_{\text{GW}}}{c^3}\right)^{5/3} \\
+= -2.4 \pm 0.3\text{ rad} \quad \text{at } f_{\text{GW}} = 1000\text{ Hz}
+\end{multline}
+  alongside polyhedral multi-baryon $\alpha$-cluster geometries ($B=4$ cubes and the linear 3-cube Hoyle state of $^{12}\text{C}$ \cite{ref44,ref45,ref46,ref47}) testable in heavy-ion photonuclear diffraction.
+
+\end{enumerate}
+
+\subsection{Direct Practical \& Engineering Applications in Laboratory Wave Media}\label{sec:8.2}
+
+Because the governing equations of our framework apply across continuous nonlinear and graded-index wave media, the mathematical structures analyzed in \hyperref[sec:3]{Sections 3}--\hyperref[sec:7]{7} map onto concrete laboratory devices in spintronics, metamaterial optics, acoustics, and topological photonics (summarized in the \hyperref[tab:lab]{Laboratory Applications Table}):
+
+\begin{table*}[t]
+\centering
+\phantomsection\label{tab:lab}\textbf{Summary of Laboratory Wave-Medium Realizations and Technological Applications}\\[4pt]
+\footnotesize\raggedpcolumns
+\begin{tabular}{p{0.22\textwidth}p{0.36\textwidth}p{0.38\textwidth}}
+\toprule
+\textbf{Application Domain} & \textbf{Physical Realization of the Framework} & \textbf{Practical Technological Advantage} \\
+\midrule
+\textbf{1. Spintronics \& Non-Volatile Memory} & \textbf{Magnetic Skyrmions \& 3D Hopfions} in chiral ferromagnets ($\text{MnSi}$, $\text{FeGe}$, $\text{Co/Pt}$ multilayers) obey the topological winding equations $\pi_n(S^n) = \mathbb{Z}$ and $\pi_3(S^2) = \mathbb{Z}$. & Topological protection suppresses thermal bit erasure at the nanoscale ($2\text{--}50\text{ nm}$); skyrmion bits can be driven in \textbf{Racetrack Memory} at current densities orders of magnitude lower than magnetic domain walls. \\
+\textbf{2. Graded-Index (GRIN) Metamaterial Lenses} & \textbf{Regularized Core-Profile Dielectric Lenses} engineered with spatial refractive index $n(r) = \exp\!\left[\alpha\,\text{erf}(r/\sqrt{2}R_0)/r\right]$ (\hyperref[sec:5.1]{Section 5.1}) via variable-infill 3D-printed dielectrics or photonic crystals. & Eliminates the central refractive cusp of singular profiles; in full-wave benchmarks ($R_{\text{lens}} = 10\text{ cm}$, $R_0 = 2.2\text{ cm}$, $n(0) = 1.363$ via $49.9\%$ PLA infill), the smooth profile yields $+9.83\text{ dB}$ ($9.62\times$) omnidirectional focal gain for microwave and ultrasonic antennas. \\
+\textbf{3. Sub-Cutoff Multipole-Canceling Waveguide Traps} & \textbf{$120^\circ$ Phase-Locked 3-Core Resonator Arrays} implementing the equilateral neutralization condition $\sum_{a=1}^3 e^{i\phi_a} = 0$ (\hyperref[sec:3.3]{Section 3.3}) in coupled acoustic or RF waveguides. & Cancels far-field dipole radiation (analogous to bound states in the continuum, reducing radiative leakage from $45.3\%$ for in-phase modes to $0.002\%$ in coupled-waveguide simulations) while shifting the collective mode below the continuum cutoff ($\omega / \omega_{\text{cut}} = 0.795$). \\
+\textbf{4. Disorder-Protected Topological Filters \& Qubits} & \textbf{Jackiw--Rebbi Domain-Wall Resonators} ($W(r) = -m_f \cos F(r)$, \hyperref[sec:7.2]{Section 7.2}) in staggered LC/acoustic arrays and \textbf{Topological Rotor Qubits} ($\pi_1(SO(3)) = \mathbb{Z}_2$, \hyperref[sec:4.1]{Section 4.1}). & Pins a mid-gap zero mode protected by $\text{Index}(D_U) = 1$; under $\pm 25\%$ random component disorder, the topological mode exhibits $0.025\%$ RMS frequency drift versus $5.28\%$ for a conventional cavity ($208.7\times$ stability gain). \\
+\textbf{5. Structured Topological Photonics \& Communications} & \textbf{Electromagnetic Hopfion Wave Packets} ($\pi_3(S^2) = \mathbb{Z}$) synthesized via spatial light modulators or phased antenna arrays. & Provides discrete topological linking numbers ($Q_H \in \mathbb{Z}$) as resilient information channels for high-dimensional optical/RF multiplexing through turbulent media. \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{itemize}
+  \item \textbf{Physical Constraints on Wave Guidance, Diffraction, and Momentum Conservation:} To prevent physical misinterpretation when translating these equations from laboratory media to free space, two strict conservation and scaling bounds must be emphasized:
+  \begin{enumerate}
+    \item \textbf{No Violation of Linear Momentum Conservation ($\nabla_\mu T^{\mu\nu} = 0$):} In graded-index laboratory metamaterials, acoustic waveguides, or Bose--Einstein condensates, a spatial refractive-index gradient $\nabla n(\mathbf{x})$ accelerates a wave packet ($\partial_t \mathbf{k}_{\text{dB}} = -\omega_0 \nabla\ln n$) because the wave exchanges mechanical momentum directly with the physical substrate hosting the gradient. In free space, total stress-energy conservation ($\nabla_\mu T^{\mu\nu} = 0$) strictly forbids reactionless or ``non-inertial'' self-propulsion; any net acceleration of a macroscopic system in vacuum requires momentum exchange with expelled propellant, external radiation fields (such as standard photon-sail radiation pressure $F = P/c$), or external gravitating masses. Furthermore, perturbing the effective refractive index of the quantum vacuum via standard QED Heisenberg--Euler vacuum polarization requires field strengths near the Schwinger limit ($E_{\text{crit}} = m_e^2 c^3 / e\hbar \approx 1.32 \times 10^{18}\text{ V/m}$) and remains bound by relativistic momentum conservation.
+    \item \textbf{Nonlinear Soliton Confinement vs. Linear Free-Space Diffraction:} The Vakulenko--Kapitansky topological energy bound ($E_{\text{Hopf}} \ge c_{\text{VK}}(\mu_e/e_H)|Q_H|^{3/4}$) \cite{ref39,ref40,ref41,ref42} prevents radial spreading only when the medium possesses active self-focusing nonlinearity (such as the Faddeev--Skyrme term in condensates or nonlinear Kerr media). In linear vacuum Maxwell electrodynamics, electromagnetic hopfions preserve their topological field-line linking during propagation, but their spatial envelope remains subject to standard Rayleigh aperture diffraction ($\theta_{\text{diff}} \sim \lambda / D$).
+
+  \end{enumerate}
+\end{itemize}
+
+\subsection{Quantitative UV Breakdown Scale and Open Frontiers of the Effective Theory}\label{sec:8.3}
+
+To ensure complete scientific rigor, we specify the \textbf{exact ultraviolet (UV) breakdown scales} where the derivative and collective-coordinate expansions of the Unified Topological--Spinor--Metric Soliton Framework must be matched onto short-distance perturbative physics:
+\begin{itemize}
+  \item \textbf{Local Chiral / Vector-Meson Derivative Expansion Breakdown Scale ($\Lambda_\chi \sim 4\pi f_\pi \approx 1.16\text{ GeV}$):}
+  In the local 6-derivative Lagrangian ($\mathcal{L}_2 + \mathcal{L}_4 + \mathcal{L}_6$), the heavy vector mesons ($\rho_\mu, \omega_\mu$) have been integrated out in powers of $\partial^2 / m_\rho^2$. Consequently, for local meson-meson scattering and static core gradients, the local derivative expansion converges for $p \lesssim m_\rho \approx 0.775\text{ GeV}$ (with $\mathcal{O}(\partial^8/m_\rho^4) \approx 7.61\text{--}10.47\%$ truncation error, \hyperref[sec:2.2]{Section 2.2}) and breaks down completely at the Manohar--Georgi chiral symmetry breaking scale $\Lambda_\chi = 4\pi f_\pi \approx 1.16\text{ GeV}$ \cite{ref54}.
+  \item \textbf{Coherent Elastic Form-Factor Breakdown Scale ($Q^2_{\max} \sim 15\text{--}25\text{ GeV}^2$):}
+  When the full non-local VMD propagator $(1 + Q^2/m_\rho^2)^{-1}$ and relativistic Lorentz-boosted $N_c = 3$ meron cluster factor $(1 + Q^2/\Lambda_{\text{meron}}^2)^{-1}$ are retained explicitly (\hyperref[sec:7.1]{Section 7.1}), coherent elastic electromagnetic form factors remain quantitatively accurate across $Q^2 \in [0.01, 25.0]\text{ GeV}^2$. However, for \textbf{inelastic scattering at invariant hadronic mass $W > 2\text{ GeV}$} and \textbf{hard collider momentum transfers $Q^2 \gg 25\text{ GeV}^2$} (deep inelastic scattering, Drell--Yan, and high-$p_T$ jet production), coherent 3-meron form factors are superseded by incoherent multi-meson fragmentation, logarithmic $\alpha_s(Q^2)$ running, and perturbative QCD DGLAP parton evolution.
+  \item \textbf{Gravitational \& Cosmological UV Breakdown Scale ($\ell_{\text{curv}} \sim L_{\text{Pl}} = 1.616 \times 10^{-35}\text{ m}$):}
+  The Sakharov 1-loop induced rank-2 metric action and homogeneous dielectric cosmology (\hyperref[sec:5.1]{Sections 5.1}--\hyperref[sec:5.4]{5.4}) capture solar-system PPN tests ($\gamma_{\text{PPN}}=\beta_{\text{PPN}}=1$), Lense--Thirring frame-dragging, transverse-traceless gravitational wave emission, finite-core regularization of the $r=0$ singularity, the early-universe Einstein--Cartan / $\mathcal{L}_6$ stiff soliton bounce and Starobinsky $R^2$ inflation ($n_s = 0.9636$), Volovik equilibrium cancellation of bare $\Lambda_{\text{UV}}^4$ leaving residual chiral-horizon dark energy $\rho_\Lambda^{\text{chiral}} = \frac{\hbar H_0}{(2\pi)^2}f_\pi^2 m_\pi = (2.56\text{ meV})^4$, and Kibble--Zurek $B=0$ topological breather dark matter ($\Omega_{\text{DM}}/\Omega_B \approx 5.44$), while leaving non-perturbative Planck-scale ($r \lesssim L_{\text{Pl}}$) quantum gravity completion, the exact de Sitter horizon geometry factor ($c_H = 0.584$), and primordial baryogenesis ($\eta_B \approx 6.1 \times 10^{-10}$) as open theoretical frontiers.
+
+\end{itemize}
+
+
+\section{Summary of Numerical Verification, Data, and Code Availability}\label{sec:9}
+
+
+\subsection{Data and Code Availability}\label{sec:9.1}
+
+All analytical derivations, boundary-value ODE integrations, 3D field relaxations, post-Newtonian ray-tracing/geodesic solvers, and cosmological benchmarks reported in this manuscript are fully reproducible via the open-source numerical verification suite archived on Zenodo (\href{https://doi.org/10.5281/zenodo.23443165}{doi:10.5281/zenodo.23443165}, \href{https://zenodo.org/records/23443165}{https://zenodo.org/records/23443165}, licensed under Creative Commons Attribution 4.0 International, CC BY 4.0) and included in the accompanying flat ancillary code and data archive (\texttt{anc/}):
+\begin{itemize}
+  \item \texttt{anc/exp5\_approximate\_wave\_entity\_model.py} (\texttt{src/} in repository): 3D non-linear Klein--Gordon / Q-ball sub-entity mass-gap stability and radiative decay simulations (\hyperref[sec:3.3]{Section 3.3}).
+  \item \texttt{anc/exp6\_evolved\_topological\_wave\_model.py} (\texttt{src/} in repository): 3D triadic $120^\circ$ phase-locking relaxation, Finkelstein--Rubinstein $SU(2)$ rotor quantization, relativistic Lorentz boost kinematics, weak-field PPN light deflection/perihelion precession, and $SU(2)\times SU(2)$ moduli-space CHSH entanglement integration (\hyperref[sec:3.3]{Sections 3.3}, \hyperref[sec:4.1]{4.1}--\hyperref[sec:4.2]{4.2}, \hyperref[sec:5.1]{5.1}--\hyperref[sec:5.2]{5.2}, and \hyperref[sec:6]{6}).
+  \item \texttt{anc/exp7\_unified\_theory\_extensions.py} (\texttt{src/} in repository): Exact un-rescaled 4- and 6-derivative Euler--Lagrange BVP collocation (\texttt{scipy.integrate.solve\_bvp}), mode-independent HLS/VMD nucleon spectroscopy and EFT truncation budget, near-BPS $B=2,4$ nuclear binding, rank-2 Kerr frame-dragging and quadrupole radiation multipole matching, high-$Q^2$ 3-meron + VMD form-factor $\chi^2/N_{\text{dof}}$ analysis, Jackiw--Rebbi radial chiral zero-mode solver, Whitehead hopfion linking quadrature and 1-loop QED mass hierarchy, and FLRW soliton-bounce / Starobinsky $R^2$ / chiral-horizon dark energy cosmology (\hyperref[sec:2.2]{Sections 2.2}, \hyperref[sec:3.2]{3.2}--\hyperref[sec:3.3]{3.3}, \hyperref[sec:4.3]{4.3}--\hyperref[sec:4.4]{4.4}, \hyperref[sec:5.3]{5.3}--\hyperref[sec:5.4]{5.4}, and \hyperref[sec:7.1]{7.1}--\hyperref[sec:7.3]{7.3}).
+  \item \texttt{anc/exp1\_l0\_dynamics.py}, \texttt{anc/exp2\_source\_models\_audit.py}, \texttt{anc/exp3\_emergent\_space\_geometry.py}, \texttt{anc/exp4\_cosmology\_cmb.py}, and \texttt{anc/exp7\_practical\_builds\_simulation.py} (\texttt{src/} in repository): Foundational wave-medium dynamics, emergent dielectric metric audits, and laboratory metamaterial/waveguide simulation scripts (\hyperref[sec:5.1]{Sections 5.1} and \hyperref[sec:8.2]{8.2}).
+  \item \texttt{anc/generate\_paper\_figures.py} (\texttt{src/} in repository): Automated generation of \hyperref[fig:fig1]{Figures 1}--\hyperref[fig:fig7]{7} directly from the numerical solver outputs.
+  \item \texttt{anc/test\_suite.py} (\texttt{tests/} in repository) and \texttt{anc/exp1\_results.json}--\texttt{anc/exp7\_results.json}, \texttt{anc/all\_experiments\_summary.json}, \texttt{anc/practical\_builds\_\allowbreak simulation\_\allowbreak summary.json} (\texttt{results/} in repository): Automated \texttt{pytest} verification test suite and pre-computed JSON benchmark datasets validating all 20 quantitative benchmarks in \hyperref[tab:table1]{Tables 1}, \hyperref[tab:table2]{2}, and \hyperref[tab:table3]{3}.
+  \item \texttt{anc/NON\_SPECIALIST\_COMPANION\_GUIDE.pdf} (\texttt{NON\_SPECIALIST\_COMPANION\_GUIDE.md}), \texttt{anc/requirements.txt}, and \texttt{anc/README.md}: Ancillary plain-language pedagogical companion guide for non-specialists, Python package dependencies, and archive documentation.
+
+\end{itemize}
+
+\subsection{Master Summary of Mathematical Identities and Physical Benchmarks}\label{sec:9.2}
+
+\textbf{\hyperref[tab:table3]{Table 3}} summarizes the 20 principal mathematical identities, numerical solver benchmarks, and empirical comparisons established across \hyperref[sec:2]{Sections 2}--\hyperref[sec:8]{8}.
+
+\begin{table*}[t]
+\centering
+\caption{Master Summary of Mathematical Identities and Physical Benchmarks}
+\label{tab:table3}
+\footnotesize
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{0.88}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccc}
+\toprule
+Sector \& Physical Mechanism & Analytical / Experimental Target & Numerical Model Result & Verification Type \& Status \\
+\midrule
+\textbf{1. Baryon Winding Invariant ($B=1$)} & $B = 1.000000 \in \pi_3(S^3) = \mathbb{Z}$ & $B = 0.99999999997$ & Exact \texttt{solve\_bvp} ($3.0 \times 10^{-11}$) \\
+\textbf{2. Un-Rescaled BVP Virial Residual} & $|E_2 - E_4 - 3E_6 + 3E_0| / E = 0$ & \thead{$2.11 \times 10^{-7}$ (4-deriv) / \\ $2.32 \times 10^{-7}$ (6-deriv)} & True Un-Rescaled Euler--Lagrange BVP \\
+\textbf{3. Isolated $B=1/3$ Sub-Entity ($Q=35$)} & Unstable ($E/m_0 Q > 1$) & $E/m_0 Q = 1.1379$ ($\tau_{1/2} = 15.96$) & Radiatively Decays (Confined) \\
+\textbf{4. Composite 3-Meron Baryon ($Q=105$)} & Stable ($E/m_0 Q < 1$) & $E/m_0 Q = 0.9922$ ($\tau_{1/2} = \infty$) & Strictly Bound Below Mass Gap \\
+\textbf{5. $F_2 = SU(3)/U(1)^2$ Color Phase-Lock} & $\sum \boldsymbol{\alpha}_a = \mathbf{0},\;\Delta\phi_{ij} = 120.00^\circ$ & $[119.99^\circ, 120.00^\circ, 120.00^\circ]$ & Net Color Dipole $9.06 \times 10^{-5}$ \\
+\textbf{6. WZW / FR Fermionic $2\pi$ \& $4\pi$ Phase} & $\Psi(2\pi) = -1,\;\Psi(4\pi) = +1$ & $-1.000000,\;+1.000000$ & Exact $(-1)^{N_c} = -1$ ($N_c = 3$) \\
+\textbf{7. Relativistic Momentum $P(v) = \gamma M_0 v$} & $M_{\text{inertial}} = E_{\text{rest}}/c^2$ & Max error $4.63 \times 10^{-14}$ ($v \le 0.9c$) & Exact Lorentz Covariance \\
+\textbf{8. KSRF Zero-Baryon-Fit Moments $\mu_p, \mu_n$} & $+2.793\,\mu_N,\;-1.913\,\mu_N$ (PDG) & \textbf{$+2.646\,\mu_N,\;-1.870\,\mu_N$} & \thead{\textbf{$-5.26\%,\;-2.25\%$} \\ \textbf{($0.19\text{--}0.44\sigma_{\text{EFT}}$)}} \\
+\textbf{9. Calibrated 6-Deriv Moments $\mu_p, \mu_n$} & $+2.793\,\mu_N,\;-1.913\,\mu_N$ (PDG) & \textbf{$+2.732\,\mu_N,\;-1.822\,\mu_N$} & \textbf{$2.18\text{--}4.76\%$ Empirical Error} \\
+\textbf{10. Axial $g_A$ \& Near-BPS Binding ($B=2,4$)} & \thead{$g_A = 1.272,\;\Delta E_B = 2.22, 28.3\text{ MeV}$} & \thead{\textbf{$g_A = 1.292,\;\Delta E_B = 1.98, 28.6\text{ MeV}$}} & \thead{\textbf{$1.1\text{--}1.6\%$ ($g_A, \,^4\text{He}$),} \\ \textbf{Near-BPS $\mathcal{L}_6$}} \\
+\textbf{11. Core Gravitational Potential $\Phi(0)$} & Finite UV Regularization at $r \to 0$ & $-\sqrt{2/\pi}\,GM/R_0 \approx -0.7979\,GM/R_0$ & Eliminates $r=0$ Singularity \\
+\textbf{12. Light Deflection ($\gamma_{\text{PPN}}=1$)} & $\Delta\theta / \Delta\theta_{\text{GR}} = 1.0000$ & $0.999992$ & Matches GR to $8.0 \times 10^{-6}$ \\
+\textbf{13. Perihelion Precession ($\beta_{\text{PPN}}=1$)} & \thead{$0.04724\text{ rad}$ (1PN), \\ $0.04813\text{ rad}$ (2PN)} & $0.04815\text{ rad/orbit}$ & \thead{$0.04\%$ vs. 2PN \\ ($+1.92\%$ 2PN over 1PN)} \\
+\textbf{14. Rank-2 Kerr Frame-Dragging $\Omega_{\text{LT}}$} & $\Omega_{\text{LT}}(r) / \Omega_{\text{Kerr,GR}}(r) \to 1$ & $1.000000$ ($< 10^{-16}$ tail at $10R_0$) & Exact Exterior Multipole Match \\
+\textbf{15. Rank-2 $h_+, h_\times$ \& Finite-Core $P_{\text{GW}}$} & $\langle h_+ | h_\times \rangle = 0$ \& Quadrupole $P_{\text{GW}}$ & \thead{Orthog. $1.42 \times 10^{-17}$, \\ $\Delta P/P = 1.06 \times 10^{-41}$} & $l \ge 1$ Static Multipoles Vanish \\
+\textbf{16. High-$Q^2$ Parton Scaling ($G_E^p(Q^2)$)} & $G_D^{\text{exp}}(Q^2)$ on $[0.1, 25]\text{ GeV}^2$ & \thead{\textbf{$\chi^2/N_{\text{dof}} = 0.948$ (0-fit),} \\ \textbf{$0.145$ (1-fit)}} & Brodsky--Farrar $N_c=3$ $Q^{-4}$ Law \\
+\textbf{17. Chiral Index, Hopfion $Q_H$ \& 1-Loop $m_e$} & \thead{$\text{Index}=1,\;Q_H=1,$ \\ $m_e=0.511\text{ MeV}$} & \thead{$E_{0,L}/m_f = 1.10 \times 10^{-14},$ \\ $Q_H=1.000,\;m_e^{\text{rad}}=0.509\text{ MeV}$} & \thead{Exact Zero Mode \& \\ 1-Loop QED Scale ($0.39\%$)} \\
+\textbf{18. Bell--CHSH Entanglement Parameter $S$} & $2\sqrt{2} \approx 2.828427$ (Tsirelson Bound) & $2.828427$ ($> 2.0$ Local Bound) & Exact Moduli-Space Singlet \\
+\textbf{19. Einstein--Cartan / $\mathcal{L}_6$ Bounce \& $R^2$} & \thead{$a_{\min} > 0$, $n_s = 0.9649 \pm 0.0042$, \\ $r < 0.036$} & \thead{\textbf{$H(0)=0,\;n_s = 0.9636,$} \\ \textbf{$r = 0.00397$}} & \thead{\textbf{Spin-Torsion Bounce +} \\ \textbf{Starobinsky $R^2$}} \\
+\textbf{20. Chiral-Horizon DE \& $B=0$ Dark Matter} & \thead{$\rho_{\Lambda,\text{obs}}^{1/4} = 2.24\text{ meV},$ \\ $\Omega_{\text{DM}}/\Omega_B = 5.38\text{--}5.40$} & \thead{\textbf{$\rho_\Lambda^{1/4} = 2.56\text{ meV},$} \\ \textbf{$\Omega_{\text{DM}}/\Omega_B = 5.44$}} & \thead{\textbf{DE ($14.4\%$), Kibble--Zurek DM ($+0.8\%$),} \\ \textbf{$H(z)$ $\chi^2_\nu=0.62$}} \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\subsection{Use of AI Tools}\label{sec:9.3}
+
+In accordance with Springer Nature and \textit{European Physical Journal C} editorial policies on the transparent reporting of large language models and generative artificial intelligence in scientific research, the authors document the scope, human oversight, and verification protocol governing AI tool usage in this work. During the course of this study, Google Gemini AI (Gemini 4 Argon High) was used under the direct instruction, scientific guidance, and continuous oversight of the human authors across four tasks: (i) brainstorming theoretical connections and performing symbolic algebra calculations and cross-checks of intermediate tensor contractions, Maurer--Cartan trace identities, and multipole expansions; (ii) producing and refactoring Python numerical verification code (\texttt{scipy.integrate.solve\_bvp} boundary-value collocation, 3D lattice relaxation, Crank--Nicolson PDE solvers, and automated \texttt{pytest} validation suites) to independently validate the analytical models; (iii) assisting in drafting, reviewing, and editing portions of the manuscript text and LaTeX typesetting; and (iv) validating mathematical consistency, bibliographic citations, and numerical benchmarks across the paper. All scientific hypotheses, physical postulates, and research directions were formulated and directed by the authors. Every analytical calculation, code implementation, and numerical result was independently verified through deterministic execution of the open-source verification suite archived in \texttt{anc/} (\hyperref[sec:9.1]{Section 9.1}) and on Zenodo (\href{https://doi.org/10.5281/zenodo.23443165}{doi:10.5281/zenodo.23443165}). Both authors critically reviewed, validated, and take full academic and scientific responsibility for the entire content of this manuscript.
+
+
+
+\section*{Acknowledgments}
+
+The authors gratefully acknowledge Boris Asipov (ORCID: \texttt{0009-0009-6490-6227}) for originating the foundational concept of ``Wave Entities'' and inspiring the general theoretical direction of this research. Details regarding the human-directed and supervised use of Google Gemini AI (Gemini 4 Argon High) for brainstorming, analytical calculations, Python validation code generation, and manuscript writing, reviewing, and validation are documented in \hyperref[sec:9.3]{Section 9.3} and under \textbf{Statements and Declarations}.
+
+
+
+\section*{Statements and Declarations}
+
+\begin{itemize}
+  \item \textbf{Funding:} The authors declare that no funds, grants, or other financial support were received during the preparation of this manuscript.
+  \item \textbf{Competing interests:} The authors have no relevant financial or non-financial interests to disclose.
+  \item \textbf{Data availability:} All numerical datasets, pre-computed boundary-value problem solutions, and JSON benchmark outputs generated and analyzed during this study are included in the accompanying flat ancillary archive (\texttt{anc/}, corresponding to \texttt{results/} in the source repository) and are permanently deposited on Zenodo at \href{https://doi.org/10.5281/zenodo.23443165}{doi:10.5281/zenodo.23443165} (\href{https://zenodo.org/records/23443165}{https://zenodo.org/records/23443165}) under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+  \item \textbf{Code availability:} The complete Python simulation suite, 4th-order Lobatto collocation boundary-value solvers (\texttt{scipy.integrate.solve\_bvp}), 3D lattice relaxation codes, figure generation scripts, and automated \texttt{pytest} verification test suite are included in the flat ancillary archive (\texttt{anc/}, corresponding to \texttt{src/} and \texttt{tests/} in the source repository) and permanently archived on Zenodo at \href{https://doi.org/10.5281/zenodo.23443165}{doi:10.5281/zenodo.23443165} (\href{https://zenodo.org/records/23443165}{https://zenodo.org/records/23443165}) under the CC BY 4.0 license.
+  \item \textbf{Author contributions:} Both authors contributed equally to the conceptualization, methodology, formal analysis, numerical software implementation, validation, and writing of the manuscript. Both authors read and approved the final manuscript.
+  \item \textbf{Ethics approval, consent to participate, consent to publish:} Not applicable. This theoretical and computational physics study does not involve human participants, human data, human tissue, or animal subjects.
+  \item \textbf{Use of AI tools:} The authors used Google Gemini AI (Gemini 4 Argon High) under human direction and oversight to assist with brainstorming, analytical calculations, producing Python code for numerical validation, and writing, reviewing, and validating the manuscript, as detailed in \hyperref[sec:9.3]{Section 9.3}. All theoretical derivations, computational results, and scientific conclusions were directed, verified, and validated by the human authors, who take full academic and scientific responsibility for the content of the publication.
+\end{itemize}
+
+
+
+\begin{thebibliography}{99}
+\bibitem{ref1} T. H. R. Skyrme, \textit{``A non-linear field theory,''} Proceedings of the Royal Society of London A \textbf{260}, 127--138 (1961), \href{https://doi.org/10.1098/rspa.1961.0018}{doi:10.1098/rspa.1961.0018}.
+\bibitem{ref2} T. H. R. Skyrme, \textit{``A unified field theory of mesons and baryons,''} Nuclear Physics \textbf{31}, 556--569 (1962), \href{https://doi.org/10.1016/0029-5582(62)90775-7}{doi:10.1016/0029-5582(62)90775-7}.
+\bibitem{ref3} E. Witten, \textit{``Baryons in the $1/N$ expansion,''} Nuclear Physics B \textbf{160}, 57--115 (1979), \href{https://doi.org/10.1016/0550-3213(79)90232-3}{doi:10.1016/0550-3213(79)90232-3}.
+\bibitem{ref4} E. Witten, \textit{``Global aspects of current algebra,''} Nuclear Physics B \textbf{223}, 422--432 (1983), \href{https://doi.org/10.1016/0550-3213(83)90063-9}{doi:10.1016/0550-3213(83)90063-9}.
+\bibitem{ref5} E. Witten, \textit{``Current algebra, baryons, and quark confinement,''} Nuclear Physics B \textbf{223}, 433--444 (1983), \href{https://doi.org/10.1016/0550-3213(83)90064-0}{doi:10.1016/0550-3213(83)90064-0}.
+\bibitem{ref6} U.-G. Mei\ss{}ner, \textit{``Low-energy hadron physics from effective chiral Lagrangians with vector mesons,''} Physics Reports \textbf{161}, 213--361 (1988), \href{https://doi.org/10.1016/0370-1573(88)90090-7}{doi:10.1016/0370-1573(88)90090-7}.
+\bibitem{ref7} M. Bando, T. Kugo, and K. Yamawaki, \textit{``Nonlinear realization and hidden local symmetries,''} Physics Reports \textbf{164}, 217--314 (1988), \href{https://doi.org/10.1016/0370-1573(88)90019-1}{doi:10.1016/0370-1573(88)90019-1}.
+\bibitem{ref8} F. Meier and H. Walliser, \textit{``Quantum corrections to baryon properties in chiral soliton models,''} Physics Reports \textbf{289}, 383--448 (1997), \href{https://doi.org/10.1016/S0370-1573(97)00012-4}{doi:10.1016/S0370-1573(97)00012-4}.
+\bibitem{ref9} K. Kawarabayashi and M. Suzuki, \textit{``Partially conserved axial-vector current and the decays of vector mesons,''} Physical Review Letters \textbf{16}, 255--257 (1966), \href{https://doi.org/10.1103/PhysRevLett.16.255}{doi:10.1103/PhysRevLett.16.255}.
+\bibitem{ref10} Riazuddin and Fayyazuddin, \textit{``Algebra of current components and decay widths of $\rho$ and $K^*$ mesons,''} Physical Review \textbf{147}, 1071--1073 (1966), \href{https://doi.org/10.1103/PhysRev.147.1071}{doi:10.1103/PhysRev.147.1071}.
+\bibitem{ref11} D. Finkelstein and J. Rubinstein, \textit{``Connection between spin, statistics, and kinks,''} Journal of Mathematical Physics \textbf{9}, 1762--1779 (1968), \href{https://doi.org/10.1063/1.1664510}{doi:10.1063/1.1664510}.
+\bibitem{ref12} W. Gordon, \textit{``Zur Lichtfortpflanzung nach der Relativit\"atstheorie,''} Annalen der Physik \textbf{377}, 421--456 (1923), \href{https://doi.org/10.1002/andp.19233772202}{doi:10.1002/andp.19233772202}.
+\bibitem{ref13} A. D. Sakharov, \textit{``Vacuum quantum fluctuations in curved space and the theory of gravitation,''} Soviet Physics Doklady \textbf{12}, 1040--1041 (1968) [reprinted in General Relativity and Gravitation \textbf{32}, 365--367 (2000), \href{https://doi.org/10.1023/A:1001947813563}{doi:10.1023/A:1001947813563}].
+\bibitem{ref14} H. E. Puthoff, \textit{``Polarizable-vacuum (PV) approach to general relativity,''} Foundations of Physics \textbf{32}, 927--943 (2002), \href{https://doi.org/10.1023/A:1016011413407}{doi:10.1023/A:1016011413407} [arXiv:gr-qc/9909037].
+\bibitem{ref15} G. E. Volovik, \textit{The Universe in a Helium Droplet}, Oxford University Press (2003), \href{https://doi.org/10.1093/acprof:oso/9780199564842.001.0001}{doi:10.1093/acprof:oso/9780199564842.001.0001}.
+\bibitem{ref16} C. Barcel\'o, S. Liberati, and M. Visser, \textit{``Analogue gravity,''} Living Reviews in Relativity \textbf{14}, 3 (2011), \href{https://doi.org/10.12942/lrr-2011-3}{doi:10.12942/lrr-2011-3}.
+\bibitem{ref17} R. H. Dicke, \textit{``Gravitation without a Principle of Equivalence,''} Reviews of Modern Physics \textbf{29}, 363--376 (1957), \href{https://doi.org/10.1103/RevModPhys.29.363}{doi:10.1103/RevModPhys.29.363}.
+\bibitem{ref18} G. H. Derrick, \textit{``Comments on nonlinear wave equations as models for elementary particles,''} Journal of Mathematical Physics \textbf{5}, 1252--1254 (1964), \href{https://doi.org/10.1063/1.1704233}{doi:10.1063/1.1704233}.
+\bibitem{ref19} S. Navas \textit{et al.} (Particle Data Group), \textit{``Review of Particle Physics,''} Physical Review D \textbf{110}, 030001 (2024), \href{https://doi.org/10.1103/PhysRevD.110.030001}{doi:10.1103/PhysRevD.110.030001}.
+\bibitem{ref20} E. Tiesinga, P. J. Mohr, D. B. Newell, and B. N. Taylor, \textit{``CODATA recommended values of the fundamental physical constants: 2018,''} Reviews of Modern Physics \textbf{93}, 025010 (2021), \href{https://doi.org/10.1103/RevModPhys.93.025010}{doi:10.1103/RevModPhys.93.025010}.
+\bibitem{ref21} B. Bertotti, L. Iess, and P. Tortora, \textit{``A test of general relativity using radio links with the Cassini spacecraft,''} Nature \textbf{425}, 374--376 (2003), \href{https://doi.org/10.1038/nature01997}{doi:10.1038/nature01997}.
+\bibitem{ref22} F. W. Hehl, P. von der Heyde, G. D. Kerlick, and J. M. Nester, \textit{``General relativity with spin and torsion: Foundations and prospects,''} Reviews of Modern Physics \textbf{48}, 393--416 (1976), \href{https://doi.org/10.1103/RevModPhys.48.393}{doi:10.1103/RevModPhys.48.393}.
+\bibitem{ref23} A. Trautman, \textit{``Spin and torsion may avert gravitational singularities,''} Nature Physical Science \textbf{242}, 7--8 (1973), \href{https://doi.org/10.1038/physci242007a0}{doi:10.1038/physci242007a0}.
+\bibitem{ref24} M. Ba\~nados and P. G. Ferreira, \textit{``Eddington's theory of gravity and its progeny,''} Physical Review Letters \textbf{105}, 011101 (2010), \href{https://doi.org/10.1103/PhysRevLett.105.011101}{doi:10.1103/PhysRevLett.105.011101}.
+\bibitem{ref25} G. Veneziano, \textit{``U(1) without instantons,''} Nuclear Physics B \textbf{159}, 213--224 (1979), \href{https://doi.org/10.1016/0550-3213(79)90332-8}{doi:10.1016/0550-3213(79)90332-8}.
+\bibitem{ref26} J. Weyssenhoff and A. Raabe, \textit{``Relativistic dynamics of spin-fluids and spin-particles,''} Acta Physica Polonica \textbf{9}, 7--18 (1947).
+\bibitem{ref27} A. A. Starobinsky, \textit{``A new type of isotropic cosmological models without singularity,''} Physics Letters B \textbf{91}, 99--102 (1980), \href{https://doi.org/10.1016/0370-2693(80)90670-X}{doi:10.1016/0370-2693(80)90670-X}.
+\bibitem{ref28} Planck Collaboration (N. Aghanim \textit{et al.}), \textit{``Planck 2018 results. VI. Cosmological parameters,''} Astronomy \& Astrophysics \textbf{641}, A6 (2020), \href{https://doi.org/10.1051/0004-6361/201833910}{doi:10.1051/0004-6361/201833910}.
+\bibitem{ref29} P. A. R. Ade \textit{et al.} (BICEP/Keck Collaboration), \textit{``Improved constraints on primordial gravitational waves using Planck, WMAP, and BICEP/Keck observations through the 2018 observing season,''} Physical Review Letters \textbf{127}, 151301 (2021), \href{https://doi.org/10.1103/PhysRevLett.127.151301}{doi:10.1103/PhysRevLett.127.151301}.
+\bibitem{ref30} R. Sch\"utzhold, \textit{``Small cosmological constant from the QCD trace anomaly?''} Physical Review Letters \textbf{89}, 081302 (2002), \href{https://doi.org/10.1103/PhysRevLett.89.081302}{doi:10.1103/PhysRevLett.89.081302}.
+\bibitem{ref31} F. R. Urban and A. R. Zhitnitsky, \textit{``The cosmological constant from the QCD Veneziano ghost,''} Physics Letters B \textbf{688}, 9--12 (2010), \href{https://doi.org/10.1016/j.physletb.2010.03.080}{doi:10.1016/j.physletb.2010.03.080}.
+\bibitem{ref32} N. Ohta, \textit{``Dark energy and QCD ghost,''} Physics Letters B \textbf{695}, 41--44 (2011), \href{https://doi.org/10.1016/j.physletb.2010.11.044}{doi:10.1016/j.physletb.2010.11.044}.
+\bibitem{ref33} S. J. Brodsky and G. R. Farrar, \textit{``Scaling laws at large transverse momentum,''} Physical Review Letters \textbf{31}, 1153--1156 (1973), \href{https://doi.org/10.1103/PhysRevLett.31.1153}{doi:10.1103/PhysRevLett.31.1153}.
+\bibitem{ref34} X. Ji, \textit{``Lorentz symmetry and the internal structure of the nucleon,''} Physical Review D \textbf{58}, 056003 (1998), \href{https://doi.org/10.1103/PhysRevD.58.056003}{doi:10.1103/PhysRevD.58.056003}.
+\bibitem{ref35} R. Jackiw and C. Rebbi, \textit{``Solitons with fermion number 1/2,''} Physical Review D \textbf{13}, 3398--3409 (1976), \href{https://doi.org/10.1103/PhysRevD.13.3398}{doi:10.1103/PhysRevD.13.3398}.
+\bibitem{ref36} C. G. Callan Jr. and J. A. Harvey, \textit{``Anomalies and fermion zero modes on strings and domain walls,''} Nuclear Physics B \textbf{250}, 427--436 (1985), \href{https://doi.org/10.1016/0550-3213(85)90489-4}{doi:10.1016/0550-3213(85)90489-4}.
+\bibitem{ref37} M. F. Atiyah, V. K. Patodi, and I. M. Singer, \textit{``Spectral asymmetry and Riemannian geometry. I,''} Mathematical Proceedings of the Cambridge Philosophical Society \textbf{77}, 43--69 (1975), \href{https://doi.org/10.1017/S0305004100049410}{doi:10.1017/S0305004100049410}.
+\bibitem{ref38} J. H. C. Whitehead, \textit{``An expression of Hopf's invariant as an integral,''} Proceedings of the National Academy of Sciences \textbf{33}, 117--123 (1947), \href{https://doi.org/10.1073/pnas.33.5.117}{doi:10.1073/pnas.33.5.117}.
+\bibitem{ref39} L. Faddeev and A. J. Niemi, \textit{``Stable knot-like structures in classical field theory,''} Nature \textbf{387}, 58--61 (1997), \href{https://doi.org/10.1038/387058a0}{doi:10.1038/387058a0}.
+\bibitem{ref40} A. F. Vakulenko and L. V. Kapitansky, \textit{``Stability of solitons in $S^2$ in the nonlinear $\sigma$-model,''} Soviet Physics Doklady \textbf{24}, 432--433 (1979) [Dokl. Akad. Nauk SSSR \textbf{246}, 840--842 (1979)].
+\bibitem{ref41} Y. M. Cho, \textit{``Restricted gauge theory,''} Physical Review D \textbf{21}, 1080--1088 (1980), \href{https://doi.org/10.1103/PhysRevD.21.1080}{doi:10.1103/PhysRevD.21.1080}.
+\bibitem{ref42} L. D. Faddeev and A. J. Niemi, \textit{``Decomposing the Yang-Mills field,''} Physics Letters B \textbf{464}, 90--93 (1999), \href{https://doi.org/10.1016/S0370-2693(99)01016-5}{doi:10.1016/S0370-2693(99)01016-5}.
+\bibitem{ref43} G. S. Adkins, C. R. Nappi, and E. Witten, \textit{``Static properties of nucleons in the Skyrme model,''} Nuclear Physics B \textbf{228}, 552--566 (1983), \href{https://doi.org/10.1016/0550-3213(83)90559-X}{doi:10.1016/0550-3213(83)90559-X}.
+\bibitem{ref44} R. A. Battye and P. M. Sutcliffe, \textit{``Symmetric skyrmions,''} Physical Review Letters \textbf{79}, 363--366 (1997), \href{https://doi.org/10.1103/PhysRevLett.79.363}{doi:10.1103/PhysRevLett.79.363}.
+\bibitem{ref45} R. A. Battye and P. M. Sutcliffe, \textit{``Knots as stable soliton solutions in a three-dimensional classical field theory,''} Physical Review Letters \textbf{81}, 4798--4801 (1998), \href{https://doi.org/10.1103/PhysRevLett.81.4798}{doi:10.1103/PhysRevLett.81.4798}.
+\bibitem{ref46} N. Manton and P. Sutcliffe, \textit{Topological Solitons}, Cambridge University Press (2004), \href{https://doi.org/10.1017/CBO9780511617034}{doi:10.1017/CBO9780511617034}.
+\bibitem{ref47} P. H. C. Lau and N. S. Manton, \textit{``States of Carbon-12 in the Skyrme model,''} Physical Review Letters \textbf{113}, 232503 (2014), \href{https://doi.org/10.1103/PhysRevLett.113.232503}{doi:10.1103/PhysRevLett.113.232503}.
+\bibitem{ref48} M. Rho and Y.-L. Ma, \textit{``Manifestation of hidden symmetries in baryonic matter: From finite nuclei to neutron stars,''} Modern Physics Letters A \textbf{36}, 2130012 (2021), \href{https://doi.org/10.1142/S0217732321300123}{doi:10.1142/S0217732321300123}.
+\bibitem{ref49} C. Adam, J. S\'anchez-Guill\'en, and A. Wereszczy\'nski, \textit{``A Skyrme-type proposal for baryonic matter,''} Physics Letters B \textbf{691}, 105--110 (2010), \href{https://doi.org/10.1016/j.physletb.2010.06.025}{doi:10.1016/j.physletb.2010.06.025}.
+\bibitem{ref50} J. S. Bell, \textit{``On the Einstein Podolsky Rosen paradox,''} Physics Physique Fizika \textbf{1}, 195--200 (1964), \href{https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195}{doi:10.1103/PhysicsPhysiqueFizika.1.195}.
+\bibitem{ref51} J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, \textit{``Proposed experiment to test local hidden-variable theories,''} Physical Review Letters \textbf{23}, 880--884 (1969), \href{https://doi.org/10.1103/PhysRevLett.23.880}{doi:10.1103/PhysRevLett.23.880}.
+\bibitem{ref52} B. S. Cirel'son [Tsirelson], \textit{``Quantum generalizations of Bell's inequality,''} Letters in Mathematical Physics \textbf{4}, 93--100 (1980), \href{https://doi.org/10.1007/BF00417500}{doi:10.1007/BF00417500}.
+\bibitem{ref53} H. B. Nielsen and M. Ninomiya, \textit{``Absence of neutrinos on a lattice: (I). Proof by homotopy theory,''} Nuclear Physics B \textbf{185}, 20--40 (1981), \href{https://doi.org/10.1016/0550-3213(81)90361-8}{doi:10.1016/0550-3213(81)90361-8}.
+\bibitem{ref54} A. Manohar and H. Georgi, \textit{``Chiral quarks and the non-relativistic quark model,''} Nuclear Physics B \textbf{234}, 189--212 (1984), \href{https://doi.org/10.1016/0550-3213(84)90231-1}{doi:10.1016/0550-3213(84)90231-1}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,71 @@
+{
+  "experiment": "exp2_source_models_audit",
+  "coupled_oscillator_audit": {
+    "positive_coupling_test": {
+      "f1_bare": 2.0,
+      "f2_bare": 2.5,
+      "bare_separation": 0.5,
+      "K": 0.6,
+      "f_minus_exact": 2.1095023109728985,
+      "f_plus_exact": 2.6457513110645907,
+      "coupled_separation_exact": 0.5362490000916922,
+      "f1_measured_fft": 2.1048670779051615,
+      "f2_measured_fft": 2.638937829015426,
+      "coupled_separation_measured": 0.5340707511102645,
+      "is_stable": true
+    },
+    "negative_coupling_test": {
+      "f1_bare": 2.0,
+      "f2_bare": 2.5,
+      "bare_separation": 0.5,
+      "K": -0.4,
+      "f_minus_exact": 1.879096752797483,
+      "f_plus_exact": 2.432898558022088,
+      "coupled_separation_exact": 0.553801805224605,
+      "f1_measured_fft": 1.8849555921538759,
+      "f2_measured_fft": 2.419026343264141,
+      "coupled_separation_measured": 0.5340707511102649,
+      "is_stable": true
+    },
+    "critical_tachyon_coupling_K_crit": -2.4390243902439024,
+    "finding": "The coupled oscillator equation proposed in PDF B Section 5.2 (x_i'' + f_i^2 x_i = sum K(|f_i - f_j|)(x_j - x_i)) exhibits normal-mode level repulsion for K > 0: the frequency difference INCREASES from 0.500 to 0.536 at K=0.6, producing emergent-space repulsion rather than attraction. Reversing the sign (K < 0) causes tachyonic runaway instability whenever |K| exceeds |K_crit| = 2.4390."
+  },
+  "linear_wave_superposition_audit": {
+    "results": {
+      "f1_input": 5.0,
+      "f2_input": 7.0,
+      "peak_f1_isolated": 5.0,
+      "peak_f2_isolated": 7.0,
+      "top2_peaks_in_W_combined": [
+        5.0,
+        7.0
+      ],
+      "frequency_shift_entity_1": 0.0,
+      "frequency_shift_entity_2": 0.0,
+      "intensity_beat_frequency": 2.0,
+      "expected_beat_frequency": 2.0
+    },
+    "finding": "Linear superposition W_1 + W_2 of two wave entities produces amplitude beating at |f_2 - f_1| = 2.00 Hz in intensity I(r,t), but ZERO shift in the entities' spectral frequencies (Delta f_1 = 0.00e+00, Delta f_2 = 0.00e+00). Permanent frequency shifts require nonlinear wave-wave coupling."
+  },
+  "inverse_cube_gravity_audit": {
+    "results": {
+      "newton_inverse_square_v092": "stable_bound_orbit",
+      "newton_inverse_square_v108": "stable_bound_orbit",
+      "pdf_inverse_cube_v092": "plunge_to_origin",
+      "pdf_inverse_cube_v108": "escape_to_infinity"
+    },
+    "finding": "In PDF A & B Section 6.3, differentiating or dividing the claimed frequency shift Delta f propto A1 A2 / r^2 by r yields F_g propto A1 A2 / r^3. By Bertrand's theorem and numerical integration, an attractive 1/r^3 force has NO stable circular or elliptical orbits: sub-circular perturbations (v0=0.92) plunge into the origin along a Cotes' spiral, while super-circular perturbations (v0=1.08) escape to infinity."
+  },
+  "spectral_profile_energy_audit": {
+    "alpha": 0.5,
+    "1D_lorentzian_L1_numerical": 6.283185307179573,
+    "1D_lorentzian_L1_exact": 6.283185307179586,
+    "1D_inv_sq_amplitude_L2_numerical": 12.566370614359174,
+    "1D_inv_sq_amplitude_L2_exact": 12.566370614359172,
+    "3D_time_avg_L2_numerical": 9.869604401089358,
+    "3D_time_avg_L2_exact": 9.869604401089358,
+    "uv_divergence_as_alpha_to_0": "Diverges as O(alpha^-3) in 1D L2 and O(alpha^-1) in 3D L2",
+    "ir_divergence_if_intensity_inv_sq_in_3D": "Diverges linearly as O(R_max) in 3D if |W|^2 ~ 1/r^2"
+  },
+  "figure_path": "C:\\Projects\\WaveEntities\\results\\figures\\exp2_source_models_audit.png"
+}

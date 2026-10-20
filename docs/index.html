@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inside a Proton: Topological Wave Solitons — Interactive Guide &amp; Paper</title>
+  <meta name="description" content="Interactive 3D visualization, non-specialist guide, and full research paper: Emergent Matter, Fermionic Spin, and Induced Rank-2 Gravity from Topological Wave Solitons.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --background: #070b14;
+      --foreground: #f8fafc;
+      --card: #0f172a;
+      --border: #1e293b;
+      --muted-foreground: #94a3b8;
+      --primary: #06b6d4;
+      --primary-foreground: #020617;
+      --secondary: #1e293b;
+      --secondary-foreground: #e2e8f0;
+    }
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+    .step-btn {
+      transition: all 0.15s ease;
+      border: 1px solid #1e293b;
+      background: #1e293b;
+      color: #cbd5e1;
+    }
+    .step-btn.active {
+      background: #06b6d4;
+      color: #020617;
+      border-color: #06b6d4;
+      font-weight: 700;
+    }
+    input[type="range"] {
+      accent-color: #06b6d4;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <span class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span class="font-bold text-sm sm:text-base tracking-tight text-white">Topological Wave Solitons</span>
+        <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Interactive Science Portal</span>
+      </div>
+      <nav class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm font-medium text-slate-300">
+        <a href="#interactive-tour" class="hover:text-cyan-400 transition">1. 5-Step Visual Tour</a>
+        <a href="#proton-anatomy" class="hover:text-cyan-400 transition">2. Non-Specialist Guide</a>
+        <a href="#full-lab" class="hover:text-cyan-400 transition">3. 3D Wave Lab</a>
+        <a href="#papers-download" class="hover:text-cyan-400 transition">4. Papers &amp; Cite</a>
+        <a href="assets/TOPOLOGICAL_WAVE_SOLITON_PAPER.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition">
+          📄 Full Paper (PDF)
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden border-b border-slate-800/80 bg-gradient-to-b from-slate-900/60 to-slate-950 py-10 sm:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold mb-4">
+          <span>Interactive Explorable Explanation</span>
+          <span>•</span>
+          <span>Unified Topological Soliton Framework</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
+          What Does a Proton Actually Look Like on the Inside?
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-6">
+          School textbooks draw a proton as three tiny billiard balls ("quarks") rattling inside an empty sphere. In our research paper, <em>Emergent Matter, Fermionic Spin, and Induced Rank-2 Gravity from Topological Wave Solitons in a Polarizable Vacuum Medium</em>, we show how particles, quantum spin, and gravity emerge when space itself behaves like an elastic wave medium—making a proton a continuous <strong>3D whirlpool knot</strong> whose core naturally forms three linked vortex lobes.
+        </p>
+
+        <!-- Authors & ORCIDs -->
+        <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-400 mb-7">
+          <div>
+            <strong class="text-slate-200">Authors:</strong>
+            Eden Asipov (<a href="https://orcid.org/0009-0000-0531-383X" target="_blank" class="text-cyan-400 hover:underline">ORCID: 0009-0000-0531-383X</a>) &amp;
+            Eliana Asipov (<a href="https://orcid.org/0009-0003-3214-7103" target="_blank" class="text-cyan-400 hover:underline">ORCID: 0009-0003-3214-7103</a>)
+          </div>
+          <span class="hidden sm:inline">•</span>
+          <div>Bellevue, WA, USA</div>
+        </div>
+
+        <!-- Primary Action Buttons -->
+        <div class="flex flex-wrap gap-3">
+          <a href="#interactive-tour" class="px-5 py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">
+            🚀 Start the 5-Step Interactive Tour
+          </a>
+          <a href="#full-lab" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white font-semibold text-sm border border-slate-700 hover:bg-slate-700 transition">
+            🔬 Launch Full 5-Module Physics Lab
+          </a>
+          <a href="assets/NON_SPECIALIST_COMPANION_GUIDE.pdf" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-900 text-cyan-300 font-semibold text-sm border border-cyan-500/40 hover:bg-slate-800 transition">
+            📖 Non-Specialist Guide (PDF)
+          </a>
+          <a href="assets/TOPOLOGICAL_WAVE_SOLITON_PAPER.pdf" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-900 text-emerald-300 font-semibold text-sm border border-emerald-500/40 hover:bg-slate-800 transition">
+            📄 Full Technical Paper (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: 5-STEP NON-SPECIALIST INTERACTIVE TOUR -->
+  <section id="interactive-tour" class="py-10 sm:py-12 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-5">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">PART 1 • INTERACTIVE VISUAL WALKTHROUGH</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white">Understand the Theory in 5 Interactive Steps</h2>
+          <p class="text-sm text-slate-400 mt-1">Click through the 5 steps below, drag the slider in each step, and switch between <strong>Plain English</strong> and <strong>Math &amp; Physics</strong> at any time.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="langToggle" onclick="toggleLang()" class="px-3.5 py-2 rounded-lg text-xs font-bold border border-cyan-500/50 bg-cyan-500/15 text-cyan-300 hover:bg-cyan-500/25 transition">
+            💡 Mode: Plain English (Click for Math)
+          </button>
+          <button onclick="nextStep()" class="px-4 py-2 rounded-lg text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition">
+            Next Step →
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Tour Card -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4 sm:p-5 shadow-xl">
+        <!-- 5 Step Buttons -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-4">
+          <button onclick="setStep(0)" id="sbtn0" class="step-btn active px-3 py-2 rounded-lg text-xs sm:text-sm text-center">1. Old Myth vs. Wave Knot</button>
+          <button onclick="setStep(1)" id="sbtn1" class="step-btn px-3 py-2 rounded-lg text-xs sm:text-sm text-center">2. How Twisted Space = Mass</button>
+          <button onclick="setStep(2)" id="sbtn2" class="step-btn px-3 py-2 rounded-lg text-xs sm:text-sm text-center">3. The 3 "Quark" Whirlpools</button>
+          <button onclick="setStep(3)" id="sbtn3" class="step-btn px-3 py-2 rounded-lg text-xs sm:text-sm text-center">4. Pull a Quark (Confinement)</button>
+          <button onclick="setStep(4)" id="sbtn4" class="step-btn px-3 py-2 rounded-lg text-xs sm:text-sm text-center">5. 720° Spin &amp; Motion Waves</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+          <!-- Left: Interactive Canvas -->
+          <div class="lg:col-span-7 relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950" style="height: 360px;">
+            <canvas id="tourCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
+            <div id="canvasBadge" class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/90 border border-slate-700 text-xs text-cyan-300 font-semibold pointer-events-none">
+              Step 1 of 5 • Side-by-Side Comparison
+            </div>
+            <div class="absolute bottom-2.5 right-3 text-xs text-slate-400 pointer-events-none">
+              🖱️ Drag on canvas to rotate 3D view
+            </div>
+          </div>
+
+          <!-- Right: Explanation + Interactive Slider + Everyday Analogy -->
+          <div class="lg:col-span-5 flex flex-col justify-between rounded-xl border border-slate-800 bg-slate-950/60 p-5">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1" id="stepKicker">STEP 1 • THE BIG PICTURE</div>
+              <h3 class="text-lg sm:text-xl font-bold text-white leading-snug mb-2.5" id="stepHeading">Not 3 Hard Balls in a Bag — One 3D Wave Knot</h3>
+              <p class="text-sm text-slate-300 leading-relaxed" id="stepBody">
+                Textbooks draw a proton as 3 hard billiard balls ("quarks") rattling inside a sphere. In this theory, space itself is an elastic wave medium: a proton is one continuous 3D whirlpool whose center naturally twists into 3 linked vortex lobes.
+              </p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800">
+              <div class="flex items-center justify-between text-xs sm:text-sm mb-2">
+                <span class="font-semibold text-white" id="sliderTitle">Collider Microscope Zoom</span>
+                <span class="font-mono text-cyan-400 font-bold" id="sliderReadout">Low Zoom (Whole Knot)</span>
+              </div>
+              <input id="mainSlider" type="range" min="0" max="100" value="45" class="w-full h-2 rounded-lg cursor-pointer" oninput="onSliderInput(this.value)">
+              <div class="mt-3 p-3 rounded-lg bg-cyan-950/40 border border-cyan-500/30 text-xs sm:text-sm text-slate-200 leading-relaxed" id="analogyBox">
+                <strong>Everyday Analogy:</strong> A smoke ring or hurricane isn't made of hard beads—it is spinning air that holds its own shape.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: NON-SPECIALIST ILLUSTRATED GUIDE SUMMARY -->
+  <section id="proton-anatomy" class="py-12 border-b border-slate-800 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
+      <div class="max-w-3xl">
+        <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">PART 2 • NON-SPECIALIST VISUAL GUIDE</div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">A Dive Inside the Proton: Layer by Layer</h2>
+        <p class="text-sm sm:text-base text-slate-400 mt-2">
+          If you could shrink down to a femtometer ($10^{-15}\text{ meters}$) and fly from the outside vacuum straight into the center of a proton, you wouldn't hit a hard surface. Instead, you would pass through <strong>four continuous wave zones</strong>:
+        </p>
+      </div>
+
+      <!-- 4 Layer Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-amber-400 mb-1">ZONE 1 • r &gt; 0.80 fm</div>
+            <h3 class="text-base font-bold text-white mb-2">1. Outer Wave Halo &amp; Spin Rotor</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              At the outskirts, the wave untwists smoothly back into calm space. The entire knot spins quantum-mechanically, generating the proton's magnetic field ($\mu_p = 2.732\,\mu_N$) and $7.8\%$ of its mass ($73.3\text{ MeV}$).
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
+            <strong>Proton vs. Neutron:</strong> Identical 3D wave knot spinning in opposite internal directions!
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-cyan-500/40 bg-slate-900/60 p-5 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-cyan-400 mb-1">ZONE 2 • r ≈ 0.55 fm (F = 90°)</div>
+            <h3 class="text-base font-bold text-white mb-2">2. Twisted Space Energy Shell</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Halfway in, the vacuum medium is twisted perpendicular ($90^\circ$) to the outside world. Like a tightly wound rubber band, this spherical shell stores <strong>$92.2\%$ of the proton's mass</strong> ($865.6\text{ MeV}$) as pure wave tension.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-cyan-300">
+            Traps a left-handed chiral fermion wave on the shell surface.
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-emerald-500/40 bg-slate-900/60 p-5 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-emerald-400 mb-1">ZONE 3 • r ≈ 0.35–0.45 fm</div>
+            <h3 class="text-base font-bold text-white mb-2">3. Three $B=1/3$ "Quark" Whirlpools</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Inside the shell, the single $B=1$ knot splits along three symmetry axes into <strong>three $1/3$-twist vortex cores ("merons")</strong> locked $120^\circ$ apart in an equilateral triangle and tied by a Y-shaped tension cord.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-emerald-300">
+            Explains why high-energy colliders resolve 3 quarks inside 1 wave!
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-rose-500/40 bg-slate-900/60 p-5 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-mono text-rose-400 mb-1">ZONE 4 • Center r = 0 (F = 180°)</div>
+            <h3 class="text-base font-bold text-white mb-2">4. Cushioned Anti-Vacuum Core</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              At the exact center, the wave is flipped upside-down ($180^\circ$). Instead of collapsing into an infinite point singularity ($1/r \to \infty$), stiff short-range $\omega$-meson wave pressure acts like a cushion.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-rose-300">
+            Energy &amp; gravity stay smooth and finite all the way to $r = 0$.
+          </div>
+        </div>
+      </div>
+
+      <!-- Pre-rendered Multi-Panel Animation + Key Quantitative Table -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-slate-900/50 border border-slate-800 rounded-2xl p-5">
+        <div class="lg:col-span-7">
+          <div class="text-xs font-bold text-cyan-400 uppercase mb-2">Pre-Rendered Multi-Panel Wave Animation</div>
+          <img src="assets/proton_interior_dynamics.gif" alt="Animated Proton Interior Dynamics" class="w-full rounded-xl border border-slate-700 shadow-lg">
+        </div>
+        <div class="lg:col-span-5 space-y-3">
+          <h3 class="text-lg font-bold text-white">How Does the Theory Match Real Experiments?</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Using zero free baryon-fitting parameters in the KSRF meson sector and calibrated Vector-Meson Dominance (VMD), solving the exact 6-derivative boundary-value equation reproduces measured nuclear and astrophysical quantities:
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400">
+                  <th class="py-1.5">Physical Observable</th>
+                  <th class="py-1.5">Wave Model</th>
+                  <th class="py-1.5">Experiment</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 text-slate-200">
+                <tr>
+                  <td class="py-1.5 font-medium">Proton Charge Radius $r_E$</td>
+                  <td class="py-1.5 font-mono text-cyan-300">0.761 fm</td>
+                  <td class="py-1.5 font-mono">0.776–0.841 fm</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 font-medium">Proton Magnetic Moment $\mu_p$</td>
+                  <td class="py-1.5 font-mono text-cyan-300">+2.732 $\mu_N$</td>
+                  <td class="py-1.5 font-mono">+2.793 $\mu_N$</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 font-medium">Neutron Magnetic Moment $\mu_n$</td>
+                  <td class="py-1.5 font-mono text-cyan-300">-1.822 $\mu_N$</td>
+                  <td class="py-1.5 font-mono">-1.913 $\mu_N$</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 font-medium">Magnetic Ratio $|\mu_p / \mu_n|$</td>
+                  <td class="py-1.5 font-mono text-emerald-300">1.500</td>
+                  <td class="py-1.5 font-mono">1.460</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 font-medium">Axial Coupling $g_A$</td>
+                  <td class="py-1.5 font-mono text-cyan-300">1.292</td>
+                  <td class="py-1.5 font-mono">1.275</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 font-medium">Electron 1-Loop Mass $m_e$</td>
+                  <td class="py-1.5 font-mono text-cyan-300">0.509 MeV</td>
+                  <td class="py-1.5 font-mono">0.511 MeV</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: EMBEDDED FULL 5-MODULE 3D WAVE LABORATORY -->
+  <section id="full-lab" class="py-12 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">PART 3 • FULL INTERACTIVE 60 FPS SIMULATOR</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white">5-Module Topological Wave Entity Laboratory</h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Explore all 5 modules below (with Plain-English Callouts ON by default and built-in <code>.webm</code> video recording), or open the simulator in its own full-screen tab.
+          </p>
+        </div>
+        <a href="lab.html" target="_blank" class="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs sm:text-sm hover:bg-cyan-400 transition">
+          ⛶ Open Full-Screen Lab in New Tab ↗
+        </a>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-950">
+        <iframe src="lab.html" class="w-full border-0" style="height: 820px;" title="Topological Wave Entity 5-Module Visualization Suite"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: PAPERS, COMPANION GUIDE & CITATION -->
+  <section id="papers-download" class="py-12 bg-slate-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
+      <div>
+        <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">PART 4 • PUBLICATIONS &amp; OPEN-SOURCE CODE</div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Read the Papers &amp; Cite This Work</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Non-Specialist Guide -->
+        <div class="rounded-2xl border border-cyan-500/30 bg-slate-900 p-6 flex flex-col justify-between">
+          <div>
+            <span class="px-2.5 py-1 rounded bg-cyan-500/15 text-cyan-300 text-xs font-bold">For General Readers &amp; Students</span>
+            <h3 class="text-xl font-bold text-white mt-3 mb-2">Non-Specialist Illustrated Companion Guide</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              An accessible, richly illustrated walkthrough explaining how waves in a vacuum medium form protons, neutrons, and electrons, why quarks are confined, how the $720^\circ$ belt trick creates fermionic spin, and how induced refractive gravity avoids singularities.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 pt-3 border-t border-slate-800">
+            <a href="assets/NON_SPECIALIST_COMPANION_GUIDE.pdf" target="_blank" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs sm:text-sm hover:bg-cyan-400 transition">
+              📖 Download Illustrated Guide (PDF)
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Full Technical Paper -->
+        <div class="rounded-2xl border border-emerald-500/30 bg-slate-900 p-6 flex flex-col justify-between">
+          <div>
+            <span class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-300 text-xs font-bold">Full Mathematical &amp; Computational Paper</span>
+            <h3 class="text-xl font-bold text-white mt-3 mb-2">Emergent Matter, Fermionic Spin, and Induced Rank-2 Gravity from Topological Wave Solitons</h3>
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              Complete derivation and numerical verification of the Hidden Local Symmetry $\mathcal{L}_2+\mathcal{L}_4+\mathcal{L}_6$ soliton BVP, $N_c=3$ WZW spin-$1/2$ quantization, $F_2 = SU(3)/U(1)^2$ meron decomposition, Brodsky–Farrar $Q^{-4}$ scaling, and Sakharov 1-loop induced gravity.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 pt-3 border-t border-slate-800">
+            <a href="assets/TOPOLOGICAL_WAVE_SOLITON_PAPER.pdf" target="_blank" class="px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs sm:text-sm hover:bg-emerald-400 transition">
+              📄 Download Full Paper (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BibTeX Citation Box -->
+      <div class="rounded-xl border border-slate-800 bg-slate-950 p-5">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">BibTeX Citation</span>
+          <button onclick="copyBibtex()" id="copyBibBtn" class="px-3 py-1 rounded bg-slate-800 text-xs text-cyan-300 hover:bg-slate-700 transition">
+            📋 Copy BibTeX
+          </button>
+        </div>
+        <pre id="bibtexBlock" class="text-xs font-mono text-slate-300 overflow-x-auto leading-relaxed">@article{Asipov2026TopologicalWaveSolitons,
+  title   = {Emergent Matter, Fermionic Spin, and Induced Rank-2 Gravity from Topological Wave Solitons in a Polarizable Vacuum Medium},
+  author  = {Asipov, Eden and Asipov, Eliana},
+  year    = {2026},
+  note    = {Includes Interactive 3D Wave Soliton Visualization Suite and Non-Specialist Companion Guide}
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-slate-800 text-center text-xs text-slate-500">
+    <p>© 2026 Eden Asipov &amp; Eliana Asipov • Open-Source Reproducible Physics &amp; Interactive Visualization Suite</p>
+  </footer>
+
+  <!-- Interactive 5-Step Tour Script -->
+  <script>
+    function copyBibtex() {
+      const text = document.getElementById('bibtexBlock').innerText;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copyBibBtn');
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.textContent = '📋 Copy BibTeX'; }, 2000);
+    }
+
+    const canvas = document.getElementById('tourCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let step = 0;
+    let mathMode = false;
+    let sliderVal = 45;
+    let time = 0;
+    let rotY = 0.5;
+    let rotX = 0.38;
+    let dragging = false;
+    let lastX = 0, lastY = 0;
+
+    canvas.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener('pointerup', () => dragging = false);
+    canvas.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      rotY += (e.clientX - lastX) * 0.01;
+      rotX = Math.max(-1.2, Math.min(1.2, rotX + (e.clientY - lastY) * 0.01));
+      lastX = e.clientX; lastY = e.clientY;
+    });
+
+    const STEPS = [
+      {
+        badgePlain: "Step 1 of 5 • Side-by-Side Comparison",
+        badgeMath: "Step 1 of 5 • Point Partons vs. B = 1 Topological Soliton",
+        kickerPlain: "STEP 1 • THE BIG PICTURE",
+        kickerMath: "STEP 1 • TOPOLOGICAL SOLITON PARADIGM",
+        headingPlain: "Not 3 Hard Balls in a Bag — One 3D Wave Knot",
+        headingMath: "Continuous B = 1 Soliton vs. Point-Particle Quarks",
+        bodyPlain: "Textbooks draw a proton as 3 hard billiard balls ('quarks') rattling inside a sphere. In this theory, space itself is an elastic wave medium: a proton is one continuous 3D whirlpool whose center naturally twists into 3 linked vortex lobes.",
+        bodyMath: "Instead of singular point fermions, the nucleon is a regular B = 1 Skyrme–Faddeev–Niemi soliton U(x) ∈ SU(2) ⊂ SU(3) with RMS radius R₀ = 0.761 fm and mass M_N = 938.92 MeV.",
+        sliderLabelPlain: "Collider Microscope Zoom",
+        sliderLabelMath: "Momentum Transfer Scale Q²",
+        defaultSlider: 45,
+        analogyPlain: "<strong>Everyday Analogy:</strong> A smoke ring or hurricane isn't made of hard beads—it is spinning air that holds its own shape.",
+        analogyMath: "<strong>Key Equation:</strong> Topological charge B = (1/24π²) ∫ εⁱʲᵏ Tr(Lᵢ Lⱼ Lₖ) d³x = 1 is conserved without point singularities."
+      },
+      {
+        badgePlain: "Step 2 of 5 • How Twisted Space Creates Mass",
+        badgeMath: "Step 2 of 5 • Radial Chiral Profile F(r) & L₆ Cushion",
+        kickerPlain: "STEP 2 • WHERE MASS COMES FROM",
+        kickerMath: "STEP 2 • EXACT LOBATTO BVP PROFILE F(r)",
+        headingPlain: "Twist an Elastic Sheet by 180° — Tension = Mass",
+        headingMath: "Chiral Angle F(0) = π to F(∞) = 0 & Non-Singular Core",
+        bodyPlain: "Imagine grabbing the center of a rubber sheet and twisting it upside-down (180°). The surrounding sheet strains to untwist back to 0° far away. <strong>92.2% of a proton's weight</strong> is simply the stored elastic tension of this twist! At the exact center, stiff wave pressure prevents an infinite black-hole spike.",
+        bodyMath: "The radial profile runs from F(0) = π (anti-vacuum U = -I) through the chiral shell F(r*) = π/2 at r* ≈ 0.55 fm to a Yukawa pion tail. Six-derivative ω-repulsion L₆ = +½λ₆² B_μ B^μ caps core density.",
+        sliderLabelPlain: "Twist Amount at Center",
+        sliderLabelMath: "Core Twist Angle F(0)",
+        defaultSlider: 100,
+        analogyPlain: "<strong>Everyday Analogy:</strong> Wind up a rubber band of a toy airplane—it feels heavier with stored energy even though you added zero new matter.",
+        analogyMath: "<strong>Mass Budget:</strong> Static wave tension M₀ = 865.65 MeV (92.2%) + SU(2) rotor E_rot = 73.27 MeV (7.8%) = 938.92 MeV."
+      },
+      {
+        badgePlain: "Step 3 of 5 • Inside the Core: 3 'Quark' Whirlpools",
+        badgeMath: "Step 3 of 5 • Flag Manifold F₂ = SU(3)/U(1)² Meron Triad",
+        kickerPlain: "STEP 3 • WHY WE SEE THREE QUARKS",
+        kickerMath: "STEP 3 • B = 1/3 + 1/3 + 1/3 MERON DECOMPOSITION",
+        headingPlain: "One Whole Twist Splits into Three 1/3 Whirlpools",
+        headingMath: "Three Phase-Locked B = 1/3 Merons & Y-Junction Flux Tube",
+        bodyPlain: "Why do particle colliders detect 3 quarks inside a proton? Because a full 360° wave knot splits into <strong>three 1/3 whirlpools</strong> (Red, Green, Blue) locked 120° apart in a triangle. They are tied together at the center by a Y-shaped elastic tension cord.",
+        bodyMath: "Under Cho–Faddeev–Niemi abelian projection onto F₂ = SU(3)/U(1)², the B = 1 soliton decomposes into three B_a = 1/3 meron vortices with Weyl colour roots ∑ α_a = 0 and a Y-junction gluon flux tube.",
+        sliderLabelPlain: "Cutaway Shell Opacity",
+        sliderLabelMath: "Chiral Shell F = π/2 Opacity",
+        defaultSlider: 40,
+        analogyPlain: "<strong>Everyday Analogy:</strong> Braiding 3 strands of rope: each strand carries 1/3 of the twist, and their three colors cancel out to neutral white.",
+        analogyMath: "<strong>Zero-Mode Index:</strong> APS Index(D_U) = N_L - N_R = 1 traps a left-handed fermion wave on the F(r*) = π/2 shell."
+      },
+      {
+        badgePlain: "Step 4 of 5 • Interactive Confinement Test",
+        badgeMath: "Step 4 of 5 • Linear String Tension & Mass-Gap Trapping",
+        kickerPlain: "STEP 4 • WHY QUARKS NEVER ESCAPE",
+        kickerMath: "STEP 4 • DUAL CONFINEMENT MECHANISM",
+        headingPlain: "Pull a Quark Out — The Cord Snaps into a New Pair!",
+        headingMath: "Flux-Tube String Snap & Sub-Gap Frequency (ω₃ < m₀)",
+        bodyPlain: "Drag the slider below to pull the blue quark outward! Two things stop it from ever escaping: (1) the yellow tension cord pulls back harder and harder until it <strong>snaps</strong>, creating a new pair of waves, and (2) a lone 1/3 wave vibrates too fast and evaporates into ripples, while 3 together hum quietly below the escape threshold.",
+        bodyMath: "1) Flux tube energy E_sep(d) = σ d grows linearly until ΔE ≥ 2m_π nucleates a q-q̄ meson. 2) Isolated B=1/3 oscillates above mass gap (ω₁ = 1.138 m₀ > m₀, radiates), while triad is sub-gap (ω₃ = 0.795 m₀ < m₀, τ₁/₂ = ∞).",
+        sliderLabelPlain: "Pull the Blue Quark Outward →",
+        sliderLabelMath: "Meron Separation Distance d [fm]",
+        defaultSlider: 20,
+        analogyPlain: "<strong>Everyday Analogy:</strong> You can never cut a bar magnet to get a lone North pole—cutting it in half just creates a brand-new North and South pole at the break!",
+        analogyMath: "<strong>Frequency Trap:</strong> E/(m₀ Q) = 0.9922 < 1 for the 120° triad, making radiative decay mathematically impossible."
+      },
+      {
+        badgePlain: "Step 5 of 5 • 720° Spin & Quantum Waves",
+        badgeMath: "Step 5 of 5 • SU(2) Collective Rotor & Lorentz Boosted Wave",
+        kickerPlain: "STEP 5 • SPIN, MAGNETISM & MOTION",
+        kickerMath: "STEP 5 • FERMIONIC 720° HOLONOMY & DE BROGLIE WAVE",
+        headingPlain: "Spinning Makes Magnetism; Moving Makes Quantum Waves",
+        headingMath: "Dirac Belt Twist (4π Period) & Emergent λ_dB = h/p",
+        bodyPlain: "Because the proton's wave is connected to surrounding space by twisted ribbons, rotating it once (360°) tangles the ribbons—you must rotate it <strong>twice (720°)</strong> to untangle them! And when the proton moves forward (drag the speed slider), its internal hum turns into the famous quantum wave!",
+        bodyMath: "Wess–Zumino–Witten phase (-1)^Nc = -1 enforces spin-1/2 quantization (μ_p = 2.732 μ_N). Boosting u₀(x) cos(ω₀ t) via x' = γ(x - vt) automatically produces the de Broglie carrier wave cos(γ(ω₀ t - m₀ v x)).",
+        sliderLabelPlain: "Proton Forward Speed (v / c)",
+        sliderLabelMath: "Relativistic Velocity β = v/c",
+        defaultSlider: 55,
+        analogyPlain: "<strong>Everyday Analogy:</strong> Hold a coffee cup on your palm and twist your hand 360° under your arm—your arm is twisted! Twist a second full turn to 720° and your arm untwists.",
+        analogyMath: "<strong>Dispersion Identity:</strong> Group velocity v_g = dω/dk = v (particle speed) while phase velocity v_p = c²/v generates quantum interference."
+      }
+    ];
+
+    function syncUI() {
+      const s = STEPS[step];
+      document.getElementById('canvasBadge').textContent = mathMode ? s.badgeMath : s.badgePlain;
+      document.getElementById('stepKicker').textContent = mathMode ? s.kickerMath : s.kickerPlain;
+      document.getElementById('stepHeading').textContent = mathMode ? s.headingMath : s.headingPlain;
+      document.getElementById('stepBody').innerHTML = mathMode ? s.bodyMath : s.bodyPlain;
+      document.getElementById('sliderTitle').textContent = mathMode ? s.sliderLabelMath : s.sliderLabelPlain;
+      document.getElementById('analogyBox').innerHTML = mathMode ? s.analogyMath : s.analogyPlain;
+      document.getElementById('langToggle').textContent = mathMode
+        ? "🔬 Mode: Math & Physics (Click for Plain English)"
+        : "💡 Mode: Plain English (Click for Math)";
+      for (let i = 0; i < 5; i++) {
+        document.getElementById('sbtn' + i).classList.toggle('active', i === step);
+      }
+      updateSliderReadout();
+    }
+
+    function setStep(idx) {
+      step = idx;
+      sliderVal = STEPS[step].defaultSlider;
+      document.getElementById('mainSlider').value = sliderVal;
+      syncUI();
+    }
+
+    function nextStep() { setStep((step + 1) % 5); }
+    function toggleLang() { mathMode = !mathMode; syncUI(); }
+    function onSliderInput(val) { sliderVal = parseFloat(val); updateSliderReadout(); }
+
+    function updateSliderReadout() {
+      const el = document.getElementById('sliderReadout');
+      if (step === 0) {
+        el.textContent = sliderVal < 40 ? (mathMode ? "Low Q² (Coherent)" : "Low Zoom (Whole Knot)") : (mathMode ? "High Q² (3 Merons)" : "High Zoom (3 Quark Cores)");
+      } else if (step === 1) {
+        const deg = Math.round((sliderVal / 100) * 180);
+        el.textContent = mathMode ? `F(0) = ${deg}° (${(deg/180).toFixed(2)}π)` : `${deg}° Twist (${Math.round((deg/180)*92)}% Mass)`;
+      } else if (step === 2) {
+        el.textContent = `${Math.round(sliderVal)}% Shell Opacity`;
+      } else if (step === 3) {
+        el.textContent = sliderVal > 68 ? (mathMode ? "d > d_crit (SNAP!)" : "Cord Snapped! (New Pair)") : (mathMode ? `d = ${(0.35 + sliderVal*0.012).toFixed(2)} fm` : `Stretching (${Math.round(sliderVal)}%)`);
+      } else if (step === 4) {
+        const v = (sliderVal / 100 * 0.88).toFixed(2);
+        el.textContent = `Speed = ${v} c`;
+      }
+    }
+
+    function drawCallout(x, y, tx, ty, label, sublabel, color) {
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(tx, ty); ctx.stroke();
+      ctx.fillStyle = color;
+      ctx.beginPath(); ctx.arc(x, y, 3.5, 0, Math.PI * 2); ctx.fill();
+
+      ctx.font = "bold 11px sans-serif";
+      const w = Math.max(ctx.measureText(label).width, sublabel ? ctx.measureText(sublabel).width : 0) + 14;
+      const h = sublabel ? 30 : 20;
+      const bx = tx > x ? tx : tx - w;
+      const by = ty - h / 2;
+
+      ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.1;
+      ctx.beginPath(); ctx.roundRect(bx, by, w, h, 5); ctx.fill(); ctx.stroke();
+
+      ctx.fillStyle = "#f8fafc";
+      ctx.fillText(label, bx + 7, by + 13);
+      if (sublabel) {
+        ctx.font = "10px sans-serif";
+        ctx.fillStyle = "#94a3b8";
+        ctx.fillText(sublabel, bx + 7, by + 25);
+      }
+      ctx.restore();
+    }
+
+    function project3D(x, y, z, cx, cy, scale) {
+      const cy1 = Math.cos(rotY), sy1 = Math.sin(rotY);
+      const x1 = x * cy1 - z * sy1;
+      const z1 = x * sy1 + z * cy1;
+      const cx1 = Math.cos(rotX), sx1 = Math.sin(rotX);
+      const y2 = y * cx1 - z1 * sx1;
+      const z2 = y * sx1 + z1 * cx1;
+      const p = 3.2 / (3.2 - z2 * 0.35);
+      return { x: cx + x1 * scale * p, y: cy + y2 * scale * p, z: z2, p };
+    }
+
+    function render() {
+      const rect = canvas.getBoundingClientRect();
+      if (canvas.width !== rect.width * devicePixelRatio || canvas.height !== rect.height * devicePixelRatio) {
+        canvas.width = rect.width * devicePixelRatio;
+        canvas.height = rect.height * devicePixelRatio;
+      }
+      ctx.save();
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+      const W = rect.width;
+      const H = rect.height;
+
+      ctx.fillStyle = "#050912";
+      ctx.fillRect(0, 0, W, H);
+      time += 0.03;
+
+      if (step === 0) {
+        const mid = W * 0.46;
+        ctx.strokeStyle = "#1e293b";
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath(); ctx.moveTo(mid, 35); ctx.lineTo(mid, H - 15); ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "bold 12px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(mathMode ? "OLD: 3 Point Particles in Empty Bag" : "TEXTBOOK MYTH: 3 Hard Balls in Empty Bag", mid * 0.5, 52);
+
+        const lcx = mid * 0.5, lcy = H * 0.55;
+        ctx.strokeStyle = "#475569";
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath(); ctx.arc(lcx, lcy, 72, 0, Math.PI * 2); ctx.stroke();
+        ctx.setLineDash([]);
+
+        const ballColors = ["#ef4444", "#22c55e", "#3b82f6"];
+        const ballNames = ["u", "u", "d"];
+        for (let i = 0; i < 3; i++) {
+          const ang = i * (Math.PI * 2 / 3) + Math.sin(time * 1.7 + i) * 0.25;
+          const bx = lcx + Math.cos(ang) * 35;
+          const by = lcy + Math.sin(ang) * 35;
+          ctx.fillStyle = ballColors[i];
+          ctx.beginPath(); ctx.arc(bx, by, 12, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = "#fff";
+          ctx.font = "bold 11px sans-serif";
+          ctx.fillText(ballNames[i], bx, by + 4);
+        }
+        ctx.fillStyle = "#64748b";
+        ctx.font = "11px sans-serif";
+        ctx.fillText("Empty space inside?", lcx, lcy + 95);
+
+        const rcx = mid + (W - mid) * 0.5, rcy = H * 0.55;
+        ctx.fillStyle = "#38bdf8";
+        ctx.font = "bold 12px sans-serif";
+        ctx.fillText(mathMode ? "THIS THEORY: Continuous B=1 Wave Soliton" : "WAVE REALITY: 1 Continuous Whirlpool Knot", rcx, 52);
+
+        const zoom = sliderVal / 100;
+        const outerGrad = ctx.createRadialGradient(rcx, rcy, 8, rcx, rcy, 90);
+        outerGrad.addColorStop(0, `rgba(250, 204, 21, ${0.45 - zoom * 0.2})`);
+        outerGrad.addColorStop(0.45, `rgba(6, 182, 212, ${0.55 - zoom * 0.25})`);
+        outerGrad.addColorStop(1, "rgba(6, 182, 212, 0)");
+        ctx.fillStyle = outerGrad;
+        ctx.beginPath(); ctx.arc(rcx, rcy, 90, 0, Math.PI * 2); ctx.fill();
+
+        ctx.strokeStyle = "rgba(56, 189, 248, 0.7)";
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(rcx, rcy, 55, 0, Math.PI * 2); ctx.stroke();
+
+        const lobeCoords = [];
+        for (let i = 0; i < 3; i++) {
+          const ang = time * 0.7 + i * (Math.PI * 2 / 3);
+          lobeCoords.push({ x: rcx + Math.cos(ang) * 32, y: rcy + Math.sin(ang) * 32, col: ballColors[i] });
+        }
+        ctx.strokeStyle = "rgba(250, 204, 21, 0.85)";
+        ctx.lineWidth = 2.8;
+        lobeCoords.forEach(l => {
+          ctx.beginPath(); ctx.moveTo(rcx, rcy); ctx.lineTo(l.x, l.y); ctx.stroke();
+        });
+        lobeCoords.forEach(l => {
+          const g = ctx.createRadialGradient(l.x, l.y, 2, l.x, l.y, 26 - zoom * 8);
+          g.addColorStop(0, l.col);
+          g.addColorStop(1, "rgba(0,0,0,0)");
+          ctx.fillStyle = g;
+          ctx.beginPath(); ctx.arc(l.x, l.y, 26 - zoom * 8, 0, Math.PI * 2); ctx.fill();
+        });
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "11px sans-serif";
+        ctx.fillText(mathMode ? "1 Continuous Field • 3 Vortex Cores" : "One continuous wave • 3 vortex centers", rcx, lcy + 95);
+        ctx.textAlign = "left";
+
+      } else if (step === 1) {
+        const cx = W * 0.48, cy = H * 0.56;
+        const twistFrac = sliderVal / 100;
+        const N = 15, span = 1.45;
+        ctx.lineWidth = 1.2;
+        for (let i = 0; i < N; i++) {
+          const u = -span + (2 * span * i) / (N - 1);
+          ctx.strokeStyle = "rgba(56, 189, 248, 0.35)";
+          ctx.beginPath();
+          for (let j = 0; j <= 44; j++) {
+            const v = -span + (2 * span * j) / 44;
+            const r = Math.hypot(u, v);
+            const F = Math.PI * twistFrac * Math.exp(-Math.pow(r / 0.65, 1.8));
+            const swirl = 0.55 * F;
+            const ux = u * Math.cos(swirl) - v * Math.sin(swirl);
+            const vy = u * Math.sin(swirl) + v * Math.cos(swirl);
+            const z = -0.68 * Math.sin(F / 2);
+            const pt = project3D(ux, z, vy, cx, cy + 16, 108);
+            if (j === 0) ctx.moveTo(pt.x, pt.y); else ctx.lineTo(pt.x, pt.y);
+          }
+          ctx.stroke();
+        }
+        ctx.strokeStyle = "#facc15";
+        ctx.lineWidth = 2.6;
+        ctx.beginPath();
+        for (let a = 0; a <= 60; a++) {
+          const th = (a / 60) * Math.PI * 2;
+          const rShell = 0.55 * twistFrac;
+          const pt = project3D(rShell * Math.cos(th), -0.46 * twistFrac, rShell * Math.sin(th), cx, cy + 16, 108);
+          if (a === 0) ctx.moveTo(pt.x, pt.y); else ctx.lineTo(pt.x, pt.y);
+        }
+        ctx.stroke();
+
+        const cPt = project3D(0, -0.68 * twistFrac, 0, cx, cy + 16, 108);
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath(); ctx.arc(cPt.x, cPt.y, 5.5, 0, Math.PI * 2); ctx.fill();
+
+        drawCallout(
+          cPt.x, cPt.y, cPt.x - 130, cPt.y - 40,
+          mathMode ? "Center: F(0) = 180° (L₆ Cushion)" : "1. Cushioned Center (180° Twist)",
+          mathMode ? "Finite density — no 1/r singularity" : "Smooth & finite — no infinite spike!",
+          "#f43f5e"
+        );
+        const shellPt = project3D(0.55 * twistFrac, -0.46 * twistFrac, 0, cx, cy + 16, 108);
+        drawCallout(
+          shellPt.x, shellPt.y, shellPt.x + 35, shellPt.y - 45,
+          mathMode ? "Chiral Shell: F(r*) = 90° (0.55 fm)" : "2. Elastic Tension Shell (90° Twist)",
+          mathMode ? "92.2% of proton mass (865.6 MeV)" : "Stores 92% of the proton's mass!",
+          "#facc15"
+        );
+
+      } else if (step === 2) {
+        const cx = W * 0.48, cy = H * 0.54;
+        const shellAlpha = (sliderVal / 100) * 0.65;
+        const halo = ctx.createRadialGradient(cx, cy, 24, cx, cy, 125);
+        halo.addColorStop(0, "rgba(56, 189, 248, 0.12)");
+        halo.addColorStop(0.65, "rgba(56, 189, 248, 0.18)");
+        halo.addColorStop(1, "rgba(56, 189, 248, 0)");
+        ctx.fillStyle = halo;
+        ctx.beginPath(); ctx.arc(cx, cy, 125, 0, Math.PI * 2); ctx.fill();
+
+        ctx.strokeStyle = `rgba(56, 189, 248, ${shellAlpha})`;
+        ctx.lineWidth = 1.3;
+        for (let lat = -2; lat <= 2; lat++) {
+          const y0 = lat * 0.25;
+          const rad = Math.sqrt(Math.max(0, 0.72 * 0.72 - y0 * y0));
+          ctx.beginPath();
+          for (let s = 0; s <= 44; s++) {
+            const phi = (s / 44) * Math.PI * 2;
+            const pt = project3D(rad * Math.cos(phi), y0, rad * Math.sin(phi), cx, cy, 118);
+            if (s === 0) ctx.moveTo(pt.x, pt.y); else ctx.lineTo(pt.x, pt.y);
+          }
+          ctx.stroke();
+        }
+
+        const colors = ["#f87171", "#4ade80", "#60a5fa"];
+        const plainNames = ["Up Quark Whirlpool (1/3)", "Up Quark Whirlpool (1/3)", "Down Quark Whirlpool (1/3)"];
+        const mathNames = ["Meron u (B=1/3, 0°)", "Meron u (B=1/3, 120°)", "Meron d (B=1/3, 240°)"];
+        const center3D = project3D(0, 0, 0, cx, cy, 118);
+        const meronPts = [];
+
+        for (let k = 0; k < 3; k++) {
+          const ang = time * 0.45 + k * (Math.PI * 2 / 3);
+          const pt = project3D(0.42 * Math.cos(ang), 0, 0.42 * Math.sin(ang), cx, cy, 118);
+          meronPts.push({ ...pt, col: colors[k], plain: plainNames[k], math: mathNames[k] });
+
+          ctx.strokeStyle = "#facc15";
+          ctx.lineWidth = 3.2;
+          ctx.beginPath(); ctx.moveTo(center3D.x, center3D.y); ctx.lineTo(pt.x, pt.y); ctx.stroke();
+
+          ctx.strokeStyle = colors[k];
+          ctx.lineWidth = 1.6;
+          ctx.beginPath(); ctx.arc(pt.x, pt.y, 18 + 2 * Math.sin(time * 2 + k), time, time + Math.PI * 1.4); ctx.stroke();
+
+          const g = ctx.createRadialGradient(pt.x, pt.y, 2, pt.x, pt.y, 20);
+          g.addColorStop(0, "#ffffff");
+          g.addColorStop(0.35, colors[k]);
+          g.addColorStop(1, "rgba(0,0,0,0)");
+          ctx.fillStyle = g;
+          ctx.beginPath(); ctx.arc(pt.x, pt.y, 20, 0, Math.PI * 2); ctx.fill();
+        }
+
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath(); ctx.arc(center3D.x, center3D.y, 5, 0, Math.PI * 2); ctx.fill();
+
+        drawCallout(
+          meronPts[0].x, meronPts[0].y,
+          meronPts[0].x > cx ? meronPts[0].x + 35 : meronPts[0].x - 35,
+          meronPts[0].y - 32,
+          mathMode ? meronPts[0].math : meronPts[0].plain,
+          mathMode ? "F₂ = SU(3)/U(1)² vortex core" : "1/3 + 1/3 + 1/3 = 1 whole proton",
+          meronPts[0].col
+        );
+        drawCallout(
+          center3D.x, center3D.y,
+          cx - 140, cy + 62,
+          mathMode ? "Y-Junction Gluon Flux Tube" : "Elastic Y-Cord (Gluon Junction)",
+          mathMode ? "Links all 3 colour roots ∑ α_a = 0" : "Ties the 3 whirlpools together",
+          "#facc15"
+        );
+
+      } else if (step === 3) {
+        const cy = H * 0.42;
+        const baseCx = W * 0.34;
+        const pull = sliderVal / 100;
+        const snapped = sliderVal > 68;
+
+        const q1 = { x: baseCx - 30, y: cy - 34, col: "#f87171", lbl: "u (1/3)" };
+        const q2 = { x: baseCx - 30, y: cy + 34, col: "#4ade80", lbl: "u (1/3)" };
+        const q3x = baseCx + 38 + pull * (W * 0.44);
+        const q3 = { x: q3x, y: cy, col: "#60a5fa", lbl: "d (1/3)" };
+
+        if (!snapped) {
+          ctx.strokeStyle = pull > 0.45 ? "#fb7185" : "#facc15";
+          ctx.lineWidth = Math.max(2, 5.5 - pull * 3.8);
+          ctx.beginPath();
+          ctx.moveTo(q1.x, q1.y); ctx.lineTo(baseCx, cy);
+          ctx.moveTo(q2.x, q2.y); ctx.lineTo(baseCx, cy);
+          ctx.moveTo(baseCx, cy); ctx.lineTo(q3.x, q3.y);
+          ctx.stroke();
+
+          drawCallout(
+            (baseCx + q3.x) * 0.5, cy,
+            (baseCx + q3.x) * 0.5 - 60, cy - 45,
+            mathMode ? "Flux Tube E = σ·d (Linear Tension)" : "Stretched Elastic Cord",
+            mathMode ? "Pull harder → stored energy grows linearly" : "Keep pulling right to test if it breaks!",
+            "#facc15"
+          );
+        } else {
+          const snapX = baseCx + 78;
+          const newD = { x: baseCx + 35, y: cy, col: "#60a5fa", lbl: "new d" };
+          const antiD = { x: q3.x - 42, y: cy, col: "#e879f9", lbl: "anti-d" };
+
+          ctx.strokeStyle = "#facc15";
+          ctx.lineWidth = 3.2;
+          ctx.beginPath();
+          ctx.moveTo(q1.x, q1.y); ctx.lineTo(baseCx, cy);
+          ctx.moveTo(q2.x, q2.y); ctx.lineTo(baseCx, cy);
+          ctx.moveTo(baseCx, cy); ctx.lineTo(newD.x, newD.y);
+          ctx.stroke();
+
+          ctx.strokeStyle = "#38bdf8";
+          ctx.lineWidth = 3.2;
+          ctx.beginPath(); ctx.moveTo(antiD.x, antiD.y); ctx.lineTo(q3.x, q3.y); ctx.stroke();
+
+          [newD, antiD].forEach(n => {
+            ctx.fillStyle = n.col;
+            ctx.beginPath(); ctx.arc(n.x, n.y, 13, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = "#fff";
+            ctx.font = "bold 10px sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText(n.lbl, n.x, n.y + 26);
+          });
+
+          drawCallout(
+            snapX, cy - 10, snapX - 65, cy - 50,
+            mathMode ? "SNAP! Pair Creation (ΔE ≥ 2m_π)" : "CORD SNAPPED! New Wave Pair Born!",
+            mathMode ? "Proton restored + Meson (q-q̄) formed" : "Still ZERO lone quarks anywhere!",
+            "#f43f5e"
+          );
+        }
+
+        [q1, q2, q3].forEach(q => {
+          ctx.fillStyle = q.col;
+          ctx.beginPath(); ctx.arc(q.x, q.y, 15, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = "#fff";
+          ctx.font = "bold 10px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(q.lbl, q.x, q.y + 3.5);
+        });
+        ctx.textAlign = "left";
+
+        const stripY = H * 0.80;
+        ctx.strokeStyle = "#1e293b";
+        ctx.beginPath(); ctx.moveTo(20, stripY - 26); ctx.lineTo(W - 20, stripY - 26); ctx.stroke();
+
+        ctx.font = "bold 11px sans-serif";
+        ctx.fillStyle = "#34d399";
+        ctx.fillText(mathMode ? "3 Locked Together (ω₃ = 0.795 m₀ < m₀): Trapped Forever" : "3 Together Hum Slowly: Wave Stays Trapped", 22, stripY - 9);
+        ctx.fillStyle = "#fb7185";
+        ctx.fillText(mathMode ? "1 Alone (ω₁ = 1.138 m₀ > m₀): Radiates Away" : "1 Alone Vibrates Too Fast: Evaporates into Ripples", W * 0.52, stripY - 9);
+
+        ctx.strokeStyle = "#34d399";
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        for (let x = 22; x < W * 0.45; x++) {
+          const u = (x - W * 0.22) / 34;
+          const y = stripY + 16 - (18 / Math.cosh(u)) * Math.cos(time * 2);
+          if (x === 22) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        ctx.strokeStyle = "#fb7185";
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        for (let x = Math.floor(W * 0.52); x < W - 22; x++) {
+          const u = (x - W * 0.75) / 26;
+          const y = stripY + 16 - 12 * Math.cos(u * 4 - time * 4) * Math.exp(-Math.abs(u) * 0.25);
+          if (x === Math.floor(W * 0.52)) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+      } else if (step === 4) {
+        const v = (sliderVal / 100) * 0.88;
+        const gamma = 1 / Math.sqrt(1 - v * v);
+        const cx = W * 0.5, cy = H * 0.38;
+        const rx = 56 / gamma;
+
+        ctx.strokeStyle = "rgba(56, 189, 248, 0.35)";
+        ctx.lineWidth = 1.5;
+        for (let s of [-1, 1]) {
+          ctx.beginPath(); ctx.ellipse(cx + s * 34, cy, 42, 26, 0, 0, Math.PI * 2); ctx.stroke();
+        }
+
+        const g = ctx.createRadialGradient(cx, cy, 5, cx, cy, 56);
+        g.addColorStop(0, "#facc15");
+        g.addColorStop(0.5, "#06b6d4");
+        g.addColorStop(1, "rgba(6, 182, 212, 0)");
+        ctx.fillStyle = g;
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(1 / gamma, 1);
+        ctx.beginPath(); ctx.arc(0, 0, 56, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+
+        const spinDeg = Math.round(((time * 40) % 720));
+        drawCallout(
+          cx + rx, cy - 12, cx + 75, cy - 34,
+          mathMode ? `720° Spinor Rotor (${spinDeg}° / 720°)` : `Spinning Knot (${spinDeg}° of 720° Turn)`,
+          mathMode ? `Lorentz factor γ = ${gamma.toFixed(2)}` : `Creates magnetic field + 8% of mass`,
+          "#38bdf8"
+        );
+
+        const waveY = H * 0.78;
+        ctx.strokeStyle = "#334155";
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(24, waveY); ctx.lineTo(W - 24, waveY); ctx.stroke();
+
+        ctx.strokeStyle = "rgba(148, 163, 184, 0.5)";
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        for (let px = 24; px < W - 24; px++) {
+          const u = (px - cx) / (68 / gamma);
+          const env = 32 / Math.cosh(u);
+          if (px === 24) ctx.moveTo(px, waveY - env); else ctx.lineTo(px, waveY - env);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.strokeStyle = "#22d3ee";
+        ctx.lineWidth = 2.4;
+        ctx.beginPath();
+        for (let px = 24; px < W - 24; px++) {
+          const u = (px - cx) / (68 / gamma);
+          const env = 32 / Math.cosh(u);
+          const carrier = env * Math.cos(time * 3.5 - (px - cx) * v * 0.22 * gamma);
+          if (px === 24) ctx.moveTo(px, waveY - carrier); else ctx.lineTo(px, waveY - carrier);
+        }
+        ctx.stroke();
+
+        ctx.fillStyle = "#e2e8f0";
+        ctx.font = "bold 11px sans-serif";
+        ctx.fillText(
+          v < 0.08
+            ? (mathMode ? "At Rest (v ≈ 0): Pure Breathing Soliton cos(ω₀ t)" : "At Rest: Whole Proton Breathes Up & Down Together")
+            : (mathMode ? `Moving (v = ${v.toFixed(2)}c): Emergent de Broglie Wave λ_dB = h/p` : `Moving Forward: Internal Hum Turns into Quantum Ripples!`),
+          28, waveY - 40
+        );
+      }
+
+      ctx.restore();
+      requestAnimationFrame(render);
+    }
+
+    syncUI();
+    requestAnimationFrame(render);
+  </script>
+</body>
+</html>

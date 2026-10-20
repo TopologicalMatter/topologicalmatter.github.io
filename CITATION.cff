@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this theoretical framework, simulation code, or interactive visualization suite, please cite it as below."
+title: "Emergent Matter, Fermionic Spin, and Induced Rank-2 Gravity from Topological Wave Solitons in a Polarizable Vacuum Medium"
+type: software
+authors:
+  - family-names: "Asipov"
+    given-names: "Eden"
+    orcid: "https://orcid.org/0009-0000-0531-383X"
+  - family-names: "Asipov"
+    given-names: "Eliana"
+    orcid: "https://orcid.org/0009-0003-3214-7103"
+date-released: 2026-10-20
+keywords:
+  - "topological solitons"
+  - "skyrmion"
+  - "nucleon structure"
+  - "merons"
+  - "hopfion"
+  - "induced gravity"
+  - "interactive physics visualization"
