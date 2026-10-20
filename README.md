@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23512788.svg)](https://doi.org/10.5281/zenodo.23512788) | Live portal: https://topologicalmatter.github.io/
+
 # Wave Entities Hypothesis — Mathematical & Numerical Evaluation Suite
 
 This repository contains the reproducible mathematical modeling, numerical simulation, and verification software developed to evaluate the **Wave Entities** hypothesis from the primary source documents:
